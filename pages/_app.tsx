@@ -1,16 +1,18 @@
-import React from 'react'
-import { AppProps } from 'next/app'
-import Head from 'next/head'
-import ThemeContainer from '../context/theme/ThemeContainer'
+import React from 'react';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import ThemeContainer from '../context/theme/ThemeContainer';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
-        ></link>
+        />
         <title>Interior Home Design</title>
         <meta
           name="description"
@@ -22,7 +24,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </ThemeContainer>
     </>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;
