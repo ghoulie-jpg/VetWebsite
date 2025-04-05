@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Flex, Text, Heading, Grid, Image } from '@chakra-ui/core'
 
 const OurProject: React.FC = () => {

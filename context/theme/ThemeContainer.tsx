@@ -5,7 +5,6 @@ import {
   ColorModeProvider,
   CSSReset
 } from '@chakra-ui/core'
-import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming'
 import theme from '../../styles/theme'
 
 const ThemeContainer: React.FC = ({ children }) => {
