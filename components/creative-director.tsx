@@ -62,7 +62,7 @@ const CreativeDirector: React.FC = () => {
             paddingY="6px"
             width="80%"
             backgroundColor="white"
-            borderColor="orange.500"
+            borderColor="blue.500"
             borderWidth="6px"
           >
             <Text fontWeight="medium" fontSize="22px">
@@ -89,7 +89,7 @@ const CreativeDirector: React.FC = () => {
             paddingY="6px"
             width="80%"
             backgroundColor="white"
-            borderColor="orange.500"
+            borderColor="blue.500"
             borderWidth="6px"
           >
             <Text fontWeight="medium" fontSize="22px">

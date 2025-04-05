@@ -18,7 +18,7 @@ const Service: React.FC = () => {
         boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
       />
       <Grid
-        backgroundColor="orange.500"
+        backgroundColor="blue.500"
         templateColumns="repeat(12, 1fr)"
         templateRows="repeat(3, 1fr)"
       >
@@ -72,7 +72,7 @@ const Service: React.FC = () => {
             alignSelf="flex-start"
             variantColor="white"
             backgroundColor="#fff"
-            color="orange.500"
+            color="blue.500"
             width="fit-content"
           >
             Learn More

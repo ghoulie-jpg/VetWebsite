@@ -4,7 +4,7 @@ import { Button as ChakraButton } from '@chakra-ui/core'
 const Button: React.FC = ({ children }) => {
   return (
     <ChakraButton
-      variantColor="orange"
+      variantColor="blue"
       color="white"
       textTransform="uppercase"
       width="fit-content"

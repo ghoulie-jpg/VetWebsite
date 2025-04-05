@@ -9,12 +9,14 @@ const breakpoints = ["360px", "768px", "1024px", "1440px"];
 const customTheme: DefaultTheme = {
   ...theme,
   fonts: {
-    body: "Mukta, sans-serif",
-    heading: "Mukta, sans-serif",
-    mono: "Mukta, sans-serif",
+    body: "Montserrat, sans-serif",
+    heading: "Montserrat, sans-serif",
+    mono: "Montserrat, sans-serif",  
+    
   },
   fontWeights: {
     ...theme.fontWeights,
+    thin: 100,
     normal: 400,
     medium: 500,
     bold: 700,
@@ -34,7 +36,11 @@ const customTheme: DefaultTheme = {
     orange: {
       ...theme.colors.orange,
       500: "#FBA442"
-    }
+    },
+    blue: {
+      ...theme.colors.blue,
+      500: "#6495ED",
+    },
   },
   breakpoints
 }

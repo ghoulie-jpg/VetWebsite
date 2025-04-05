@@ -75,7 +75,7 @@ const Nav = props => {
         <MenuItems>Blog</MenuItems>
         <MenuItems>Contact</MenuItems>
         <Stack spacing={0} direction="row" align="center" marginLeft={20} >
-          <Button variantColor="yellow">Create an account</Button>
+          <Button variantColor="blue">Book Appointment</Button>
           <Button variantColor="yellow" variant="ghost">
             sign in
           </Button>
