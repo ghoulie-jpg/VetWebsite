@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Flex, Grid, Box } from '@chakra-ui/core'
+import { Text, Flex, Grid, Box, Icon } from '@chakra-ui/react'
 import Logo from './logo'
 import {
   FaFacebookF,
@@ -30,11 +30,11 @@ const Footer: React.FC = () => {
           alignItems="center"
           mt="8"
         >
-          <Box as={FaFacebookF} size="22px" color="orange.500" mr="12px" />
-          <Box as={FaTwitter} size="22px" color="orange.500" mr="12px" />
+          {/* <Icon as={FaFacebookF} size="22px" color="orange.500" mr="12px" />
+          <Icon as={FaTwitter} size="22px" color="orange.500" mr="12px" />
           <Box as={FaGoogle} size="22px" color="orange.500" mr="12px" />
           <Box as={FaInstagram} size="22px" color="orange.500" mr="12px" />
-          <Box as={FaYoutube} size="22px" color="orange.500" />
+          <Box as={FaYoutube} size="22px" color="orange.500" /> */}
         </Flex>
       </Flex>
 

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Flex, Link, Button, Stack } from '@chakra-ui/core'
+import { Box, Flex, Link, Button, Stack } from '@chakra-ui/react'
 import Logo from './logo'
+import { HStack } from "@chakra-ui/react";
 
 interface MenuItem {
   link?: string
@@ -74,12 +75,12 @@ const Nav = props => {
         <MenuItems>Gallery</MenuItems>
         <MenuItems>Blog</MenuItems>
         <MenuItems>Contact</MenuItems>
-        <Stack spacing={0} direction="row" align="center" marginLeft={20} >
-          <Button variantColor="blue">Book Appointment</Button>
-          <Button variantColor="yellow" variant="ghost">
+        <Stack direction="row" align="center" marginLeft={20} >
+          <Button colorScheme="blue" borderRadius="0" >Book Appointment</Button>
+          <Button colorScheme="yellow" variant="ghost">
             sign in
           </Button>
-        </Stack>
+        </Stack >
        
       </Box>
     </Flex>

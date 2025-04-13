@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Heading, Image, Text } from '@chakra-ui/core'
+import { Flex, Heading, Image, Text } from '@chakra-ui/react'
 import Button from './button'
 
 const DreamHome: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Text, Flex, Heading, Button, Box, Image } from '@chakra-ui/core'
+import { Grid, Text, Flex, Heading, Button, Box, Image } from '@chakra-ui/react'
 
 const Service: React.FC = () => {
   return (
@@ -70,7 +70,7 @@ const Service: React.FC = () => {
           </Text>
           <Button
             alignSelf="flex-start"
-            variantColor="white"
+            /*variantColor="white"*/
             backgroundColor="#fff"
             color="blue.500"
             width="fit-content"

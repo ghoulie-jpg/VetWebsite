@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Flex, Heading, Text, Image, Grid } from '@chakra-ui/core'
+import { Box, Flex, Heading, Text, Image, Grid } from '@chakra-ui/react'
 import Button from './button'
+
 
 const About: React.FC = () => {
   return (
@@ -41,6 +42,7 @@ const About: React.FC = () => {
           width="100%"
         />
       </Box>
+
     </Grid>
   )
 }
