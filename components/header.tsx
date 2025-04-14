@@ -23,7 +23,8 @@ const Header: React.FC = () => {
           mb="3"
           width="fit-content"
           paddingX={['4px', '12px', '12px', '16px', '24px']}
-          paddingY={['4px', '4px', '12px', '12px', '16px']}
+          paddingY={['8px', '8px', '16px', '16px', '24px']}   // Increased vertical padding
+
         >
           Perth Veterinary Services
         </Heading>
