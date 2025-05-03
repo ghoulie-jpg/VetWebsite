@@ -107,3 +107,6 @@ Esse projeto esta sobre [MIT license](./LICENSE).
 
 
 Dê uma ⭐️ se esse projeto te ajudou!
+
+
+# my colors that I chose : https://visme.co/blog/website-color-schemes/

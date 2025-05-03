@@ -1,24 +1,34 @@
-import React from 'react'
-import { Grid, Text, Flex, Heading, Button, Box, Image } from '@chakra-ui/react'
+import React from 'react';
+import { Grid, Flex, Heading, Button, Box, Image } from '@chakra-ui/react';
+import Services_Description from './services_accordion';
 
 const Service: React.FC = () => {
   return (
-    <Box position="relative">
-      <Image
-        width={['0%', '0%', '0%', '40%', '60%']}
-        maxW="660px"
+    <Box position="relative"       backgroundColor="black"
+    >
+      {/* full-height red sidebar containing the image */}
+      <Box
         position="absolute"
-        top="40%"
-        left="5%"
-        src="/service-bg.png"
+        top="0"
+        bottom="0"
+        left="0"
+        bg="red.500"
+        p={2}
+        borderRadius="0 0 0 0"
         display={['none', 'none', 'none', 'block', 'block']}
-        borderColor="white"
-        borderWidth="10px"
-        borderStyle="solid"
-        boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-      />
+      >
+        <Image
+          w={['0%', '0%', '0%', '40%', '60%']}
+          maxW="500px"
+          h="100%"
+          objectFit="cover"
+          src="/orangecat.jpg"
+          boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+        />
+      </Box>
+
       <Grid
-        backgroundColor="blue.500"
+        backgroundColor="rgb(144,174,173)"
         templateColumns="repeat(12, 1fr)"
         templateRows="repeat(3, 1fr)"
       >
@@ -27,9 +37,9 @@ const Service: React.FC = () => {
           flexWrap="nowrap"
           alignItems="center"
           maxW="850px"
-          color="white"
+          color="black"
           paddingY="88px"
-          gridColumn={['2 / 12', '2 / 12', '2 /12', '7 / 13', '7 / 13']}
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '7 / 13', '7 / 13']}
           gridRow="1 / 4"
         >
           <Heading
@@ -40,8 +50,9 @@ const Service: React.FC = () => {
             mb="8px"
             alignSelf="flex-start"
           >
-            Our Professional Services
+            Our Services
           </Heading>
+
           <Heading
             as="h4"
             fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
@@ -49,38 +60,31 @@ const Service: React.FC = () => {
             mb="20px"
             alignSelf="flex-start"
           >
-            We Will Create Modern And First Class Intorior.
+            We Will Create Modern And First Class Interior.
           </Heading>
-          <Text
-            fontSize="sm"
-            mb="20px"
+
+          <Box
             alignSelf="flex-start"
-            textAlign="left"
-            lineHeight="23px"
+            w="100%"
+            maxW="600px"
+            mr={{ base: 0, md: 8, lg: 16 }}
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make aa type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Text>
+            <Services_Description />
+          </Box>
+
           <Button
             alignSelf="flex-start"
-            /*variantColor="white"*/
             backgroundColor="#fff"
             color="blue.500"
             width="fit-content"
+            mt={4}
           >
-            Learn More
+            Contact 
           </Button>
         </Flex>
       </Grid>
     </Box>
-  )
-}
+  );
+};
 
-export default Service
+export default Service;

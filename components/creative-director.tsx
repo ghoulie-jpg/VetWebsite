@@ -8,6 +8,7 @@ const CreativeDirector: React.FC = () => {
       flexDirection="column"
       alignItems="center"
       mt={['24', '24', '24', '24', '64']}
+
     >
       <Heading as="h3" textTransform="uppercase" mb="20px">
         Creative Director
@@ -61,7 +62,6 @@ const CreativeDirector: React.FC = () => {
             justifyContent="center"
             paddingY="6px"
             width="80%"
-            backgroundColor="white"
             borderColor="blue.500"
             borderWidth="6px"
           >
@@ -101,6 +101,7 @@ const CreativeDirector: React.FC = () => {
           </Flex>
         </Box>
       </Grid>
+
     </Flex>
   )
 }

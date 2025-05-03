@@ -7,6 +7,7 @@ import Service from '../components/service'
 import Footer from '../components/footer'
 import OurProject from '../components/our-projects'
 import CreativeDirector from '../components/creative-director'
+import Services_Description from '../components/services_accordion'
 // import { Divider } from '@chakra-ui/react'
 
 const Home: React.FC = () => {
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
       <Service />
       <CreativeDirector />
       <OurProject />
+      <Services_Description/>
 
       {/* <Divider mt="24" /> */}
       <Footer />

@@ -10,9 +10,14 @@ export const system = createSystem(defaultConfig, {
         lg: { value: "1024px" },
         xl: { value: "1440px" },
       },
+      // fonts: {
+      //   body: { value: "Montserrat, sans-serif" },
+      //   heading: { value: "Montserrat, sans-serif" },
+      //   mono: { value: "Montserrat, sans-serif" },
+      // },
       fonts: {
         body: { value: "Montserrat, sans-serif" },
-        heading: { value: "Montserrat, sans-serif" },
+        heading: { value: "Graduate, serif" },
         mono: { value: "Montserrat, sans-serif" },
       },
       fontWeights: {

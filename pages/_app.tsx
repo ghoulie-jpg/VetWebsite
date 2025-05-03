@@ -6,13 +6,20 @@ import ThemeContainer from '../context/theme/ThemeContainer';
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
+
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
-        />
+        /> */}
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anyonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+        
         <title>Interior Home Design</title>
         <meta
           name="description"
