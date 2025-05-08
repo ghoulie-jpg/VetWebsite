@@ -1,13 +1,16 @@
 // src/components/Service.tsx
 import React from 'react';
-import { Grid, Flex, Heading, Text, Button, Box } from '@chakra-ui/react';
+import { Grid, Flex, Heading, Text, Button, Box, Icon  } from '@chakra-ui/react';
 import Services_Description from './services_accordion';
+import { FiArrowRight } from 'react-icons/fi';
+
 
 const Service: React.FC = () => {
   return (
     <Box position="relative" backgroundColor="black">
       <Grid
         backgroundColor="#FBE9D0"
+        // backgroundColor="rgb(144,174,173)"
         templateColumns="repeat(12, 1fr)"
         templateRows="repeat(3, 1fr)"
       >
@@ -44,9 +47,17 @@ const Service: React.FC = () => {
             <Services_Description />
           </Box>
 
-          <Button backgroundColor="#fff" color="blue.500">
+          {/* <Button
+            backgroundColor="#fff"
+            color="blue.500"
+            size="lg"      // larger button height & font
+            px={8}         // horizontal padding
+            py={6}         // vertical padding
+            w="auto"       // shrink to fit content
+            mb={4}
+          >
             Contact
-          </Button>
+          </Button> */}
         </Flex>
 
         {/* — Static text on the right */}
@@ -69,17 +80,37 @@ const Service: React.FC = () => {
             House calls
           </Heading>
           <Text mb={4}>
-            We can also do house calls for an extra price if you are located in the Perth-BrockVille area. 
+            We can also do house calls for an extra price if you are located in the Perth-Brockville area.
           </Text>
 
           <Heading as="h3" size="lg" mb={4}>
             Pricing
           </Heading>
-          <Text mb={4}>
-            After you request an apointment, we will get back to you with a tentative price.
-            
-            If you have multiple animals, we also may also offer to charge by the hour instead of per animal seen. 
+          <Text mb={10}>
+            After you request an appointment, we will get back to you with a tentative price. If you have multiple animals, we may also offer to charge by the hour instead of per animal seen.
           </Text>
+{/* 
+          
+          <Button
+            colorScheme="blue"
+            borderRadius="0"
+            size="lg"
+            h={16}
+            px={6}
+          > */}
+
+          <Button
+            colorScheme="blue"
+            borderRadius="0"
+            size="lg"
+            h={16}
+            px={6}
+            w="280px" 
+          >
+            Request an Appointment
+            <Icon as={FiArrowRight} ml={0} boxSize={5} />
+          </Button>
+
 
         </Flex>
       </Grid>

@@ -15,12 +15,12 @@ const Home: React.FC = () => {
     <>
       <Nav />
       <Header />
-      <DreamHome />
+      {/* <DreamHome /> */}
       {/* <About /> */}
       <Service />
       <CreativeDirector />
       <OurProject />
-      <Services_Description/>
+      {/* <Services_Description/> */}
 
       {/* <Divider mt="24" /> */}
       <Footer />

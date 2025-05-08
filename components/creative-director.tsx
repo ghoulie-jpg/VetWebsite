@@ -1,145 +1,87 @@
+import React from 'react';
+import { Box, Grid, Flex, Image, Heading, Text } from '@chakra-ui/react';
 
-
-import { Button, Card, Image, Text } from "@chakra-ui/react"
-
-const CreativeDirector = () => {
+const CreativeDirector: React.FC = () => {
   return (
-    <Card.Root
-      maxW="sm"
-      overflow="hidden"
-      borderRadius="0"         // ← removes all rounding
-    >
-      <Image
-        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3…"
-        alt="Green double couch with wooden legs"
-        borderRadius="0"       // ← also ensure the image itself isn’t rounded
-      />
-      <Card.Body gap="2">
-        <Card.Title>Living room Sofa</Card.Title>
-        <Card.Description>
-          This sofa is perfect for modern tropical spaces, baroque inspired
-          spaces.
-        </Card.Description>
-        <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-          $450
-        </Text>
-      </Card.Body>
-      <Card.Footer gap="2">
-        <Button variant="solid">Buy now</Button>
-        <Button variant="ghost">Add to cart</Button>
-      </Card.Footer>
-    </Card.Root>
-  )
-}
+    // add pt for vertical padding above “Who We Are”
+    // bg="rgb(144,174,173)"
+    <Box bg="rgb(144,174,173)" pt={{ base: 4, md: 8 }}>
+      {/* — “Who we are” */}
+      <Grid templateColumns="repeat(12, 1fr)" mb={6}>
+        <Flex
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
+          flexDirection="column"
+          px={{ base: 4, md: 8 }}
+        >
+          <Heading
+            as="h3"
+            textTransform="uppercase"
+            fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
+            fontWeight="extrabold"
+            mb="10px"
+          >
+            Who We Are
+          </Heading>
+        </Flex>
+      </Grid>
 
-export default CreativeDirector
-// import React from 'react'
+      {/* — images & text (images narrower, text wider) */}
+      <Grid templateColumns="repeat(12, 1fr)">
+        <Box
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
+          px={{ base: 4, md: 8 }}
+          mb={10}
+        >
+          <Grid
+            templateColumns={{ base: '1fr', md: '1fr 2fr 1fr 2fr' }}
+            columnGap={6}
+            rowGap={{ base: 6, md: 0 }}
+            alignItems="start"
+          >
+            {/* First Image */}
+            <Image
+              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3"
+              alt="Living room sofa"
+              w="100%"
+              h="250px"
+              objectFit="cover"
+              boxShadow="lg"
+            />
 
-// import { Flex, Text, Heading, Grid, Image, Box } from '@chakra-ui/react'
+            {/* First Text Block */}
+            <Box>
+              <Heading as="h2" size="md" mb={2}>
+                Hester Grodde
+              </Heading>
+              <Text mb={2}>
+                Perfect for modern tropical spaces and baroque-inspired interiors.
+              </Text>
+            </Box>
 
-// const CreativeDirector: React.FC = () => {
-//   return (
-//     <Flex
-//       flexDirection="column"
-//       alignItems="center"
-//       mt={['24', '24', '24', '24', '64']}
+            {/* Second Image */}
+            <Image
+              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3"
+              alt="Living room sofa"
+              w="100%"
+              h="250px"
+              objectFit="cover"
+              boxShadow="lg"
+            />
 
-//     >
-//       <Heading as="h3" textTransform="uppercase" mb="20px">
-//         Creative Director
-//       </Heading>
-//       <Text fontSize="16px" mb="32px" maxW="460px" textAlign="center">
-//         Lorem Ipsum is simply dummy text of the printing and typesetting
-//         industry.
-//       </Text>
-//       <Grid
-//         gridTemplateColumns="repeat(3, 1fr)"
-//         gridGap="26px"
-//         px={['8', '8', '8', '24', '24']}
-//       >
-//         <Box
-//           position="relative"
-//           gridColumn={['1 / 4', '1 / 4', 'auto', 'auto', 'auto']}
-//         >
-//           <Image src="/directors/1.png" />
-//           <Flex
-//             position="absolute"
-//             bottom="-35px"
-//             flexDirection="column"
-//             alignItems="center"
-//             justifyContent="center"
-//             paddingY="6px"
-//             width="80%"
-//             backgroundColor="white"
-//             borderColor="orange.500"
-//             borderWidth="6px"
-//           >
-//             <Text fontWeight="medium" fontSize="22px">
-//               Simme john
-//             </Text>
-//             <Text textTransform="uppercase" color="orange.500">
-//               Director
-//             </Text>
-//           </Flex>
-//         </Box>
+            {/* Second Text Block */}
+            <Box>
+              <Heading as="h2" size="md" mb={2}>
+                Living Room Sofa
+              </Heading>
+              <Text mb={2}>
+                Perfect for modern tropical spaces and baroque-inspired interiors.
+              </Text>
+            </Box>
+          </Grid>
+        </Box>
+      </Grid>
+    </Box>
+  );
+};
 
-//         <Box
-//           position="relative"
-//           gridColumn={['1 / 4', '1 / 4', 'auto', 'auto', 'auto']}
-//           mt={['16', '16', '0', '0', '0']}
-//         >
-//           <Image src="/directors/2.png" />
-//           <Flex
-//             position="absolute"
-//             bottom="-35px"
-//             flexDirection="column"
-//             alignItems="center"
-//             justifyContent="center"
-//             paddingY="6px"
-//             width="80%"
-//             borderColor="blue.500"
-//             borderWidth="6px"
-//           >
-//             <Text fontWeight="medium" fontSize="22px">
-//               Marie smith
-//             </Text>
-//             <Text textTransform="uppercase" color="orange.500">
-//               Director
-//             </Text>
-//           </Flex>
-//         </Box>
-
-//         <Box
-//           position="relative"
-//           gridColumn={['1 / 4', '1 / 4', 'auto', 'auto', 'auto']}
-//           mt={['12', '12', '0', '0', '0']}
-//         >
-//           <Image src="/directors/3.png" />
-//           <Flex
-//             position="absolute"
-//             bottom="-35px"
-//             flexDirection="column"
-//             alignItems="center"
-//             justifyContent="center"
-//             paddingY="6px"
-//             width="80%"
-//             backgroundColor="white"
-//             borderColor="blue.500"
-//             borderWidth="6px"
-//           >
-//             <Text fontWeight="medium" fontSize="22px">
-//               Barbara Jones
-//             </Text>
-//             <Text textTransform="uppercase" color="orange.500">
-//               Director
-//             </Text>
-//           </Flex>
-//         </Box>
-//       </Grid>
-
-//     </Flex>
-//   )
-// }
-
-// export default 
-
+export default CreativeDirector;

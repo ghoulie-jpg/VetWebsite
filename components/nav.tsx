@@ -71,16 +71,15 @@ const Nav = props => {
         alignItems="center"
       >
         <MenuItems>Home</MenuItems>
-        <MenuItems>About</MenuItems>
         <MenuItems>Services</MenuItems>
-        <MenuItems>Gallery</MenuItems>
-        <MenuItems>Blog</MenuItems>
-        <MenuItems>Contact</MenuItems>
+        <MenuItems>Who We Are</MenuItems>
+        <MenuItems>About Our Clinic</MenuItems>
+        <MenuItems>Contact Us</MenuItems>
         <Stack direction="row" align="center" marginLeft={20} >
-          <Button colorScheme="blue" borderRadius="0" >Book Appointment</Button>
-          <Button colorScheme="yellow" variant="ghost">
+          <Button colorScheme="blue" borderRadius="0" >Request an Appointment</Button>
+          {/* <Button colorScheme="yellow" variant="ghost">
             sign in
-          </Button>
+          </Button> */}
         </Stack >
        
       </Box>
