@@ -1,46 +1,25 @@
+// src/components/Service.tsx
 import React from 'react';
-import { Grid, Flex, Heading, Button, Box, Image } from '@chakra-ui/react';
+import { Grid, Flex, Heading, Text, Button, Box } from '@chakra-ui/react';
 import Services_Description from './services_accordion';
 
 const Service: React.FC = () => {
   return (
-    <Box position="relative"       backgroundColor="black"
-    >
-      {/* full-height red sidebar containing the image */}
-      <Box
-        position="absolute"
-        top="0"
-        bottom="0"
-        left="0"
-        bg="red.500"
-        p={2}
-        borderRadius="0 0 0 0"
-        display={['none', 'none', 'none', 'block', 'block']}
-      >
-        <Image
-          w={['0%', '0%', '0%', '40%', '60%']}
-          maxW="500px"
-          h="100%"
-          objectFit="cover"
-          src="/orangecat.jpg"
-          boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-        />
-      </Box>
-
+    <Box position="relative" backgroundColor="black">
       <Grid
-        backgroundColor="rgb(144,174,173)"
+        backgroundColor="#FBE9D0"
         templateColumns="repeat(12, 1fr)"
         templateRows="repeat(3, 1fr)"
       >
+        {/* — Services accordion on the left (6 cols wide) */}
         <Flex
           flexDirection="column"
-          flexWrap="nowrap"
-          alignItems="center"
-          maxW="850px"
-          color="black"
-          paddingY="88px"
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '7 / 13', '7 / 13']}
+          alignItems="flex-start"
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
           gridRow="1 / 4"
+          px={{ base: 4, md: 8 }}
+          py="88px"
+          color="black"
         >
           <Heading
             as="h3"
@@ -48,7 +27,6 @@ const Service: React.FC = () => {
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="extrabold"
             mb="8px"
-            alignSelf="flex-start"
           >
             Our Services
           </Heading>
@@ -58,29 +36,51 @@ const Service: React.FC = () => {
             fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
             fontWeight="normal"
             mb="20px"
-            alignSelf="flex-start"
           >
-            We Will Create Modern And First Class Interior.
+            We offer the following services for dogs and cats:
           </Heading>
 
-          <Box
-            alignSelf="flex-start"
-            w="100%"
-            maxW="600px"
-            mr={{ base: 0, md: 8, lg: 16 }}
-          >
+          <Box w="100%" maxW="700px" mb={4}>
             <Services_Description />
           </Box>
 
-          <Button
-            alignSelf="flex-start"
-            backgroundColor="#fff"
-            color="blue.500"
-            width="fit-content"
-            mt={4}
-          >
-            Contact 
+          <Button backgroundColor="#fff" color="blue.500">
+            Contact
           </Button>
+        </Flex>
+
+        {/* — Static text on the right */}
+        <Flex
+          flexDirection="column"
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '8 / 13', '8 / 13']}
+          gridRow="1 / 4"
+          px={{ base: 4, md: 8 }}
+          py="88px"
+          color="black"
+        >
+          <Heading as="h3" size="lg" mb={4}>
+            We are a Telemedicine Clinic
+          </Heading>
+          <Text mb={4}>
+            We offer video consultations as well as video appointments where you can show your pet.
+          </Text>
+
+          <Heading as="h3" size="lg" mb={4}>
+            House calls
+          </Heading>
+          <Text mb={4}>
+            We can also do house calls for an extra price if you are located in the Perth-BrockVille area. 
+          </Text>
+
+          <Heading as="h3" size="lg" mb={4}>
+            Pricing
+          </Heading>
+          <Text mb={4}>
+            After you request an apointment, we will get back to you with a tentative price.
+            
+            If you have multiple animals, we also may also offer to charge by the hour instead of per animal seen. 
+          </Text>
+
         </Flex>
       </Grid>
     </Box>

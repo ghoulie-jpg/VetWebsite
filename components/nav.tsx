@@ -36,8 +36,9 @@ const Nav = props => {
       wrap="wrap"
       paddingX={['1.5em', '1.5em', '1.5em', '15%']}
       paddingY="1.5em"
-      bg="rgba(255,255,255,.8)"
+      bg="rgba(255,255,255,1)"
       color="black"
+      boxShadow="md"
       textTransform="uppercase"
       {...props}
     >

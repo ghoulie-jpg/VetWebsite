@@ -20,10 +20,12 @@ export default function Demo() {
             fontSize="2xl"   // larger text
             py={6}           // more vertical padding
             px={4}           // a bit more horizontal padding
+             color="black"
           >
             <Span flex="1">{item.title}</Span>
             {/* make the arrow bigger, too: */}
-            <Accordion.ItemIndicator fontSize="2xl" />
+            <Accordion.ItemIndicator fontSize="2xl"
+          color="black"/>
           </Accordion.ItemTrigger>
 
           <Accordion.ItemContent>

@@ -15,7 +15,8 @@ const ThemeContainer: React.FC<ThemeContainerProps> = ({ children }) => {
       {/* Inject the initial color mode script */}
       <ColorModeProvider />
 
-      <Box bg="#FBE9D0" p={4} color="black" minH="100vh"> {/* Ensure full viewport height */}
+      <Box bg="#FBE9D0" m={0} p={0}   w="100%"     // ← full width of its container
+  minH="100vh"> {/* Ensure full viewport height */}
         {children}
       </Box>
 

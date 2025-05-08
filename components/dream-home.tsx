@@ -4,7 +4,7 @@ import Button from './button'
 
 const DreamHome: React.FC = () => {
   return (
-    <Flex width="100%" flexDirection="column" alignItems="center" mt="24">
+    <Flex width="100%" flexDirection="column" alignItems="center" mt="0" bg="rgb(144,174,173)">
       <Heading
         as="h3"
         mb="20"
@@ -12,7 +12,7 @@ const DreamHome: React.FC = () => {
         textAlign="center"
         marginX="auto"
       >
-        All the more reasons to get your dream home interiors now
+        About us 
       </Heading>
       <Flex
         width="90%"

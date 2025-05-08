@@ -24,7 +24,7 @@ const About: React.FC = () => {
           fontWeight="normal"
           mb="20px"
         >
-          About us
+          About usf
         </Heading>
         <Text fontSize="md" mb="20px" textAlign="left"  // ⬅️ space from edge
 >
