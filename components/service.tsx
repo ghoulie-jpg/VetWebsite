@@ -1,27 +1,24 @@
 // src/components/Service.tsx
 import React from 'react';
-import { Grid, Flex, Heading, Text, Button, Box, Icon  } from '@chakra-ui/react';
-import Services_Description from './services_accordion';
+import { Grid, Flex, Heading, Text, Button, Box, Icon, Image } from '@chakra-ui/react';
 import { FiArrowRight } from 'react-icons/fi';
-
+import { Accordion, Span } from "@chakra-ui/react";
 
 const Service: React.FC = () => {
   return (
     <Box position="relative" backgroundColor="black">
       <Grid
         backgroundColor="#FBE9D0"
-        // backgroundColor="rgb(144,174,173)"
         templateColumns="repeat(12, 1fr)"
-        templateRows="repeat(3, 1fr)"
+        templateRows="auto 1fr"
+        gap={0}
       >
-        {/* — Services accordion on the left (6 cols wide) */}
-        <Flex
-          flexDirection="column"
-          alignItems="flex-start"
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
-          gridRow="1 / 4"
+        {/* Full-width heading section that spans across both columns */}
+        <Box
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
           px={{ base: 4, md: 8 }}
-          py="88px"
+          pt="88px"
+          pb={0} // No bottom padding to eliminate the gap
           color="black"
         >
           <Heading
@@ -29,7 +26,7 @@ const Service: React.FC = () => {
             textTransform="uppercase"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="extrabold"
-            mb="8px"
+            mb="15px"
           >
             Our Services
           </Heading>
@@ -38,81 +35,167 @@ const Service: React.FC = () => {
             as="h4"
             fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
             fontWeight="normal"
-            mb="20px"
+            mb={0} // Remove bottom margin to eliminate the gap
           >
-            We offer the following services for dogs and cats:
+            Serving the Ottawa-Brockville corridor with a focus in and around the communities of Smith Falls, MerrickVille, and Perth.
           </Heading>
+        </Box>
 
-          <Box w="100%" maxW="700px" mb={4}>
-            <Services_Description />
-          </Box>
-
-          {/* <Button
-            backgroundColor="#fff"
-            color="blue.500"
-            size="lg"      // larger button height & font
-            px={8}         // horizontal padding
-            py={6}         // vertical padding
-            w="auto"       // shrink to fit content
-            mb={4}
-          >
-            Contact
-          </Button> */}
-        </Flex>
-
-        {/* — Static text on the right */}
-        <Flex
-          flexDirection="column"
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '8 / 13', '8 / 13']}
-          gridRow="1 / 4"
-          px={{ base: 4, md: 8 }}
-          py="88px"
-          color="black"
+        {/* Content row with no gap at the top */}
+        <Grid 
+          templateColumns="repeat(12, 1fr)"
+          gridColumn="1 / 13"
+          gridRow="2 / 3"
+          gap={0}
         >
-          <Heading as="h3" size="lg" mb={4}>
-            We are a Telemedicine Clinic
-          </Heading>
-          <Text mb={4}>
-            We offer video consultations as well as video appointments where you can show your pet.
-          </Text>
-
-          <Heading as="h3" size="lg" mb={4}>
-            House calls
-          </Heading>
-          <Text mb={4}>
-            We can also do house calls for an extra price if you are located in the Perth-Brockville area.
-          </Text>
-
-          <Heading as="h3" size="lg" mb={4}>
-            Pricing
-          </Heading>
-          <Text mb={10}>
-            After you request an appointment, we will get back to you with a tentative price. If you have multiple animals, we may also offer to charge by the hour instead of per animal seen.
-          </Text>
-{/* 
-          
-          <Button
-            colorScheme="blue"
-            borderRadius="0"
-            size="lg"
-            h={16}
-            px={6}
-          > */}
-
-          <Button
-            colorScheme="blue"
-            borderRadius="0"
-            size="lg"
-            h={16}
-            px={6}
-            w="280px" 
+          {/* — Services accordion on the left (6 cols wide) */}
+          <Flex
+            flexDirection="column"
+            alignItems="flex-start"
+            gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
+            px={{ base: 4, md: 8 }}
+            pt={4} // Minimal top padding to provide just enough breathing room
+            pb={{ base: 8, md: 12 }}
+            color="black"
           >
-            Request an Appointment
-            <Icon as={FiArrowRight} ml={0} boxSize={5} />
-          </Button>
+            {/* Services accordion buttons */}
+            <Box width="100%" maxW="700px">
+              <Box width="100%">
+                <Button 
+                  colorScheme="blue" 
+                  borderRadius="0" 
+                  size="lg"
+                  h={16} 
+                  px={0}
+                  w="100%"
+                  maxW="100%"
+                  bg="#111"
+                  _hover={{ bg: "#333" }}
+                >
+                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Telemedicine, In Home and Virtual Visits</Text>
+                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                  </Flex>
+                </Button>
+              </Box>
 
+              <Box mt={3} width="100%">
+                <Button 
+                  colorScheme="blue" 
+                  borderRadius="0" 
+                  size="lg"
+                  h={16}
+                  px={0}
+                  w="100%"
+                  maxW="100%"
+                  bg="#111"
+                  _hover={{ bg: "#333" }}
+                >
+                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Routine Health Exams</Text>
+                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                  </Flex>
+                </Button>
+              </Box>
 
-        </Flex>
+              <Box mt={3} width="100%">
+                <Button 
+                  colorScheme="blue" 
+                  borderRadius="0" 
+                  size="lg"
+                  h={16}
+                  px={0}
+                  w="100%"
+                  maxW="100%"
+                  bg="#111"
+                  _hover={{ bg: "#333" }}
+                >
+                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Treatment and Prevention of Disease</Text>
+                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                  </Flex>
+                </Button>
+              </Box>
+
+              <Box mt={3} width="100%">
+                <Button 
+                  colorScheme="blue" 
+                  borderRadius="0" 
+                  size="lg"
+                  h={16}
+                  px={0}
+                  w="100%"
+                  maxW="100%"
+                  bg="#111"
+                  _hover={{ bg: "#333" }}
+                >
+                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Breeders Support</Text>
+                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                  </Flex>
+                </Button>
+              </Box>
+
+              <Box mt={3} width="100%">
+                <Button 
+                  colorScheme="blue" 
+                  borderRadius="0" 
+                  size="lg"
+                  h={16}
+                  px={0}
+                  w="100%"
+                  maxW="100%"
+                  bg="#111"
+                  _hover={{ bg: "#333" }}
+                >
+                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Referrals</Text>
+                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                  </Flex>
+                </Button>
+              </Box>
+
+              <Box mt={3} width="100%">
+                <Button 
+                  colorScheme="blue" 
+                  borderRadius="0" 
+                  size="lg"
+                  h={16}
+                  px={0}
+                  w="100%"
+                  maxW="100%"
+                  bg="#111"
+                  _hover={{ bg: "#333" }}
+                >
+                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Palliative and End of Life Care</Text>
+                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                  </Flex>
+                </Button>
+              </Box>
+            </Box>
+          </Flex>
+
+          {/* — Static text on the right */}
+          <Flex
+            flexDirection="column"
+            gridColumn={['2 / 12', '2 / 12', '2 / 12', '8 / 13', '8 / 13']}
+            px={{ base: 4, md: 8 }}
+            pt={4} // Minimal top padding to match the left column
+            pb={{ base: 8, md: 12 }}
+            color="black"
+          >
+            <Image
+                          src="DSC_0441-Edit.jpg"
+                          // alt="Living room sofa"
+                          w="100%"
+                          h="100%"
+                          objectFit="cover"
+                          boxShadow="lg"
+                        />
+
+          </Flex>
+        </Grid>
       </Grid>
     </Box>
   );

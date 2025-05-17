@@ -11,7 +11,7 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <Grid as="footer" templateColumns="repeat(6, 1fr)" mt="16" mb="16">
+    <Grid as="footer" templateColumns="repeat(6, 1fr)" mt="16"  bg="rgba(36,72,85, 1)">
       <Flex
         flexDirection="column"
         alignItems="flex-start"
@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
         pl={['8', '8', '8', '24', '24']}
       >
         <Logo />
-        <Text fontSize="sm" mt="4" textAlign="left" lineHeight="22px">
+        {/* <Text fontSize="sm" mt="4" textAlign="left" lineHeight="22px">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s.
-        </Text>
+        </Text> */}
         <Flex
           flexDirection="row"
           justifyContent="space-between"

@@ -1,26 +1,23 @@
 import React from 'react'
 import Nav from '../components/nav'
 import Header from '../components/header'
-import DreamHome from '../components/dream-home'
-import About from '../components/about'
 import Service from '../components/service'
 import Footer from '../components/footer'
-import OurProject from '../components/our-projects'
-import CreativeDirector from '../components/creative-director'
-import Services_Description from '../components/services_accordion'
-// import { Divider } from '@chakra-ui/react'
+import Contact from '../components/Contact'
+import AboutUs from '../components/AboutUs'
 
 const Home: React.FC = () => {
   return (
     <>
       <Nav />
       <Header />
-      {/* <DreamHome /> */}
       {/* <About /> */}
       <Service />
-      <CreativeDirector />
-      <OurProject />
+      <AboutUs />
+      {/* <OurProject /> */}
       {/* <Services_Description/> */}
+
+      {/* <Contact/> */}
 
       {/* <Divider mt="24" /> */}
       <Footer />

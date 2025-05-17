@@ -72,8 +72,7 @@ const Nav = props => {
       >
         <MenuItems>Home</MenuItems>
         <MenuItems>Services</MenuItems>
-        <MenuItems>Who We Are</MenuItems>
-        <MenuItems>About Our Clinic</MenuItems>
+        <MenuItems>About Us</MenuItems>
         <MenuItems>Contact Us</MenuItems>
         <Stack direction="row" align="center" marginLeft={20} >
           <Button colorScheme="blue" borderRadius="0" >Request an Appointment</Button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Flex, Image, Heading, Text } from '@chakra-ui/react';
 
-const CreativeDirector: React.FC = () => {
+const AboutUs: React.FC = () => {
   return (
     // add pt for vertical padding above “Who We Are”
     // bg="rgb(144,174,173)"
@@ -20,7 +20,7 @@ const CreativeDirector: React.FC = () => {
             fontWeight="extrabold"
             mb="10px"
           >
-            Who We Are
+            About Us
           </Heading>
         </Flex>
       </Grid>
@@ -84,4 +84,4 @@ const CreativeDirector: React.FC = () => {
   );
 };
 
-export default CreativeDirector;
+export default AboutUs;
