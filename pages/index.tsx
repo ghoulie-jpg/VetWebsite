@@ -5,6 +5,8 @@ import Service from '../components/service'
 import Footer from '../components/footer'
 import Contact from '../components/contact'
 import AboutUs from '../components/AboutUs'
+import { Box, Flex, Link, Button, Stack } from '@chakra-ui/react'
+
 
 const Home: React.FC = () => {
   return (
@@ -13,7 +15,9 @@ const Home: React.FC = () => {
       <Header />
       {/* <About /> */}
       <Service />
+      <Box id ="about-us">
       <AboutUs />
+      </Box>
       {/* <OurProject /> */}
       {/* <Services_Description/> */}
 

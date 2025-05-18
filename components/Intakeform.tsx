@@ -153,21 +153,23 @@ export default function Intake_form() {
                     />
                   </FormControl>
                   
-                  <FormControl id="submit" width="100%">
+                <FormControl id="submit" width="100%">
                     <Button 
-                      variant="solid" 
-                      bg="#0D74FF" 
-                      color="white"
-                      borderRadius="0"
-                      _hover={{ bg: "#1C6FEB" }}
-                      size="lg"
-                      height="60px"
-                      width="100%"
-                      fontSize="lg"
+                    variant="solid" 
+                    bg="rgba(36,72,85, 1)"
+                    color="white"
+                    borderRadius="0"
+                    _hover={{ bg: "#1C6FEB" }}
+                    size="lg"
+                    height="60px"
+                    width="200px"
+                    fontSize="lg"
                     >
-                      Submit
+                    Submit
                     </Button>
-                  </FormControl>
+                </FormControl>
+
+
                 </Box>
               </Box>
             </Box>

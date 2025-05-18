@@ -104,7 +104,7 @@ export default function Contact() {
                   </FormControl>
                   
                   <FormControl id="email" width="100%">
-                    <FormLabel fontSize="lg">Your Email</FormLabel>
+                    <FormLabel fontSize="lg">Email</FormLabel>
                     <Input 
                       type="text" 
                       size="lg"
@@ -117,7 +117,7 @@ export default function Contact() {
                   </FormControl>
                   
                   <FormControl id="message" width="100%">
-                    <FormLabel fontSize="lg">What can we help you with today?</FormLabel>
+                    <FormLabel fontSize="lg">What can we help you with?</FormLabel>
                     <Textarea
                       borderColor="gray.300"
                       borderRadius="5"
@@ -134,7 +134,7 @@ export default function Contact() {
                   <FormControl id="submit" width="100%">
                     <Button 
                       variant="solid" 
-                      bg="#0D74FF" 
+                      bg="rgba(36,72,85, 1)" 
                       color="white"
                       borderRadius="0"
                       _hover={{ bg: "#1C6FEB" }}
