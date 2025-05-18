@@ -27,13 +27,13 @@ import {
 import { MdEmail, MdLocationOn, MdFacebook, MdOutlineEmail } from 'react-icons/md';
 import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
-export default function Contact() {
+export default function Intake_form() {
   return (
-    <Box bg="white" pt={{ base: 4, md: 8 }}>
+    <Box bg="white" pt="175px">
       {/* "Contact Us" heading with same grid structure */}
       <Grid templateColumns="repeat(12, 1fr)" mb={6}>
         <Flex
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
+          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']} 
           flexDirection="column"
           px={{ base: 4, md: 8 }}
         >
@@ -44,7 +44,7 @@ export default function Contact() {
             fontWeight="extrabold"
             mb="18px"
           >
-            Contact Us
+            Appointment Request Form
           </Heading>
         </Flex>
       </Grid>
@@ -61,7 +61,7 @@ export default function Contact() {
             fontWeight="normal"
             mb={4}
           >
-            For Existing Clients, please leave your message and we will do our best to respond within 3-5 business days!
+            For new clients, please submit this intake form and we will do our best to respond within 3-5 business days.
           </Heading>
         </Box>
       </Grid>
@@ -97,27 +97,49 @@ export default function Contact() {
                       size="lg"
                       borderRadius="0" 
                       borderColor="#E0E1E7" 
-                      placeholder="Your name" 
                       height="60px"
                       width="100%"
                     />
                   </FormControl>
                   
                   <FormControl id="email" width="100%">
-                    <FormLabel fontSize="lg">Your Email</FormLabel>
+                    <FormLabel fontSize="lg">Email</FormLabel>
                     <Input 
                       type="text" 
                       size="lg"
                       borderRadius="0" 
                       borderColor="#E0E1E7" 
-                      placeholder="Your email" 
+                      height="60px"
+                      width="100%"
+                    />
+                  </FormControl>
+
+                   <FormControl id="phoneNumber" width="100%">
+                    <FormLabel fontSize="lg">Phone Number</FormLabel>
+                    <Input 
+                      type="text" 
+                      size="lg"
+                      borderRadius="0" 
+                      borderColor="#E0E1E7" 
+                      height="60px"
+                      width="100%"
+                    />
+                  </FormControl>
+
+                  <FormControl id="address" width="100%">
+                    <FormLabel fontSize="lg">Address</FormLabel>
+                    <Input 
+                      type="text" 
+                      size="lg"
+                      borderRadius="0" 
+                      borderColor="#E0E1E7" 
                       height="60px"
                       width="100%"
                     />
                   </FormControl>
                   
                   <FormControl id="message" width="100%">
-                    <FormLabel fontSize="lg">What can we help you with today?</FormLabel>
+                    <FormLabel fontSize="lg">What can we help you with?</FormLabel>
                     <Textarea
                       borderColor="gray.300"
                       borderRadius="5"

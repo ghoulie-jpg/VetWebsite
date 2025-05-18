@@ -71,7 +71,7 @@ const AboutUs: React.FC = () => {
             {/* Second Text Block */}
             <Box>
               <Heading as="h2" size="md" mb={2}>
-                Living Room Sofa
+                Tiffany
               </Heading>
               <Text mb={2}>
                 Perfect for modern tropical spaces and baroque-inspired interiors.

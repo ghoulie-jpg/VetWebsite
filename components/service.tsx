@@ -8,7 +8,8 @@ const Service: React.FC = () => {
   return (
     <Box position="relative" backgroundColor="black">
       <Grid
-        backgroundColor="#FBE9D0"
+        // backgroundColor="#FBE9D0"
+        backgroundColor = "white"
         templateColumns="repeat(12, 1fr)"
         templateRows="auto 1fr"
         gap={0}

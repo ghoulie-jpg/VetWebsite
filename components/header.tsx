@@ -10,24 +10,24 @@ const Header: React.FC = () => {
         templateColumns="1fr"
         height={['80vh', '80vh', '80vh', '90vh']}
       >
-        {/* Full-width hero with gradient overlay */}
+        {/* Full-width hero with gradient overlay - moved to right */}
         <Box
           position="relative"
           backgroundImage={`linear-gradient(
-               to left,
-               rgba(255, 255, 255, 0.80) 25%,
+               to right,
+               rgba(255, 255, 255, 0.65) 25%,
                rgba(255, 255, 255, 0)   60%
-             ), url(/realbarn.jpg)`}
+             ), url(/DSC_0548-Edit3.jpg)`}
           backgroundSize="cover"
           backgroundPosition="center"
           width="100%"
           height="100%"
         >
-          {/* 1) Montague heading in top-right, moved down to 20% */}
+          {/* 1) Montague heading in top-left */}
           <Box
             position="absolute"
             top={['20%', '20%', '20%', '22%']}
-            right={['5%', '5%', '5%', '5%']}
+            left={['5%', '5%', '5%', '5%']} /* Changed from right to left */
             bg="rgba(36, 72, 85, 1)"
             boxShadow="0 8px 16px rgba(0, 0, 0, 0.4)"
             px={[3, 4, 6, 10]}
@@ -46,28 +46,21 @@ const Header: React.FC = () => {
             </Heading>
           </Box>
 
-          {/* 2) Clinic info below it, moved down to 45% */}
+          {/* 2) Clinic info below it, on the left */}
           <Box
             position="absolute"
             top={['60%', '60%', '60%', '55%']}
-            right={['2%', '2%', '2%', '2%']}
+            left={['3%', '3%', '3%', '3%']} /* Changed from right to left */
             bg="rgba(255, 255, 255, 0)"
             color="black" 
             p={[3, 4, 6]}
             maxW={["60%", "60%", "40%", "25%"]}
             borderRadius="md"
           >
-            <Text fontSize={['sm', 'md', 'lg', '2xl'] }                 m={2}
-        
-            >
-
+            <Text fontSize={['sm', 'md', 'lg', '2xl']} m={2}>
               We are a telemedicine Veterinary Clinic located in Perth, Ontario.
               Our team consists of a veterinarian and a veterinary technician.
             </Text>
-
-
-
-
           </Box>
         </Box>
       </Grid>
