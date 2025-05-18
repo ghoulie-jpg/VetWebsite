@@ -3,7 +3,7 @@ import Nav from '../components/nav'
 import Header from '../components/header'
 import Service from '../components/service'
 import Footer from '../components/footer'
-import Contact from '../components/Contact'
+import Contact from '../components/contact'
 import AboutUs from '../components/AboutUs'
 
 const Home: React.FC = () => {
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       {/* <OurProject /> */}
       {/* <Services_Description/> */}
 
-      {/* <Contact/> */}
+      <Contact/>
 
       {/* <Divider mt="24" /> */}
       <Footer />
