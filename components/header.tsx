@@ -26,22 +26,25 @@ const Header: React.FC = () => {
           {/* 1) Montague heading in top-left */}
           <Box
             position="absolute"
-            top={['20%', '20%', '20%', '22%']}
+            top={['20%', '20%', '20%', '20%']}
             left={['5%', '5%', '5%', '5%']} /* Changed from right to left */
-            bg="rgba(36, 72, 85, 1)"
-            boxShadow="0 8px 16px rgba(0, 0, 0, 0.4)"
-            px={[3, 4, 6, 10]}
-            py={[2, 3, 4, 8]}
+            // bg="rgba(36, 72, 85, 1)"
+            // boxShadow="0 8px 16px rgba(0, 0, 0, 0.4)"
+            // px={[3, 4, 6, 10]}
+            // py={[2, 3, 4, 8]}
           >
             <Heading
-              color="white"
-              fontSize={['2xl', '3xl', '4xl', '5xl']}
+              color="black"
+              fontSize={['2xl', '3xl', '4xl', '6xl']}
+              fontWeight="extrabold"
               lineHeight="1.2"
               m={0}
             >
-              Montague<br />
+              Montague
+              <br />
               Mobile<br />
-              Veterinary<br />
+              Veterinary
+              <br />
               Services
             </Heading>
           </Box>
@@ -54,12 +57,16 @@ const Header: React.FC = () => {
             bg="rgba(255, 255, 255, 0)"
             color="black" 
             p={[3, 4, 6]}
-            maxW={["60%", "60%", "40%", "25%"]}
+            maxW={["60%", "60%", "40%", "40%"]}
             borderRadius="md"
           >
             <Text fontSize={['sm', 'md', 'lg', '2xl']} m={2}>
-              We are a telemedicine Veterinary Clinic located in Perth, Ontario.
-              Our team consists of a veterinarian and a veterinary technician.
+              Offering in home, virtual and telemedecine care for dogs and cats. <br />
+
+              Serving the communities and residents of Lanark County. <br />
+
+
+              A focus on desease prevention and the use of conventional and alternative strategies to preserve health. 
             </Text>
           </Box>
         </Box>

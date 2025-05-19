@@ -14,9 +14,10 @@ const Home: React.FC = () => {
       <Nav />
       <Header />
       {/* <About /> */}
+      <AboutUs />
       <Service />
       <Box id ="about-us">
-      <AboutUs />
+      
       </Box>
       {/* <OurProject /> */}
       {/* <Services_Description/> */}

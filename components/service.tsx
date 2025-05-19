@@ -29,17 +29,10 @@ const Service: React.FC = () => {
             fontWeight="extrabold"
             mb="15px"
           >
-            Our Services
+            Services
           </Heading>
 
-          <Heading
-            as="h4"
-            fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
-            fontWeight="normal"
-            mb={0} // Remove bottom margin to eliminate the gap
-          >
-            Serving the Ottawa-Brockville corridor with a focus in and around the communities of Smith Falls, MerrickVille, and Perth.
-          </Heading>
+
         </Box>
 
         {/* Content row with no gap at the top */}
@@ -74,7 +67,7 @@ const Service: React.FC = () => {
                   _hover={{ bg: "#333" }}
                 >
                   <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
-                    <Text fontSize="xl" fontWeight="medium" color="white">Telemedicine, In Home and Virtual Visits</Text>
+                    <Text fontSize="xl" fontWeight="medium" color="white">In Home, Telemedicine and Virtual Visits</Text>
                     <Icon as={FiArrowRight} boxSize={7} color="white" />
                   </Flex>
                 </Button>
@@ -93,26 +86,7 @@ const Service: React.FC = () => {
                   _hover={{ bg: "#333" }}
                 >
                   <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
-                    <Text fontSize="xl" fontWeight="medium" color="white">Routine Health Exams</Text>
-                    <Icon as={FiArrowRight} boxSize={7} color="white" />
-                  </Flex>
-                </Button>
-              </Box>
-
-              <Box mt={3} width="100%">
-                <Button 
-                  colorScheme="blue" 
-                  borderRadius="0" 
-                  size="lg"
-                  h={16}
-                  px={0}
-                  w="100%"
-                  maxW="100%"
-                  bg="#111"
-                  _hover={{ bg: "#333" }}
-                >
-                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
-                    <Text fontSize="xl" fontWeight="medium" color="white">Treatment and Prevention of Disease</Text>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Examinations: Routine Care, Disease Prevention and Treatment</Text>
                     <Icon as={FiArrowRight} boxSize={7} color="white" />
                   </Flex>
                 </Button>
@@ -150,7 +124,7 @@ const Service: React.FC = () => {
                   _hover={{ bg: "#333" }}
                 >
                   <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
-                    <Text fontSize="xl" fontWeight="medium" color="white">Referrals</Text>
+                    <Text fontSize="xl" fontWeight="medium" color="white">Client Resources</Text>
                     <Icon as={FiArrowRight} boxSize={7} color="white" />
                   </Flex>
                 </Button>

@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 <Text display="inline" fontWeight="extrabold">
                 Mobile
                 </Text>{' '}
-                <Text display="inline" fontWeight="medium">
+                <Text display="inline" fontWeight="extrabold">
                 Veterinary Services
                 </Text>
         </Heading>
@@ -67,17 +67,17 @@ const Footer: React.FC = () => {
       pt={['6', '6', '6', '8', '8']} // Added padding-top
 
     >
-      <Heading color="white" fontWeight="bold" mb="20px" fontSize="30px">
+      {/* <Heading color="white" fontWeight="bold" mb="20px" fontSize="30px">
         Contact Us
-      </Heading>
-      <Text color="white" mb="10px" fontSize="20px">Phone: +91 9876543210</Text>
+      </Heading> */}
+      <Text color="white" mb="10px" fontSize="20px">Phone: 613-206-7638</Text>
       <Text color="white" mb="10px" fontSize="20px">Email: email@gmail.com</Text>
-      <Text color="white" mb="10px" fontSize="20px">Hours: Mon, Wed, Frid 8:30 am -3:30 pm </Text>
+      <Text color="white" mb="10px" fontSize="20px">Hours: Tues, Wed, Thurs 9:00 am -3:00 pm </Text>
 
 
        <Flex alignItems="center" mb="6px"  fontSize="20px">
         <FaMapMarkerAlt color="white" style={{ marginRight: '8px' }} />
-        <Text color="white">Perth, Ontario</Text>
+        <Text color="white">SmithsFalls, Ontario</Text>
       </Flex>
 
 

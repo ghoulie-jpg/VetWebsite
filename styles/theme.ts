@@ -17,7 +17,7 @@ export const system = createSystem(defaultConfig, {
       // },
       fonts: {
         body: { value: "Montserrat, sans-serif" },
-        heading: { value: "Graduate, serif" },
+        heading: { value: "Montserrat, sans-serif"},
         mono: { value: "Montserrat, sans-serif" },
       },
       fontWeights: {

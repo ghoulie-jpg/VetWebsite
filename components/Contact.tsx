@@ -29,9 +29,9 @@ import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
   return (
-    <Box bg="white" pt={{ base: 4, md: 8 }}>
+    <Box bg="white" pt={{ base: 4, md: 4 }}>
       {/* "Contact Us" heading with same grid structure */}
-      <Grid templateColumns="repeat(12, 1fr)" mb={6}>
+      <Grid templateColumns="repeat(12, 1fr)" mb={0}>
         <Flex
           gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
           flexDirection="column"
@@ -44,7 +44,7 @@ export default function Contact() {
             fontWeight="extrabold"
             mb="18px"
           >
-            Contact Us
+            Leave a Message
           </Heading>
         </Flex>
       </Grid>
@@ -59,9 +59,10 @@ export default function Contact() {
             as="h4"
             fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
             fontWeight="normal"
-            mb={4}
+            mb={2}
           >
-            For Existing Clients, please leave your message and we will do our best to respond within 3-5 business days!
+          We check our messages in the mornings of Tuesday, Wedsnday, and Thursday. We will check the messages through the 
+          rest of the week daily. 
           </Heading>
         </Box>
       </Grid>
@@ -90,33 +91,34 @@ export default function Contact() {
             > 
               <Box m={{ base: 4, md: 8, lg: 10 }} color="#0B0E3F">
                 <Box display="flex" flexDirection="column" gap={5} alignItems="flex-start">
-                  <FormControl id="name" width="100%">
-                    <FormLabel fontSize="lg">Your Name</FormLabel>
-                    <Input 
-                      type="text" 
-                      size="lg"
-                      borderRadius="0" 
-                      borderColor="#E0E1E7" 
-                      placeholder="Your name" 
-                      height="60px"
-                      width="100%"
-                    />
-                  </FormControl>
+                  {/* Name and Email side by side */}
+                  <Flex gap={4} width="100%" direction={{ base: 'column', md: 'row' }}>
+                    <FormControl id="name" flex="1">
+                      <FormLabel fontSize="lg">Your Name</FormLabel>
+                      <Input 
+                        type="text" 
+                        size="lg"
+                        borderRadius="0" 
+                        borderColor="#E0E1E7" 
+                        height="40px"
+                        width="100%"
+                      />
+                    </FormControl>
+                    
+                    <FormControl id="email" flex="1">
+                      <FormLabel fontSize="lg">Email</FormLabel>
+                      <Input 
+                        type="text" 
+                        size="lg"
+                        borderRadius="0" 
+                        borderColor="#E0E1E7" 
+                        height="40px"
+                        width="100%"
+                      />
+                    </FormControl>
+                  </Flex>
                   
-                  <FormControl id="email" width="100%">
-                    <FormLabel fontSize="lg">Email</FormLabel>
-                    <Input 
-                      type="text" 
-                      size="lg"
-                      borderRadius="0" 
-                      borderColor="#E0E1E7" 
-                      placeholder="Your email" 
-                      height="60px"
-                      width="100%"
-                    />
-                  </FormControl>
-                  
-                  <FormControl id="message" width="100%">
+                 <FormControl id="message" width="100%">
                     <FormLabel fontSize="lg">What can we help you with?</FormLabel>
                     <Textarea
                       borderColor="gray.300"
@@ -124,11 +126,54 @@ export default function Contact() {
                       _hover={{
                         borderRadius: '0',
                       }}
-                      placeholder="message"
-                      height="150px"
+                      height="75px"
                       fontSize="lg"
                       width="100%"
                     />
+                  </FormControl>
+
+                  <FormControl id="appointment_request" width="100%">
+                    <FormLabel fontSize="lg">Request an Appointment</FormLabel>
+                    <Textarea
+                      borderColor="gray.300"
+                      borderRadius="5"
+                      _hover={{
+                        borderRadius: '0',
+                      }}
+                      height="75px"
+                      fontSize="lg"
+                      width="100%"
+                    />
+                  </FormControl>
+
+                  <FormControl id="appointment-type" width="100%">
+                    <FormLabel fontSize="lg" mb={3}>Appointment Type:</FormLabel>
+                    <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
+                      <Box display="flex" alignItems="center">
+                        <input 
+                          type="radio" 
+                          id="telemedicine" 
+                          name="appointment-type"
+                          value="telemedicine"
+                          style={{ marginRight: '8px', width: '16px', height: '16px' }}
+                        />
+                        <FormLabel htmlFor="telemedicine" fontSize="md" mb={0} cursor="pointer">
+                          Telemedicine/Virtual
+                        </FormLabel>
+                      </Box>
+                      <Box display="flex" alignItems="center">
+                        <input 
+                          type="radio" 
+                          id="in-home" 
+                          name="appointment-type"
+                          value="in-home"
+                          style={{ marginRight: '8px', width: '16px', height: '16px' }}
+                        />
+                        <FormLabel htmlFor="in-home" fontSize="md" mb={0} cursor="pointer">
+                          In Home
+                        </FormLabel>
+                      </Box>
+                    </Flex>
                   </FormControl>
                   
                   <FormControl id="submit" width="100%">
