@@ -25,13 +25,13 @@ const Footer: React.FC = () => {
       >
         <Box color="white">
         <Heading as="h1" size="5xl" color="white" textTransform="uppercase">
-                <Text display="inline" fontWeight="extrabold">
+                <Text display="inline" fontWeight="bold">
                 Montague 
                 </Text>{' '}
-                <Text display="inline" fontWeight="extrabold">
+                <Text display="inline" fontWeight="bold">
                 Mobile
                 </Text>{' '}
-                <Text display="inline" fontWeight="extrabold">
+                <Text display="inline" fontWeight="bold">
                 Veterinary Services
                 </Text>
         </Heading>

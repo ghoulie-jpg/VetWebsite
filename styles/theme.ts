@@ -17,11 +17,13 @@ export const system = createSystem(defaultConfig, {
       // },
       fonts: {
         body: { value: "Montserrat, sans-serif" },
-        heading: { value: "Montserrat, sans-serif"},
+        heading: { value: "Montserrat, sans-serif" },
+
+        // heading: { value: "Arvo, serif"},
         mono: { value: "Montserrat, sans-serif" },
       },
       fontWeights: {
-        thin: { value: 100 },
+        thin: { value: 300 },
         normal: { value: 400 },
         medium: { value: 500 },
         bold: { value: 700 },

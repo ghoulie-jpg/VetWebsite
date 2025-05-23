@@ -11,6 +11,11 @@ const Header: React.FC = () => {
         height={['80vh', '80vh', '80vh', '90vh']}
       >
         {/* Full-width hero with gradient overlay - moved to right */}
+
+
+
+
+               
         <Box
           position="relative"
           backgroundImage={`linear-gradient(
@@ -34,18 +39,26 @@ const Header: React.FC = () => {
             // py={[2, 3, 4, 8]}
           >
             <Heading
-              color="black"
+              // color="black"
+              color ="rgb(39, 30, 30)"
+
               fontSize={['2xl', '3xl', '4xl', '6xl']}
-              fontWeight="extrabold"
+              fontWeight="normal"
               lineHeight="1.2"
               m={0}
+              textShadow="2px 2px 4px rgba(0, 0, 0, 0.2)"
             >
+              <Text as="span" fontWeight="thin">
+
               Montague
               <br />
               Mobile<br />
-              Veterinary
-              <br />
-              Services
+              </Text>
+              <Text as="span" fontWeight="medium">
+                Veterinary
+                <br />
+                Services
+              </Text>
             </Heading>
           </Box>
 
@@ -60,7 +73,7 @@ const Header: React.FC = () => {
             maxW={["60%", "60%", "40%", "40%"]}
             borderRadius="md"
           >
-            <Text fontSize={['sm', 'md', 'lg', '2xl']} m={2}>
+            <Text fontSize={['sm', 'md', 'lg', '2xl']} m={2} fontWeight="normal">
               Offering in home, virtual and telemedecine care for dogs and cats. <br />
 
               Serving the communities and residents of Lanark County. <br />

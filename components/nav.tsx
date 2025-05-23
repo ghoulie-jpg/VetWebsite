@@ -86,13 +86,14 @@
           alignItems="center"
         >
           <MenuItems onClick={() => scrollToSection('home')}>Home</MenuItems>
-          <MenuItems onClick={() => scrollToSection('services')}>Services</MenuItems>
           <MenuItems onClick={() => scrollToSection('about-us')}>About Us</MenuItems>
+
+          <MenuItems onClick={() => scrollToSection('services')}>Services</MenuItems>
           <MenuItems onClick={() => scrollToSection('contact-us')}>Contact Us</MenuItems>
           <Stack direction="row" align="center" marginLeft={20}>
             <Link href="/intake">
               <Button colorScheme="blue" borderRadius="0">
-                Request an Appointment (for new clients)
+                Leave a message
               </Button>
             </Link>
           </Stack>

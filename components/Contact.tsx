@@ -29,19 +29,18 @@ import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
   return (
-    <Box bg="white" pt={{ base: 4, md: 4 }}>
+    <Box bg="white">
       {/* "Contact Us" heading with same grid structure */}
       <Grid templateColumns="repeat(12, 1fr)" mb={0}>
         <Flex
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
+          gridColumn="1 / 13"
           flexDirection="column"
-          px={{ base: 4, md: 8 }}
         >
           <Heading
             as="h3"
             textTransform="uppercase"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
-            fontWeight="extrabold"
+            fontWeight="normal"
             mb="18px"
           >
             Leave a Message
@@ -51,11 +50,8 @@ export default function Contact() {
 
       {/* Separate grid for the "For Existing Clients" message that spans full width */}
       <Grid templateColumns="repeat(12, 1fr)" mb={6}>
-        <Box
-          gridColumn={['2 / -1', '2 / -1', '2 / -1', '2 / -1', '2 / -1']}
-          px={{ base: 4, md: 8 }}
-        >
-          <Heading
+        <Box gridColumn="1 / 13">
+          <Text
             as="h4"
             fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
             fontWeight="normal"
@@ -63,15 +59,14 @@ export default function Contact() {
           >
           We check our messages in the mornings of Tuesday, Wedsnday, and Thursday. We will check the messages through the 
           rest of the week daily. 
-          </Heading>
+          </Text>
         </Box>
       </Grid>
 
       {/* Form and Image section using the same grid structure */}
       <Grid templateColumns="repeat(12, 1fr)">
         <Box
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
-          px={{ base: 4, md: 8 }}
+          gridColumn="1 / 13"
           mb={10}
         >
           {/* Container for form and image side by side */}

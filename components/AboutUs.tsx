@@ -3,19 +3,17 @@ import { Box, Grid, Flex, Image, Heading, Text } from '@chakra-ui/react';
 
 const AboutUs: React.FC = () => {
   return (
-    <Box pt={{ base: 4, md: 8 }}>
+    <Box>
       {/* — "Who we are" */}
-      <Grid templateColumns="repeat(12, 1fr)" mb={6}>
+      <Grid templateColumns="repeat(12, 1fr)">
         <Flex
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 8', '2 / 8']}
+          gridColumn="1 / 13"
           flexDirection="column"
-          px={{ base: 4, md: 8 }}
         >
           <Heading
             as="h3"
-            textTransform="uppercase"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
-            fontWeight="extrabold"
+            fontWeight="normal"
             mb="10px"
           >
             About Us
@@ -25,11 +23,7 @@ const AboutUs: React.FC = () => {
 
       {/* — images & text (stacked vertically) */}
       <Grid templateColumns="repeat(12, 1fr)">
-        <Box
-          gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
-          px={{ base: 4, md: 8 }}
-          mb={10}
-        >
+        <Box gridColumn="1 / 13">
           {/* First section: Image and Text using Flexbox */}
           <Flex
             direction={{ base: 'column', md: 'row' }}
@@ -47,7 +41,7 @@ const AboutUs: React.FC = () => {
               flexShrink={0}
             />
             
-            <Box pl={{ base: 0, md: 4 }} maxW="700px">
+            <Box pl={{ base: 0, md: 4 }}>
               <Heading as="h2" size="2xl" mb={2}>
                 Hester Grodde
               </Heading>
@@ -68,10 +62,11 @@ const AboutUs: React.FC = () => {
             alignItems="start"
           >
             <Image
-              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3"
+              src="newclutch.png"
+
               alt="Tiffany"
-              w="400px"
-              h="250px"
+              w="350px"
+              h="350px"
               objectFit="cover"
               boxShadow="lg"
               flexShrink={0}
@@ -79,10 +74,17 @@ const AboutUs: React.FC = () => {
 
             <Box pl={{ base: 0, md: 4 }}>
               <Heading as="h2" size="2xl" mb={2}>
-                Tiffany
+                Tiffany McCann
               </Heading>
-              <Text mb={2} fontSize="lg">
-                Perfect for modern tropical spaces and baroque-inspired interiors.
+              <Text mb={2} fontSize="xl">
+                Tiffany graduated from St Lawrence College in 2009 as a Registered Veterinary Technician.  She and Dr. Grodde have worked together 
+                for 10 years in the Merrickville area.  Tiffany is delighted to join Dr. Grodde and the Montague Mobile Veterinary Services.  
+                She is looking forward to being part of a compassionate practice that emphasizes lasting health for patients and also meeting the 
+                goals and expectations of their clients.  She has a passion for anaesthesia and pain management.  She is also looking forward to 
+                becoming a breeder of Chesapeake Bay Retrievers with her first litter in the works!  Her spare time in the last few years has been
+                 dedicated to training and showing her two Chessies Calvin and Clutch to the Canadian Grand Champion level.
+
+She lives with her husband, Tyler, and their son Declan, and their pets Waylon, Pyper, Calvin, Clutch and a flock of heritage hens.
               </Text>
             </Box>
           </Flex>
