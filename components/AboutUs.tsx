@@ -14,7 +14,7 @@ const AboutUs: React.FC = () => {
             as="h3"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="normal"
-            mb="10px"
+            mb="30px"
           >
             About Us
           </Heading>

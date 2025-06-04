@@ -110,3 +110,10 @@ Dê uma ⭐️ se esse projeto te ajudou!
 
 
 # my colors that I chose : https://visme.co/blog/website-color-schemes/
+
+
+deployment id
+AKfycbyoL5_Mmev4CXqBNVI3VlxO_g-OHC__xY-L2wPpwYJvHSXQ3hR8gwZqLImSAsaJkqSM
+
+web app 
+https://script.google.com/macros/s/AKfycbyoL5_Mmev4CXqBNVI3VlxO_g-OHC__xY-L2wPpwYJvHSXQ3hR8gwZqLImSAsaJkqSM/exec

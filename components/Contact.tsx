@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import { MdPhone } from 'react-icons/md';
 import { Icon, Image } from '@chakra-ui/react';
@@ -17,17 +17,81 @@ import {
   Button,
   VStack,
   HStack,
-  Wrap,
+  Wrap, 
   WrapItem,
   Input,
   InputGroup,
   Textarea,
   Grid,
 } from '@chakra-ui/react';
+
 import { MdEmail, MdLocationOn, MdFacebook, MdOutlineEmail } from 'react-icons/md';
 import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    appointment_request: '',
+    appointment_type: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyl_68q_7LDD-10U17g1HCAmk3V53S6GNBB2RDl2LthRIo8qLFVxwUvsgQnUeshuhmjbg/exec';
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Validate required fields
+      if (!formData.name || !formData.email) {
+        alert('Please fill in your name and email address.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Send data to Google Apps Script
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        mode: 'no-cors' // Required for Google Apps Script
+      });
+
+      // Since we're using no-cors, we can't read the response
+      // But if we get here without an error, it likely worked
+      alert('Thank you for your message. We\'ll get back to you soon.');
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+        appointment_request: '',
+        appointment_type: ''
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was a problem sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Box bg="white">
       {/* "Contact Us" heading with same grid structure */}
@@ -38,7 +102,6 @@ export default function Contact() {
         >
           <Heading
             as="h3"
-            textTransform="uppercase"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="normal"
             mb="18px"
@@ -57,7 +120,7 @@ export default function Contact() {
             fontWeight="normal"
             mb={2}
           >
-          We check our messages in the mornings of Tuesday, Wedsnday, and Thursday. We will check the messages through the 
+          We check our messages in the mornings of Tuesday, Wednesday, and Thursday. We will check the messages through the 
           rest of the week daily. 
           </Text>
         </Box>
@@ -85,108 +148,129 @@ export default function Contact() {
               flex="0 0 auto"
             > 
               <Box m={{ base: 4, md: 8, lg: 10 }} color="#0B0E3F">
-                <Box display="flex" flexDirection="column" gap={5} alignItems="flex-start">
-                  {/* Name and Email side by side */}
-                  <Flex gap={4} width="100%" direction={{ base: 'column', md: 'row' }}>
-                    <FormControl id="name" flex="1">
-                      <FormLabel fontSize="lg">Your Name</FormLabel>
-                      <Input 
-                        type="text" 
-                        size="lg"
-                        borderRadius="0" 
-                        borderColor="#E0E1E7" 
-                        height="40px"
+                <form onSubmit={handleSubmit}>
+                  <Box display="flex" flexDirection="column" gap={5} alignItems="flex-start">
+                    {/* Name and Email side by side */}
+                    <Flex gap={4} width="100%" direction={{ base: 'column', md: 'row' }}>
+                      <FormControl id="name" flex="1" isRequired>
+                        <FormLabel fontSize="lg">Your Name</FormLabel>
+                        <Input 
+                          type="text" 
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          size="lg"
+                          borderRadius="0" 
+                          borderColor="#E0E1E7" 
+                          height="40px"
+                          width="100%"
+                        />
+                      </FormControl>
+                      
+                      <FormControl id="email" flex="1" isRequired>
+                        <FormLabel fontSize="lg">Email</FormLabel>
+                        <Input 
+                          type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          size="lg"
+                          borderRadius="0" 
+                          borderColor="#E0E1E7" 
+                          height="40px"
+                          width="100%"
+                        />
+                      </FormControl>
+                    </Flex>
+                    
+                   <FormControl id="message" width="100%">
+                      <FormLabel fontSize="lg">What can we help you with?</FormLabel>
+                      <Textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        borderColor="gray.300"
+                        borderRadius="5"
+                        _hover={{
+                          borderRadius: '0',
+                        }}
+                        height="75px"
+                        fontSize="lg"
                         width="100%"
                       />
+                    </FormControl>
+
+                    <FormControl id="appointment_request" width="100%">
+                      <FormLabel fontSize="lg">Request an Appointment</FormLabel>
+                      <Textarea
+                        name="appointment_request"
+                        value={formData.appointment_request}
+                        onChange={handleInputChange}
+                        borderColor="gray.300"
+                        borderRadius="5"
+                        _hover={{
+                          borderRadius: '0',
+                        }}
+                        height="75px"
+                        fontSize="lg"
+                        width="100%"
+                      />
+                    </FormControl>
+
+                    <FormControl id="appointment-type" width="100%">
+                      <FormLabel fontSize="lg" mb={3}>Appointment Type:</FormLabel>
+                      <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
+                        <Box display="flex" alignItems="center">
+                          <input 
+                            type="radio" 
+                            id="telemedicine" 
+                            name="appointment_type"
+                            value="telemedicine"
+                            checked={formData.appointment_type === 'telemedicine'}
+                            onChange={handleInputChange}
+                            style={{ marginRight: '8px', width: '16px', height: '16px' }}
+                          />
+                          <FormLabel htmlFor="telemedicine" fontSize="md" mb={0} cursor="pointer">
+                            Telemedicine/Virtual
+                          </FormLabel>
+                        </Box>
+                        <Box display="flex" alignItems="center">
+                          <input 
+                            type="radio" 
+                            id="in-home" 
+                            name="appointment_type"
+                            value="in-home"
+                            checked={formData.appointment_type === 'in-home'}
+                            onChange={handleInputChange}
+                            style={{ marginRight: '8px', width: '16px', height: '16px' }}
+                          />
+                          <FormLabel htmlFor="in-home" fontSize="md" mb={0} cursor="pointer">
+                            In Home
+                          </FormLabel>
+                        </Box>
+                      </Flex>
                     </FormControl>
                     
-                    <FormControl id="email" flex="1">
-                      <FormLabel fontSize="lg">Email</FormLabel>
-                      <Input 
-                        type="text" 
+                    <FormControl id="submit" width="100%">
+                      <Button 
+                        type="submit"
+                        variant="solid" 
+                        bg="rgba(36,72,85, 1)" 
+                        color="white"
+                        borderRadius="0"
+                        _hover={{ bg: "#1C6FEB" }}
                         size="lg"
-                        borderRadius="0" 
-                        borderColor="#E0E1E7" 
-                        height="40px"
+                        height="60px"
                         width="100%"
-                      />
+                        fontSize="lg"
+                        isLoading={isSubmitting}
+                        loadingText="Sending..."
+                      >
+                        Submit
+                      </Button>
                     </FormControl>
-                  </Flex>
-                  
-                 <FormControl id="message" width="100%">
-                    <FormLabel fontSize="lg">What can we help you with?</FormLabel>
-                    <Textarea
-                      borderColor="gray.300"
-                      borderRadius="5"
-                      _hover={{
-                        borderRadius: '0',
-                      }}
-                      height="75px"
-                      fontSize="lg"
-                      width="100%"
-                    />
-                  </FormControl>
-
-                  <FormControl id="appointment_request" width="100%">
-                    <FormLabel fontSize="lg">Request an Appointment</FormLabel>
-                    <Textarea
-                      borderColor="gray.300"
-                      borderRadius="5"
-                      _hover={{
-                        borderRadius: '0',
-                      }}
-                      height="75px"
-                      fontSize="lg"
-                      width="100%"
-                    />
-                  </FormControl>
-
-                  <FormControl id="appointment-type" width="100%">
-                    <FormLabel fontSize="lg" mb={3}>Appointment Type:</FormLabel>
-                    <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
-                      <Box display="flex" alignItems="center">
-                        <input 
-                          type="radio" 
-                          id="telemedicine" 
-                          name="appointment-type"
-                          value="telemedicine"
-                          style={{ marginRight: '8px', width: '16px', height: '16px' }}
-                        />
-                        <FormLabel htmlFor="telemedicine" fontSize="md" mb={0} cursor="pointer">
-                          Telemedicine/Virtual
-                        </FormLabel>
-                      </Box>
-                      <Box display="flex" alignItems="center">
-                        <input 
-                          type="radio" 
-                          id="in-home" 
-                          name="appointment-type"
-                          value="in-home"
-                          style={{ marginRight: '8px', width: '16px', height: '16px' }}
-                        />
-                        <FormLabel htmlFor="in-home" fontSize="md" mb={0} cursor="pointer">
-                          In Home
-                        </FormLabel>
-                      </Box>
-                    </Flex>
-                  </FormControl>
-                  
-                  <FormControl id="submit" width="100%">
-                    <Button 
-                      variant="solid" 
-                      bg="rgba(36,72,85, 1)" 
-                      color="white"
-                      borderRadius="0"
-                      _hover={{ bg: "#1C6FEB" }}
-                      size="lg"
-                      height="60px"
-                      width="100%"
-                      fontSize="lg"
-                    >
-                      Submit
-                    </Button>
-                  </FormControl>
-                </Box>
+                  </Box>
+                </form>
               </Box>
             </Box>
 

@@ -40,7 +40,6 @@ export default function inHome() {
           {/* Heading */}
           <Heading
             as="h3"
-            textTransform="uppercase"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="medium"
             mb="18px"

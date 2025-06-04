@@ -20,8 +20,8 @@ const Header: React.FC = () => {
           position="relative"
           backgroundImage={`linear-gradient(
                to right,
-               rgba(255, 255, 255, 0.65) 25%,
-               rgba(255, 255, 255, 0)   60%
+               rgba(255, 255, 255, 0.65) 20%,
+               rgba(255, 255, 255, 0)   70%
              ), url(/DSC_0548-Edit3.jpg)`}
           backgroundSize="cover"
           backgroundPosition="center"

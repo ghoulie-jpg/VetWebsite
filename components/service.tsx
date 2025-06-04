@@ -24,7 +24,6 @@ const Service: React.FC = () => {
         >
           <Heading
             as="h3"
-            textTransform="uppercase"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="normal"
             mb="15px"

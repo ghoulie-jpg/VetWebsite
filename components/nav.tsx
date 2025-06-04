@@ -89,13 +89,17 @@
           <MenuItems onClick={() => scrollToSection('about-us')}>About Us</MenuItems>
 
           <MenuItems onClick={() => scrollToSection('services')}>Services</MenuItems>
-          <MenuItems onClick={() => scrollToSection('contact-us')}>Contact Us</MenuItems>
+          <MenuItems link="/intake">New clients : Contact Us</MenuItems>
+
+          {/* <MenuItems onClick={() => scrollToSection('contact-us')}>Contact Us</MenuItems> */}
+
+
+
+
           <Stack direction="row" align="center" marginLeft={20}>
-            <Link href="/intake">
               <Button colorScheme="blue" borderRadius="0">
-                Leave a message
+                  EXISTING CLIENTS: LEAVE A MESSAGE
               </Button>
-            </Link>
           </Stack>
         </Box>
       </Flex> 

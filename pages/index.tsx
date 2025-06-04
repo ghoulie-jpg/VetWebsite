@@ -16,9 +16,9 @@ const Home: React.FC = () => {
       
       {/* Main content container with smaller margins */}
       <Container 
-        maxW="1200px" 
-        px={{ base: 2, md: 3, lg: 2 }}
-        py={{ base: 2, md: 3,  lg: 8 }}
+          // maxW="1400px" 
+        px={{ base: 1, md: 2, lg: 10 }}
+        py={{ base: 1, md: 2, lg: 4 }}
       >
         <AboutUs />
         <Service />
