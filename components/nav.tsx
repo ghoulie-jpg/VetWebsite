@@ -1,109 +1,131 @@
-  import React from 'react'
-  import { Box, Flex, Link, Button, Stack } from '@chakra-ui/react'
-  import Logo from './logo'
-  import { HStack } from "@chakra-ui/react";
+// components/Nav.tsx
+import React from 'react'
+import { useRouter } from 'next/router'
+import { Box, Flex, Button, Stack, Text } from '@chakra-ui/react'
+import Logo from './logo'
 
-  interface MenuItem {
-    link?: string
-    onClick?: () => void
+interface MenuItemProps {
+  label: string
+  href?: string        // for external routes like "/intake"
+  sectionId?: string   // for in-page scrolling
+}
+
+const MenuItem: React.FC<MenuItemProps> = ({ label, href, sectionId }) => {
+  const router = useRouter()
+
+  const handleClick = () => {
+    if (sectionId) {
+      if (router.pathname === '/') {
+        // Already on "/" — dispatch an event so Home will scroll smoothly
+        window.dispatchEvent(
+          new CustomEvent('scrollToSection', { detail: sectionId })
+        )
+      } else {
+        // Navigate to "/" with ?scrollTo=sectionId (no auto‐scroll)
+        router.push(
+          {
+            pathname: '/',
+            query: { scrollTo: sectionId },
+          },
+          undefined,
+          { scroll: false }
+        )
+      }
+    } else if (href) {
+      router.push(href)
+    }
   }
 
-  const MenuItems: React.FC<MenuItem> = ({ children, link, onClick }) => (
-    <Link
-      href={link}
-      onClick={onClick}
+  return (
+    <Text
+      as="span"
+      onClick={handleClick}
       mt={[4, 4, 0, 0]}
-      mr={'36px'}
+      mr="36px"
       display="block"
       fontWeight="medium"
       fontSize="md"
       cursor="pointer"
       _hover={{ color: '#0D74FF' }}
     >
-      {children}
-    </Link>
+      {label}
+    </Text>
   )
+}
 
-  const Nav = props => {
-    const [show, setShow] = React.useState(false)
-    const handleToggle = () => setShow(!show)
+const Nav: React.FC = () => {
+  const router = useRouter()
 
-    // Smooth scroll function
-    const scrollToSection = (sectionId: string) => {
-      const element = document.getElementById(sectionId)
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }
+  const handleButtonClick = () => {
+    const sectionId = 'leave-message-box'
+    if (router.pathname === '/') {
+      window.dispatchEvent(
+        new CustomEvent('scrollToSection', { detail: sectionId })
+      )
+    } else {
+      router.push(
+        {
+          pathname: '/',
+          query: { scrollTo: sectionId },
+        },
+        undefined,
+        { scroll: false }
+      )
     }
-
-    return (
-      <Flex
-        as="nav"
-        position="fixed"
-        top="0"
-        zIndex="999"
-        width="100%"
-        align="center"
-        justify="space-between"
-        wrap="wrap"
-        paddingX={['1.5em', '1.5em', '1.5em', '15%']}
-        paddingY="1.5em"
-        bg="rgba(255,255,255,1)"
-        color="black"
-        boxShadow="md"
-        textTransform="uppercase"
-        {...props}
-      >
-        <Flex align="center" mr={5}>
-          <Logo />
-        </Flex>
-
-        <Box display={['block', 'block', 'none', 'none']} onClick={handleToggle}>
-          <svg
-            fill="#FBA442"
-            width="22px"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </Box>
-
-        <Box
-          display={[
-            show ? 'block' : 'none',
-            show ? 'block' : 'none',
-            'flex',
-            'flex'
-          ]}
-          width={['full', 'full', 'auto', 'auto']}
-          marginTop={['20px', '20px', 'auto', 'auto']}
-          textAlign="center"
-          alignItems="center"
-        >
-          <MenuItems onClick={() => scrollToSection('home')}>Home</MenuItems>
-          <MenuItems onClick={() => scrollToSection('about-us')}>About Us</MenuItems>
-
-          <MenuItems onClick={() => scrollToSection('services')}>Services</MenuItems>
-          <MenuItems link="/intake">New clients : Contact Us</MenuItems>
-
-          {/* <MenuItems onClick={() => scrollToSection('contact-us')}>Contact Us</MenuItems> */}
-
-
-
-
-          <Stack direction="row" align="center" marginLeft={20}>
-              <Button colorScheme="blue" borderRadius="0">
-                  EXISTING CLIENTS: LEAVE A MESSAGE
-              </Button>
-          </Stack>
-        </Box>
-      </Flex> 
-    )
   }
 
-  export default Nav
+  return (
+    <Flex
+      as="nav"
+      position="fixed"
+      top="0"
+      zIndex="999"
+      width="100%"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      px={['1.5em', '1.5em', '1.5em', '15%']}
+      py="1.5em"
+      bg="white"
+      color="black"
+      boxShadow="md"
+      textTransform="uppercase"
+    >
+      <Flex align="center" mr={5}>
+        <Logo />
+      </Flex>
+
+      <Box display={['block', 'block', 'none', 'none']} /* burger toggle here */>
+        {/* …hamburger svg… */}
+      </Box>
+
+      <Box
+        display={['block', 'block', 'flex', 'flex']}
+        width={['full', 'full', 'auto', 'auto']}
+        mt={['20px', '20px', 'auto', 'auto']}
+        textAlign="center"
+        alignItems="center"
+      >
+        <MenuItem label="Home" sectionId="header-box" />
+        <MenuItem label="About Us" sectionId="about-us-box" />
+        <MenuItem label="Services" sectionId="services-box" />
+        <MenuItem label="New Clients: Contact Us" href="/intake" />
+
+        <Stack direction="row" align="center" ml={20}>
+          <Button
+            bg="rgba(36,72,85, 1)"
+            _hover={{ bg: "#333" }}
+
+            onClick={handleButtonClick}
+            colorScheme="blue"
+            borderRadius="0"
+          >
+            EXISTING CLIENTS: LEAVE A MESSAGE
+          </Button>
+        </Stack>
+      </Box>
+    </Flex>
+  )
+}
+
+export default Nav

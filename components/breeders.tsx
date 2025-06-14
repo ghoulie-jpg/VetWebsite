@@ -58,7 +58,7 @@ export default function Breeders() {
 
              <Box flex="0 0 auto" m={0} p={0}   mr={6} display="inline-block">
               <Image
-                src="Examinations.png"
+                src="dogs.png"
                 alt="Contact us image"
                 width="auto"
                 height = "400px"    
