@@ -20,9 +20,10 @@ const AboutUs: React.FC = () => {
               as="h3"
               fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
               fontWeight="medium"
-              // mb="18px"
+              mt="20px"
+              mb="20px"
               lineHeight="1.2"
-            >
+            > 
               About Us
             </Heading>
           </Flex>

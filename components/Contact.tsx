@@ -79,7 +79,8 @@ export default function Contact() {
               as="h3"
               fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
               fontWeight="medium"
-              mb="18px"
+              mb="20px"
+              mt = "20px"
               lineHeight="1.2"
             >
               Leave a Message

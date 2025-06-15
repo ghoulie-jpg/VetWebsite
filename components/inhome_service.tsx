@@ -42,7 +42,7 @@ export default function inHome() {
             as="h3"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
             fontWeight="medium"
-            mb="18px"
+            mb="20px"
           >
             In Home, Telemedicine and Virtual Visits
           </Heading>

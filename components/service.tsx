@@ -55,6 +55,10 @@ const Service: React.FC = () => {
                   label: 'Client Resources',
                   href: '#',
                 },
+                 {
+                  label: 'Palliative and End of Life Care',
+                  href: '#',
+                },
               ].map(({ label, href }, i) => (
                 <Button
                   as="a"
@@ -81,19 +85,20 @@ const Service: React.FC = () => {
             </Flex>
 
             {/* Right column: image */}
-            <Flex
-              flexDirection="column"
-              gridColumn={{ lg: '8 / 13' }}
-              justifyContent="center"
-            >
-              <Image
-                src="DSC_0441-Edit.jpg"
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                boxShadow="lg"
-              />
-            </Flex>
+          <Flex
+          flexDirection="column"
+          gridColumn={{ lg: '8 / 13' }}
+          justifyContent="center"
+        >
+          <Image
+            src="DSC_0441-Edit.jpg"
+            w="100%"
+            h="100%"
+            objectFit="cover"
+            objectPosition="right center" // or "20% center", etc.
+            boxShadow="lg"
+          />
+        </Flex>
           </Grid>
         </Container>
       </Box>
