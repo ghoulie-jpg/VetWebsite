@@ -162,7 +162,7 @@ const Nav: React.FC = () => {
           width={["full", "full", "auto", "auto"]}
         >
           <Button
-            bg="rgba(36,72,85, 1)"
+            bg="#023020"
             _hover={{ bg: "#333" }}
             onClick={handleButtonClick}
             colorScheme="blue"

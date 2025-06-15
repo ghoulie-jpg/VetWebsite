@@ -71,7 +71,8 @@ const Service: React.FC = () => {
                   py={6}
                   px={0}
                   w="100%"
-                  bg="rgba(36,72,85, 1)"
+                  // bg="rgba(36,72,85, 1)"
+                  bg = "#023020"
                   _hover={{ bg: "#333" }}
                 >
                   <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>

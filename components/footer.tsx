@@ -13,7 +13,7 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <Grid as="footer" templateColumns="repeat(6, 1fr)" mt="16"  bg="rgba(36,72,85, 1)"   minHeight="350px" // Set minimum height
+    <Grid as="footer" templateColumns="repeat(6, 1fr)" mt="16"  bg="#023020"   minHeight="350px" // Set minimum height
 >
       <Flex
         flexDirection="column"

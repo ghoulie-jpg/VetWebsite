@@ -83,7 +83,7 @@ export default function Contact() {
               mt = "20px"
               lineHeight="1.2"
             >
-              Leave a Message
+              Leave a Message - For our Existing Clients
             </Heading>
           </Flex>
         </Grid>
@@ -153,7 +153,7 @@ export default function Contact() {
 
                       {/* Message */}
                       <FormControl id="message" width="100%">
-                        <FormLabel fontSize="lg">What can we help you with?</FormLabel>
+                        <FormLabel fontSize="lg">How we can we help you?</FormLabel>
                         <Textarea
                           name="message"
                           value={formData.message}
@@ -223,7 +223,7 @@ export default function Contact() {
                         <Button
                           type="submit"
                           variant="solid"
-                          bg="rgba(36,72,85, 1)"
+                          bg="#025f32"
                           color="white"
                           borderRadius="0"
                           _hover={{ bg: "#111" }}

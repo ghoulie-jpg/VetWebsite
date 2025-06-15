@@ -121,8 +121,6 @@ const Home: React.FC = () => {
           <AboutUs />
         </Box>
 
-
-
       </Container>
 
       <Footer />
