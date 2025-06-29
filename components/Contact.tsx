@@ -14,7 +14,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 
-export default function Contact() {
+export default function Contact(): JSX.Element {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

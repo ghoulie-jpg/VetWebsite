@@ -12,7 +12,7 @@ import {
   Grid,
 } from '@chakra-ui/react';
 
-export default function Intakeform() {
+export default function Intakeform(): JSX.Element {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
