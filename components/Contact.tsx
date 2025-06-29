@@ -231,7 +231,7 @@ export default function Contact() {
                           height="50px"
                           width="100%"
                           fontSize="lg"
-                          isLoading={isSubmitting}
+                          loading={isSubmitting}
                           loadingText="Sending..."
                         >
                           Submit

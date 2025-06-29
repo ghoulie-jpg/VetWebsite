@@ -68,9 +68,7 @@ export default function Intake_form() {
         setFormData({
           name: '',
           email: '',
-          message: '',
-          appointment_request: '',
-          appointment_type: ''
+          message: ''
         });
   
       } catch (error) {
@@ -196,7 +194,7 @@ export default function Intake_form() {
                               height="50px"
                               width="100%"
                               fontSize="lg"
-                              isLoading={isSubmitting}
+                              loading={isSubmitting}
                               loadingText="Sending..."
                             >
                               Submit
