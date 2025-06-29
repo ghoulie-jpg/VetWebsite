@@ -1,4 +1,3 @@
-'use client';
 import React, { useState, FormEvent } from 'react';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import {
