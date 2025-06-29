@@ -27,7 +27,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anyonymous"/>
 <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/> */}
         
-        <title>Interior Home Design</title>
+        <title>Montague Mobile Veterinary Services</title>
         <meta
           name="description"
           content="Interior home design project made using Next.js and Chakra UI"

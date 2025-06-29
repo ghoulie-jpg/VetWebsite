@@ -1,22 +1,16 @@
-import React from 'react'
-
-import { Heading, Text } from '@chakra-ui/react'
+import React from 'react';
+import { Image } from '@chakra-ui/react';
 
 const Logo: React.FC = () => {
   return (
-    <>
-      {/* <Heading as="h1" size="lg" color="rgba(36,72,85, 1)" textTransform="uppercase"> */}
-        <Heading as="h1" size="lg" color="#023020" textTransform="uppercase"> 
+    <Image
+      src="/logo.png"
+      alt="Montague Mobile Veterinary Services Logo"
+      height="100px"
+      objectFit="contain"
+      display="block"
+    />
+  );
+};
 
-        <Text display="inline" fontWeight="medium">
-          Montague Mobile
-        </Text>{' '}
-        <Text display="inline" fontWeight="extrabold">
-          Veterinary Services
-        </Text>
-      </Heading>
-    </>
-  )
-}
-
-export default Logo
+export default Logo;

@@ -188,7 +188,7 @@ export default function Intake_form() {
                             <Button
                               type="submit"
                               variant="solid"
-                              bg="rgba(36,72,85, 1)"
+                              bg="#023020"
                               color="white"
                               borderRadius="0"
                               _hover={{ bg: "#111" }}

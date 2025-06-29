@@ -25,14 +25,17 @@ const Footer: React.FC = () => {
       >
         <Box color="white">
         <Heading as="h1" size="5xl" color="white" textTransform="uppercase">
-                <Text display="inline" fontWeight="bold">
-                Montague 
-                </Text>{' '}
-                <Text display="inline" fontWeight="bold">
+                <Text display="block" fontWeight="bold">
+                Montague
+                </Text>
+                <Text display="block" fontWeight="bold">
                 Mobile
-                </Text>{' '}
-                <Text display="inline" fontWeight="bold">
-                Veterinary Services
+                </Text>
+                <Text display="block" fontWeight="bold">
+                Veterinary
+                </Text>
+                <Text display="block" fontWeight="bold">
+                Services
                 </Text>
         </Heading>
 
@@ -64,22 +67,23 @@ const Footer: React.FC = () => {
       gridColumn={['1 / 7', '1 / 7', '1 / 7', '3 / 5', '3 / 5']} // Changed from 3/4 to 3/5
       paddingX="8"
       mt={['12', '12', '12', '0', '0']}
-      pt={['6', '6', '6', '8', '8']} // Added padding-top
+      pt={['6', '6', '6', '16', '16']} // Added padding-top
 
     >
       {/* <Heading color="white" fontWeight="bold" mb="20px" fontSize="30px">
         Contact Us
       </Heading> */}
-      <Text color="white" mb="10px" fontSize="20px">Phone: 613-206-7638</Text>
-      <Text color="white" mb="10px" fontSize="20px">Email: email@gmail.com</Text>
-      <Text color="white" mb="10px" fontSize="20px">Hours: Tues, Wed, Thurs 9:00 am -3:00 pm </Text>
 
-
-       <Flex alignItems="center" mb="6px"  fontSize="20px">
+        <Flex alignItems="center" mb="6px"  fontSize="20px">
         <FaMapMarkerAlt color="white" style={{ marginRight: '8px' }} />
         <Text color="white">SmithsFalls, Ontario</Text>
       </Flex>
 
+      
+      <Text color="white" mb="10px" fontSize="20px">Hours: Tues, Wed, Thurs 9:00 am -3:00 pm </Text>
+
+
+     
 
 
 

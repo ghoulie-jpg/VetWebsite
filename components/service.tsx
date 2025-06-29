@@ -53,11 +53,11 @@ const Service: React.FC = () => {
                 },
                 {
                   label: 'Client Resources',
-                  href: '#',
+                  href: '/client_resources',
                 },
                  {
                   label: 'Palliative and End of Life Care',
-                  href: '#',
+                  href: 'palliative_care',
                 },
               ].map(({ label, href }, i) => (
                 <Button
@@ -71,7 +71,6 @@ const Service: React.FC = () => {
                   py={6}
                   px={0}
                   w="100%"
-                  // bg="rgba(36,72,85, 1)"
                   bg = "#023020"
                   _hover={{ bg: "#333" }}
                 >
