@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, FormEvent } from 'react';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import {
@@ -20,15 +20,17 @@ export default function Contact() {
     email: '',
     message: '',
     appointment_request: '',
-    appointment_type: ''
+    appointment_type: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -51,16 +53,15 @@ export default function Contact() {
 
       if (!res.ok) throw new Error('Network response was not ok');
 
-      alert('Thank you for your message. We\'ll get back to you soon.');
+      alert("Thank you for your message. We'll get back to you soon.");
 
       setFormData({
         name: '',
         email: '',
         message: '',
         appointment_request: '',
-        appointment_type: ''
+        appointment_type: '',
       });
-
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('There was a problem sending your message. Please try again.');
@@ -80,7 +81,7 @@ export default function Contact() {
               fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
               fontWeight="medium"
               mb="20px"
-              mt = "20px"
+              mt="20px"
               lineHeight="1.2"
             >
               Leave a Message - For our Existing Clients
@@ -97,8 +98,9 @@ export default function Contact() {
               fontWeight="normal"
               mb={2}
             >
-              We check our messages in the mornings of Tuesday, Wednesday, and Thursday. 
-              We will check the messages through the rest of the week daily.
+              We check our messages in the mornings of Tuesday, Wednesday, and
+              Thursday. We will check the messages through the rest of the week
+              daily.
             </Text>
           </Box>
         </Grid>
@@ -106,20 +108,33 @@ export default function Contact() {
         {/* Form + Image */}
         <Grid templateColumns="repeat(12, 1fr)">
           <Box gridColumn="1 / 13" mb={10}>
-            <Flex direction={{ base: 'column', lg: 'row' }} gap={6} alignItems="flex-start">
+            <Flex
+              direction={{ base: 'column', lg: 'row' }}
+              gap={6}
+              alignItems="flex-start"
+            >
               {/* Form container */}
               <Box
                 bg="white"
-                width={{ base: "100%", lg: "700px" }}
+                width={{ base: '100%', lg: '700px' }}
                 border="1px solid rgba(0, 0, 0, 0.1)"
                 boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
                 flex="0 0 auto"
               >
                 <Box m={{ base: 4, md: 8, lg: 10 }} color="#0B0E3F">
                   <form onSubmit={handleSubmit}>
-                    <Box display="flex" flexDirection="column" gap={5} alignItems="flex-start">
+                    <Box
+                      display="flex"
+                      flexDirection="column"
+                      gap={5}
+                      alignItems="flex-start"
+                    >
                       {/* Name + Email */}
-                      <Flex gap={4} width="100%" direction={{ base: 'column', md: 'row' }}>
+                      <Flex
+                        gap={4}
+                        width="100%"
+                        direction={{ base: 'column', md: 'row' }}
+                      >
                         <FormControl id="name" flex="1" isRequired>
                           <FormLabel fontSize="lg">Your Name</FormLabel>
                           <Input
@@ -153,7 +168,9 @@ export default function Contact() {
 
                       {/* Message */}
                       <FormControl id="message" width="100%">
-                        <FormLabel fontSize="lg">How we can we help you?</FormLabel>
+                        <FormLabel fontSize="lg">
+                          How we can we help you?
+                        </FormLabel>
                         <Textarea
                           name="message"
                           value={formData.message}
@@ -169,7 +186,9 @@ export default function Contact() {
 
                       {/* Appointment Request */}
                       <FormControl id="appointment_request" width="100%">
-                        <FormLabel fontSize="lg">Request an Appointment</FormLabel>
+                        <FormLabel fontSize="lg">
+                          Request an Appointment
+                        </FormLabel>
                         <Textarea
                           name="appointment_request"
                           value={formData.appointment_request}
@@ -185,7 +204,9 @@ export default function Contact() {
 
                       {/* Appointment Type */}
                       <FormControl id="appointment-type" width="100%">
-                        <FormLabel fontSize="lg" mb={3}>Appointment Type:</FormLabel>
+                        <FormLabel fontSize="lg" mb={3}>
+                          Appointment Type:
+                        </FormLabel>
                         <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
                           <Box display="flex" alignItems="center">
                             <input
@@ -193,11 +214,22 @@ export default function Contact() {
                               id="telemedicine"
                               name="appointment_type"
                               value="telemedicine"
-                              checked={formData.appointment_type === 'telemedicine'}
+                              checked={
+                                formData.appointment_type === 'telemedicine'
+                              }
                               onChange={handleInputChange}
-                              style={{ marginRight: '8px', width: '16px', height: '16px' }}
+                              style={{
+                                marginRight: '8px',
+                                width: '16px',
+                                height: '16px',
+                              }}
                             />
-                            <FormLabel htmlFor="telemedicine" fontSize="md" mb={0} cursor="pointer">
+                            <FormLabel
+                              htmlFor="telemedicine"
+                              fontSize="md"
+                              mb={0}
+                              cursor="pointer"
+                            >
                               Telemedicine/Virtual
                             </FormLabel>
                           </Box>
@@ -209,9 +241,18 @@ export default function Contact() {
                               value="in-home"
                               checked={formData.appointment_type === 'in-home'}
                               onChange={handleInputChange}
-                              style={{ marginRight: '8px', width: '16px', height: '16px' }}
+                              style={{
+                                marginRight: '8px',
+                                width: '16px',
+                                height: '16px',
+                              }}
                             />
-                            <FormLabel htmlFor="in-home" fontSize="md" mb={0} cursor="pointer">
+                            <FormLabel
+                              htmlFor="in-home"
+                              fontSize="md"
+                              mb={0}
+                              cursor="pointer"
+                            >
                               In Home
                             </FormLabel>
                           </Box>
@@ -226,7 +267,7 @@ export default function Contact() {
                           bg="#023020"
                           color="white"
                           borderRadius="0"
-                          _hover={{ bg: "#111" }}
+                          _hover={{ bg: '#111' }}
                           size="lg"
                           height="50px"
                           width="100%"

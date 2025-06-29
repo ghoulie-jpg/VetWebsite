@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button as ChakraButton } from '@chakra-ui/react'
+import React from 'react';
+import { Button as ChakraButton } from '@chakra-ui/react';
 
 const Button: React.FC = ({ children }) => {
   return (
@@ -8,11 +8,11 @@ const Button: React.FC = ({ children }) => {
       color="white"
       textTransform="uppercase"
       width="fit-content"
-      borderRadius="0"  
+      borderRadius="0"
     >
       {children}
     </ChakraButton>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

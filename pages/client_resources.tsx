@@ -1,13 +1,7 @@
-import React from 'react'
-import Nav from '../components/nav'
-import Header from '../components/header'
-import Service from '../components/service'
-import Footer from '../components/footer'
-import Contact from '../components/contact'
-import AboutUs from '../components/AboutUs'
-import ClientResources from '../components/client_resourcse'
-import { Box, Container } from '@chakra-ui/react'
-
+import React from 'react';
+import Nav from '../components/nav';
+import Footer from '../components/footer';
+import ClientResources from '../components/client_resourcse';
 
 const Intake: React.FC = () => {
   return (
@@ -16,7 +10,7 @@ const Intake: React.FC = () => {
       <ClientResources />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Intake
+export default Intake;

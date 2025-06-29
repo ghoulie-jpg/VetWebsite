@@ -8,9 +8,7 @@
     "plugin:react/recommended",
     "standard",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/standard",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -22,8 +20,34 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "pettier/prettier": "error",
+    // Enforce Prettier formatting
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "tabWidth": 2,
+        "semi": true
+      }
+    ],
+
+    // Your existing tweaks
     "space-before-function-paren": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+
+    // React 17+ “new JSX transform” — no need to import React everywhere
+    "react/react-in-jsx-scope": "off",
+
+    // Turn off core ESLint rule, use TS-aware version instead
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { "variables": false, "functions": false, "classes": false }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

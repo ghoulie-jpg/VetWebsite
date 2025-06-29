@@ -59,7 +59,8 @@ const Header: React.FC = () => {
             <Text as="span" fontWeight="thin">
               Montague
               <br />
-              Mobile<br />
+              Mobile
+              <br />
             </Text>
             <Text as="span" fontWeight="medium">
               Veterinary
@@ -79,9 +80,9 @@ const Header: React.FC = () => {
           px="6"
           ml="2%"
         >
-          <Text 
+          <Text
             fontSize="clamp(1.1rem, 4.5vw, 1.5rem)"
-            fontWeight="medium" 
+            fontWeight="medium"
             lineHeight="1.4"
             textAlign="left"
             display="flex"
@@ -89,9 +90,14 @@ const Header: React.FC = () => {
             gap="4"
             width="100%"
           >
-            <span>Offering in home, virtual and telemedicine care for dogs and cats.</span>
+            <span>
+              Offering in home, virtual and telemedicine care for dogs and cats.
+            </span>
             <span>Serving the communities and residents of Lanark County.</span>
-            <span>A focus on disease prevention and the use of conventional and alternative strategies to preserve health.</span>
+            <span>
+              A focus on disease prevention and the use of conventional and
+              alternative strategies to preserve health.
+            </span>
           </Text>
         </Box>
       </Box>

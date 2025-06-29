@@ -23,7 +23,7 @@ const AboutUs: React.FC = () => {
               mt="20px"
               mb="20px"
               lineHeight="1.2"
-            > 
+            >
               About Us
             </Heading>
           </Flex>
@@ -48,17 +48,23 @@ const AboutUs: React.FC = () => {
                 boxShadow="lg"
                 flexShrink={0}
               />
-              
+
               <Box pl={{ base: 0, md: 4 }}>
                 <Heading as="h2" size="2xl" mb={2}>
                   Hester Grodde
                 </Heading>
                 <Text mb={2} fontSize="xl">
-                  Hester obtained her veterinary degree at the Ontario Veterinary College. She began her career in 1996
-                  in a small mixed animal practice in the Ottawa Valley then spent a year in New Zealand serving farmers and the rural community of Morrinsville. She moved back to Canada as she has already 
-                  put down roots in the Smiths Falls area. She worked for the next 26 years serving the communities of Smiths Falls and Merrickville where she raised her family. 
-                  She continues to farm and enjoys growing, raising and hunting her own food. Her passion for healthy living through diet and lifestyle comes through in her 
-                  passion to do the same for her patients. 
+                  Hester obtained her veterinary degree at the Ontario
+                  Veterinary College. She began her career in 1996 in a small
+                  mixed animal practice in the Ottawa Valley then spent a year
+                  in New Zealand serving farmers and the rural community of
+                  Morrinsville. She moved back to Canada as she has already put
+                  down roots in the Smiths Falls area. She worked for the next
+                  26 years serving the communities of Smiths Falls and
+                  Merrickville where she raised her family. She continues to
+                  farm and enjoys growing, raising and hunting her own food. Her
+                  passion for healthy living through diet and lifestyle comes
+                  through in her passion to do the same for her patients.
                 </Text>
               </Box>
             </Flex>
@@ -84,13 +90,21 @@ const AboutUs: React.FC = () => {
                   Tiffany McCann
                 </Heading>
                 <Text mb={2} fontSize="xl">
-                  Tiffany graduated from St Lawrence College in 2009 as a Registered Veterinary Technician. She and Dr. Grodde have worked together 
-                  for 10 years in the Merrickville area. Tiffany is delighted to join Dr. Grodde and the Montague Mobile Veterinary Services.  
-                  She is looking forward to being part of a compassionate practice that emphasizes lasting health for patients and also meeting the 
-                  goals and expectations of their clients. She has a passion for anaesthesia and pain management. She is also looking forward to 
-                  becoming a breeder of Chesapeake Bay Retrievers with her first litter in the works! Her spare time in the last few years has been
-                  dedicated to training and showing her two Chessies Calvin and Clutch to the Canadian Grand Champion level.
-                  She lives with her husband, Tyler, and their son Declan, and their pets Waylon, Pyper, Calvin, Clutch and a flock of heritage hens.
+                  Tiffany graduated from St Lawrence College in 2009 as a
+                  Registered Veterinary Technician. She and Dr. Grodde have
+                  worked together for 10 years in the Merrickville area. Tiffany
+                  is delighted to join Dr. Grodde and the Montague Mobile
+                  Veterinary Services. She is looking forward to being part of a
+                  compassionate practice that emphasizes lasting health for
+                  patients and also meeting the goals and expectations of their
+                  clients. She has a passion for anaesthesia and pain
+                  management. She is also looking forward to becoming a breeder
+                  of Chesapeake Bay Retrievers with her first litter in the
+                  works! Her spare time in the last few years has been dedicated
+                  to training and showing her two Chessies Calvin and Clutch to
+                  the Canadian Grand Champion level. She lives with her husband,
+                  Tyler, and their son Declan, and their pets Waylon, Pyper,
+                  Calvin, Clutch and a flock of heritage hens.
                 </Text>
               </Box>
             </Flex>

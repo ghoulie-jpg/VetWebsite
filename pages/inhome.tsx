@@ -1,8 +1,7 @@
-import React from 'react'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import InHome from '../components/inhome_service'
-import { Box, Flex, Link, Button, Stack, Container } from '@chakra-ui/react'
+import React from 'react';
+import Nav from '../components/nav';
+import Footer from '../components/footer';
+import InHome from '../components/inhome_service';
 
 const inhome: React.FC = () => {
   return (
@@ -11,7 +10,7 @@ const inhome: React.FC = () => {
       <InHome />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default inhome
+export default inhome;

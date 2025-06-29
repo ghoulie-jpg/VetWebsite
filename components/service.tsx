@@ -30,7 +30,10 @@ const Service: React.FC = () => {
           </Heading>
 
           {/* Two-column layout */}
-          <Grid templateColumns={{ base: '1fr', lg: 'repeat(12, 1fr)' }} gap={8}>
+          <Grid
+            templateColumns={{ base: '1fr', lg: 'repeat(12, 1fr)' }}
+            gap={8}
+          >
             {/* Left column: buttons */}
             <Flex
               flexDirection="column"
@@ -44,7 +47,8 @@ const Service: React.FC = () => {
                   href: '/inhome',
                 },
                 {
-                  label: 'Examinations: Routine Care,\nDisease Prevention and Treatment',
+                  label:
+                    'Examinations: Routine Care,\nDisease Prevention and Treatment',
                   href: '/examination',
                 },
                 {
@@ -55,14 +59,14 @@ const Service: React.FC = () => {
                   label: 'Client Resources',
                   href: '/client_resources',
                 },
-                 {
+                {
                   label: 'Palliative and End of Life Care',
                   href: 'palliative_care',
                 },
               ].map(({ label, href }, i) => (
                 <Button
                   as="a"
-                  href={href}
+                  {...({ href } as any)}
                   key={i}
                   colorScheme="blue"
                   borderRadius="0"
@@ -71,34 +75,46 @@ const Service: React.FC = () => {
                   py={6}
                   px={0}
                   w="100%"
-                  bg = "#023020"
-                  _hover={{ bg: "#333" }}
+                  bg="#023020"
+                  _hover={{ bg: '#333' }}
                 >
-                  <Flex w="100%" justifyContent="space-between" alignItems="center" px={6}>
-                    <Text fontSize="xl" fontWeight="medium" color="white" whiteSpace="pre-line">
+                  <Flex
+                    w="100%"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    px={6}
+                  >
+                    <Text
+                      fontSize="xl"
+                      fontWeight="medium"
+                      color="white"
+                      whiteSpace="pre-line"
+                    >
                       {label}
                     </Text>
-                    <Icon as={FiArrowRight} boxSize={7} color="white" />
+                    <Box as="span" color="white" fontSize="50px">
+                      →
+                    </Box>
                   </Flex>
                 </Button>
               ))}
             </Flex>
 
             {/* Right column: image */}
-          <Flex
-          flexDirection="column"
-          gridColumn={{ lg: '8 / 13' }}
-          justifyContent="center"
-        >
-          <Image
-            src="DSC_0441-Edit.jpg"
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            objectPosition="right center" // or "20% center", etc.
-            boxShadow="lg"
-          />
-        </Flex>
+            <Flex
+              flexDirection="column"
+              gridColumn={{ lg: '8 / 13' }}
+              justifyContent="center"
+            >
+              <Image
+                src="DSC_0441-Edit.jpg"
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                objectPosition="right center" // or "20% center", etc.
+                boxShadow="lg"
+              />
+            </Flex>
           </Grid>
         </Container>
       </Box>

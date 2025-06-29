@@ -35,24 +35,22 @@
   </sub>
 </div>
 
-
 <br />
 <div align="center">
   <img src=".github/screenshot.png" width="600">
 </div>
 
-
 ---
 
 # :pushpin: Tabela de conteúdos
 
-* [Site de Demostração](#eyes-demostração)
-* [Tecnologia](#computer-tecnologia)
-* [Funcionalidades](#rocket-funcionalidades)
-* [Como rodar](#construction_worker-como-rodar)
-* [Encontrou um bug? Ou está faltando uma feature?](#bug-problemas)
-* [Contribuindo](#tada-contribuindo)
-* [Licencia](#closed_book-licencia)
+- [Site de Demostração](#eyes-demostração)
+- [Tecnologia](#computer-tecnologia)
+- [Funcionalidades](#rocket-funcionalidades)
+- [Como rodar](#construction_worker-como-rodar)
+- [Encontrou um bug? Ou está faltando uma feature?](#bug-problemas)
+- [Contribuindo](#tada-contribuindo)
+- [Licencia](#closed_book-licencia)
 
 <h2 align="left"> 📥 Layout desponivel em: </h2>
 <p align="center">
@@ -62,33 +60,38 @@
 </p>
 
 # :eyes: Demostração
-👉  demo: https://interior-design-website.vercel.app/
+
+👉 demo: https://interior-design-website.vercel.app/
 
 # :computer: Tecnologia
+
 Esse projeto foi feito utilizando as seguintes tecnologias:
 
-* [Next.js](https://nextjs.org/)              
-* [Chakra UI](https://chakra-ui.com/)    
-* [Vercel](https://vercel.com/)    
+- [Next.js](https://nextjs.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [Vercel](https://vercel.com/)
 
 # :rocket: Funcionalidades
 
 - Landing Page
 - About us Section
 - Galery of Projects
-  
+
 # :construction_worker: Como rodar
+
 ### Instale as dependencias
+
 ```bash
 yarn install
 ```
+
 ### Rode a aplicação
-```bash 
-yarn dev 
+
+```bash
+yarn dev
 ```
 
 Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
-
 
 # :bug: Problemas
 
@@ -105,15 +108,12 @@ Lançado em 2020 :closed_book: Licencia
 Made with love by [Rafael Goulart](https://github.com/RafaelGoulartB) 🚀.
 Esse projeto esta sobre [MIT license](./LICENSE).
 
-
 Dê uma ⭐️ se esse projeto te ajudou!
-
 
 # my colors that I chose : https://visme.co/blog/website-color-schemes/
 
-
 deployment id
-AKfycbyoL5_Mmev4CXqBNVI3VlxO_g-OHC__xY-L2wPpwYJvHSXQ3hR8gwZqLImSAsaJkqSM
+AKfycbyoL5_Mmev4CXqBNVI3VlxO_g-OHC\_\_xY-L2wPpwYJvHSXQ3hR8gwZqLImSAsaJkqSM
 
-web app 
+web app
 https://script.google.com/macros/s/AKfycbyoL5_Mmev4CXqBNVI3VlxO_g-OHC__xY-L2wPpwYJvHSXQ3hR8gwZqLImSAsaJkqSM/exec

@@ -2,8 +2,7 @@
 import React from 'react';
 import { ChakraProvider, Box } from '@chakra-ui/react';
 import system from '../../styles/theme'; // adjust if your theme lives elsewhere
-import { ColorModeProvider } from "../../src/components/ui/color-mode";
-
+import { ColorModeProvider } from '../../src/components/ui/color-mode';
 
 interface ThemeContainerProps {
   children: React.ReactNode;
@@ -16,10 +15,7 @@ const ThemeContainer: React.FC<ThemeContainerProps> = ({ children }) => {
       <ColorModeProvider />
 
       {/* <Box bg="#FBE9D0"  w="100%" minH="100vh"> */}
-      <Box>
-        {children}
-      </Box>
-
+      <Box>{children}</Box>
     </ChakraProvider>
   );
 };
