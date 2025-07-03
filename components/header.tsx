@@ -2,26 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Heading, Text, Button } from '@chakra-ui/react';
 
 const Header: React.FC = () => {
-  const [navHeight, setNavHeight] = useState(0);
-
-  useEffect(() => {
-    // Get the navbar height
-    const updateNavHeight = () => {
-      const nav = document.querySelector('nav');
-      if (nav) {
-        setNavHeight(nav.offsetHeight);
-      }
-    };
-
-    // Update on mount and window resize
-    updateNavHeight();
-    window.addEventListener('resize', updateNavHeight);
-
-    return () => window.removeEventListener('resize', updateNavHeight);
-  }, []);
-
   return (
-    <Box width="100vw" overflow="hidden" pt={`${navHeight}px`}>
+    <Box width="100%" overflow="hidden">
       <Box
         position="relative"
         backgroundImage={`linear-gradient(
@@ -33,13 +15,14 @@ const Header: React.FC = () => {
         backgroundPosition="center"
         width="100%"
         height="80vh"
+        minHeight="500px" // Prevents it from getting too small
         display="flex"
         flexDirection="column"
         gap="0"
       >
-        {/* 1) Montague heading box - 40% width, 1/2 height, 5% from left */}
+        {/* Title box - responsive width for smaller screens */}
         <Box
-          width="40%"
+          width={{ base: "100%", md: "100%", lg: "100%", xl:"100%" }}
           height="50%"
           display="flex"
           alignItems="center"
@@ -49,7 +32,12 @@ const Header: React.FC = () => {
         >
           <Heading
             color="rgb(39, 30, 30)"
-            fontSize="clamp(2rem, 8vw, 4rem)"
+            fontSize={{ 
+              base: "clamp(1.5rem, 8vw, 2.5rem)", 
+              md: "clamp(2rem, 6vw, 3rem)", 
+              lg: "clamp(2.5rem, 5vw, 3.5rem)",
+              xl: "clamp(3rem, 4vw, 4rem)" 
+            }}
             fontWeight="normal"
             lineHeight="1.1"
             textAlign="left"
@@ -70,9 +58,9 @@ const Header: React.FC = () => {
           </Heading>
         </Box>
 
-        {/* 2) Clinic info box - 40% width, 1/2 height, 5% from left */}
+        {/* Clinic info box - responsive width for smaller screens */}
         <Box
-          width="40%"
+          width={{ base: "50%", md: "60%", lg: "60%", xl: "40%" }}
           height="50%"
           display="flex"
           alignItems="center"
@@ -81,7 +69,12 @@ const Header: React.FC = () => {
           ml="2%"
         >
           <Text
-            fontSize="clamp(1.1rem, 4.5vw, 1.5rem)"
+            fontSize={{ 
+              base: "clamp(0.9rem, 4vw, 1.1rem)", 
+              md: "clamp(1rem, 3vw, 1.3rem)", 
+              lg: "clamp(1.1rem, 2.5vw, 1.4rem)",
+              xl: "clamp(1.2rem, 2vw, 1.5rem)" 
+            }}
             fontWeight="medium"
             lineHeight="1.4"
             textAlign="left"
@@ -89,6 +82,7 @@ const Header: React.FC = () => {
             flexDirection="column"
             gap="4"
             width="100%"
+            color="black"
           >
             <span>
               Offering in home, virtual and telemedicine care for dogs and cats.

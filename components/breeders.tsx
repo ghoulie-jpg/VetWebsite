@@ -4,12 +4,11 @@ import { Image, Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
 
 export default function Breeders() {
   return (
-    <Box bg="white" pt="175px">
+    <Box bg="white">
       {/* Main content section using single grid structure */}
       <Grid templateColumns="repeat(12, 1fr)">
         <Box
           gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
-          //   px={{ base: 4, md: 8 }}
           mb={10}
         >
           {/* Heading */}
@@ -57,6 +56,7 @@ export default function Breeders() {
                 fontSize={['3xl', '3xl', '5xl', '5xl', 'xl']}
                 fontWeight="normal"
                 mb="18px"
+                color="black.500"
               >
                 We welcome breeders in our practice. Both Tiffany and Hester
                 have experience in breeding, whelping and raising puppies.

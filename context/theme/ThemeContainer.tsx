@@ -14,7 +14,6 @@ const ThemeContainer: React.FC<ThemeContainerProps> = ({ children }) => {
       {/* Inject the initial color mode script */}
       <ColorModeProvider />
 
-      {/* <Box bg="#FBE9D0"  w="100%" minH="100vh"> */}
       <Box>{children}</Box>
     </ChakraProvider>
   );

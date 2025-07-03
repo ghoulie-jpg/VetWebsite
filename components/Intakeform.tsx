@@ -64,7 +64,7 @@ export default function Intakeform(): JSX.Element {
   };
 
   return (
-    <Box bg="white" pt="175px">
+    <Box bg="white">
       {/* "Contact Us" heading with same grid structure */}
       <Grid templateColumns="repeat(12, 1fr)" mb={6}>
         <Flex gridColumn="1 / 13" flexDirection="column">
@@ -183,7 +183,7 @@ export default function Intakeform(): JSX.Element {
                       <Button
                         type="submit"
                         variant="solid"
-                        bg="#023020"
+                        bg="dark_green.500"
                         color="white"
                         borderRadius="0"
                         _hover={{ bg: '#111' }}

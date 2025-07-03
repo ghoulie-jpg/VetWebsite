@@ -4,7 +4,7 @@ import { Flex, Box, Heading, Text, Image, Grid } from '@chakra-ui/react';
 
 export default function Examinations() {
   return (
-    <Box bg="white" pt="175px">
+    <Box bg="white">
       {/* Main content section using single grid structure */}
       <Grid templateColumns="repeat(12, 1fr)">
         <Box
@@ -25,7 +25,6 @@ export default function Examinations() {
             Disease Prevention and Treatment
           </Heading>
 
-          {/* Container for text box and image side by side */}
           <Flex
             direction={{ base: 'column', lg: 'row' }}
             gap={0}

@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       as="footer"
       templateColumns="repeat(6, 1fr)"
       mt="16"
-      bg="#023020"
+      bg="dark_green.500"
       minHeight="350px" // Set minimum height
     >
       <Flex

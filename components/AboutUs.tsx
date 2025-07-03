@@ -23,6 +23,7 @@ const AboutUs: React.FC = () => {
               mt="20px"
               mb="20px"
               lineHeight="1.2"
+              color="black.500"
             >
               About Us
             </Heading>
@@ -53,7 +54,7 @@ const AboutUs: React.FC = () => {
                 <Heading as="h2" size="2xl" mb={2}>
                   Hester Grodde
                 </Heading>
-                <Text mb={2} fontSize="xl">
+                <Text mb={2} fontSize="xl" color="black">
                   Hester obtained her veterinary degree at the Ontario
                   Veterinary College. She began her career in 1996 in a small
                   mixed animal practice in the Ottawa Valley then spent a year
@@ -89,7 +90,7 @@ const AboutUs: React.FC = () => {
                 <Heading as="h2" size="2xl" mb={2}>
                   Tiffany McCann
                 </Heading>
-                <Text mb={2} fontSize="xl">
+                <Text mb={2} fontSize="xl" color="black">
                   Tiffany graduated from St Lawrence College in 2009 as a
                   Registered Veterinary Technician. She and Dr. Grodde have
                   worked together for 10 years in the Merrickville area. Tiffany

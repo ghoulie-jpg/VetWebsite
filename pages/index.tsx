@@ -50,23 +50,18 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Nav />
+      <Box display="grid" gridTemplateRows="auto 1fr" minHeight="100vh">
+        <Nav />
 
-      {/* Give each section a matching scrollMarginTop to push it below the fixed nav */}
-      <Box id="header-box" scrollMarginTop={`${NAV_HEIGHT}px`}>
-        <Header />
-      </Box>
-
-      <Container px={{ base: 1, md: 2, lg: 10 }} py={{ base: 1, md: 2, lg: 4 }}>
-        {/* <Box id="services-box" scrollMarginTop={`${NAV_HEIGHT}px`} mt="8">
-          <Service />
-        </Box> */}
+        <Box id="header-box" scrollMarginTop={`${NAV_HEIGHT}px`}>
+          <Header />
+        </Box>
 
         <Box
           id="services-box"
           scrollMarginTop={`${NAV_HEIGHT}px`}
+          bg="white.500"
           mt="8"
-          // bg="#c3d2a7"
           w="100vw"
           position="relative"
           left="50%"
@@ -77,15 +72,11 @@ const Home: React.FC = () => {
           <Service />
         </Box>
 
-        {/* <Box id="leave-message-box" scrollMarginTop={`${NAV_HEIGHT}px`} mt="8" bg="#c3d2a7">
-          <Contact />
-        </Box> */}
-
         <Box
           id="leave-message-box"
           scrollMarginTop={`${NAV_HEIGHT}px`}
           // mt="8"
-          bg="#c3d2a7"
+          bg="light_green.500"
           w="100vw"
           position="relative"
           left="50%"
@@ -99,9 +90,8 @@ const Home: React.FC = () => {
         <Box
           id="about-us-box"
           scrollMarginTop={`${NAV_HEIGHT}px`}
-          // mt="8"
-          // bg="#c3d2a7"
           w="100vw"
+          bg="white.500"
           position="relative"
           left="50%"
           right="50%"
@@ -110,8 +100,7 @@ const Home: React.FC = () => {
         >
           <AboutUs />
         </Box>
-      </Container>
-
+      </Box>
       <Footer />
     </>
   );

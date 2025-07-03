@@ -4,7 +4,7 @@ import { Image, Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
 
 export default function inHome() {
   return (
-    <Box bg="white" pt="175px">
+    <Box bg="white">
       {/* Main content section using single grid structure */}
       <Grid templateColumns="repeat(12, 1fr)">
         <Box

@@ -263,10 +263,10 @@ export default function Contact(): JSX.Element {
                         <Button
                           type="submit"
                           variant="solid"
-                          bg="#023020"
+                          bg="dark_green.500"
                           color="white"
                           borderRadius="0"
-                          _hover={{ bg: '#111' }}
+                          _hover={{ bg: 'black' }}
                           size="lg"
                           height="50px"
                           width="100%"

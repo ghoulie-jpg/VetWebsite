@@ -75,7 +75,7 @@ const Service: React.FC = () => {
                   py={6}
                   px={0}
                   w="100%"
-                  bg="#023020"
+                  bg="dark_green.500"
                   _hover={{ bg: '#333' }}
                 >
                   <Flex

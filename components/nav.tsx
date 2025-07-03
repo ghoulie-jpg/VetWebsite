@@ -88,12 +88,12 @@ const Nav: React.FC = () => {
   return (
     <Box
       as="nav"
-      position="fixed"
-      top="0"
-      zIndex="999"
       width="100%"
       bg="white"
       boxShadow="md"
+      position="sticky"
+      top="0"
+      zIndex="999" 
     >
       <Flex
         align="center"
@@ -189,13 +189,14 @@ const Nav: React.FC = () => {
             width={['full', 'full', 'auto', 'auto']}
           >
             <Button
-              bg="#023020"
+              bg="dark_green.500"
               _hover={{ bg: '#333' }}
               onClick={handleButtonClick}
               colorScheme="blue"
               borderRadius="0"
               width={['full', 'full', 'auto', 'auto']}
               fontSize="xl"
+              color="white"
             >
               EXISTING CLIENTS: LEAVE A MESSAGE
             </Button>
