@@ -70,7 +70,7 @@ export default function Breeders() {
               order={{ base: 2, lg: 1 }}
             >
               <Image
-                src="dogs.png"
+                src="breeders.png"
                 width="auto"
                 height="400px"
                 objectFit="cover"
