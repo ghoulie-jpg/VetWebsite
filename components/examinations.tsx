@@ -71,7 +71,6 @@ export default function Examinations() {
             >
               <Image
                 src="Examinations.png"
-                alt="Contact us image"
                 width="auto"
                 height="400px"
                 objectFit="cover"

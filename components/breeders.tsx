@@ -71,7 +71,6 @@ export default function Breeders() {
             >
               <Image
                 src="dogs.png"
-                alt="Contact us image"
                 width="auto"
                 height="400px"
                 objectFit="cover"
