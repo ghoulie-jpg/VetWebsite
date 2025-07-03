@@ -18,14 +18,15 @@ const Header: React.FC = () => {
         minHeight="500px" // Prevents it from getting too small
         display="flex"
         flexDirection="column"
-        gap="0"
+        justifyContent="flex-start"
+        gap="4"
+        py="8"
       >
-        {/* Title box - responsive width for smaller screens */}
+        {/* Title box - no fixed height, stays at top */}
         <Box
-          width={{ base: "100%", md: "100%", lg: "100%", xl:"100%" }}
-          height="50%"
+          width={{ base: "70%", md: "60%", lg: "60%", xl: "40%" }}
           display="flex"
-          alignItems="center"
+          alignItems="flex-start"
           justifyContent="flex-start"
           px="6"
           ml="2%"
@@ -58,12 +59,11 @@ const Header: React.FC = () => {
           </Heading>
         </Box>
 
-        {/* Clinic info box - responsive width for smaller screens */}
+        {/* Clinic info box - no fixed height */}
         <Box
-          width={{ base: "50%", md: "60%", lg: "60%", xl: "40%" }}
-          height="50%"
+          width={{ base: "50%", md: "50%", lg: "40%", xl: "40%" }}
           display="flex"
-          alignItems="center"
+          alignItems="flex-start"
           justifyContent="flex-start"
           px="6"
           ml="2%"

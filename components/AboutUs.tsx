@@ -12,7 +12,7 @@ import {
 const AboutUs: React.FC = () => {
   return (
     <Box>
-      <Container maxW="7xl" px={{ base: 0, md: 0 }}>
+      <Container maxW="80%" px={{ base: 0, md: 0 }}>
         {/* — "Who we are" */}
         <Grid templateColumns="repeat(12, 1fr)">
           <Flex gridColumn="1 / 13" flexDirection="column">
@@ -23,7 +23,7 @@ const AboutUs: React.FC = () => {
               mt="20px"
               mb="20px"
               lineHeight="1.2"
-              color="black.500"
+              color="black"
             >
               About Us
             </Heading>
@@ -35,8 +35,8 @@ const AboutUs: React.FC = () => {
           <Box gridColumn="1 / 13">
             {/* First section: Image and Text */}
             <Flex
-              direction={{ base: 'column', md: 'row' }}
-              gap={{ base: 6, md: 0 }}
+              direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
+              gap={{ base: 6, lg: 0 }}
               alignItems="start"
               mb={10}
             >
@@ -50,7 +50,7 @@ const AboutUs: React.FC = () => {
                 flexShrink={0}
               />
 
-              <Box pl={{ base: 0, md: 4 }}>
+              <Box pl={{ base: 0, lg: 4 }}>
                 <Heading as="h2" size="2xl" mb={2}>
                   Hester Grodde
                 </Heading>
@@ -72,8 +72,8 @@ const AboutUs: React.FC = () => {
 
             {/* Second section: Image and Text */}
             <Flex
-              direction={{ base: 'column', md: 'row' }}
-              gap={{ base: 6, md: 0 }}
+              direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
+              gap={{ base: 6, lg: 0 }}
               alignItems="start"
             >
               <Image
@@ -86,7 +86,7 @@ const AboutUs: React.FC = () => {
                 flexShrink={0}
               />
 
-              <Box pl={{ base: 0, md: 4 }}>
+              <Box pl={{ base: 0, lg: 4 }}>
                 <Heading as="h2" size="2xl" mb={2}>
                   Tiffany McCann
                 </Heading>

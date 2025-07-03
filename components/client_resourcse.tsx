@@ -8,6 +8,7 @@ export default function ClientResources() {
       {/* Main content section using single grid structure */}
       <Grid templateColumns="repeat(12, 1fr)">
         <Box
+         py={12}
           gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
           //   px={{ base: 4, md: 8 }}
           mb={10}
@@ -40,7 +41,7 @@ export default function ClientResources() {
               p={0}
             >
               <Text
-                fontSize={['3xl', '3xl', '5xl', '5xl', 'xl']}
+                fontSize={['xl']}
                 fontWeight="normal"
                 mb="18px"
               >

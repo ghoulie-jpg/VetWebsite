@@ -9,17 +9,34 @@ import Contact from '../components/contact';
 import AboutUs from '../components/AboutUs';
 import { Box, Container } from '@chakra-ui/react';
 
-// Replace useLayoutEffect with an “isomorphic” version:
+// Replace useLayoutEffect with an "isomorphic" version:
 //  - On the server, this becomes useEffect (no warning, no DOM access).
 //  - On the client, it becomes the real useLayoutEffect.
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-// Adjust this to match your actual <nav> height (in px, rem, etc.)
-const NAV_HEIGHT = 150;
-
 const Home: React.FC = () => {
   const router = useRouter();
+  const [navHeight, setNavHeight] = React.useState(150); // Default fallback
+
+  // Get the actual nav height dynamically
+  useIsomorphicLayoutEffect(() => {
+    const updateNavHeight = () => {
+      const navElement = document.querySelector('nav');
+      if (navElement) {
+        const height = navElement.offsetHeight;
+        setNavHeight(height);
+      }
+    };
+
+    // Initial measurement
+    updateNavHeight();
+
+    // Update on window resize
+    window.addEventListener('resize', updateNavHeight);
+    
+    return () => window.removeEventListener('resize', updateNavHeight);
+  }, []);
 
   // 1) Handle direct navigation from another page (via ?scrollTo=…).
   useIsomorphicLayoutEffect(() => {
@@ -27,13 +44,18 @@ const Home: React.FC = () => {
     if (typeof scrollToVal === 'string') {
       const el = document.getElementById(scrollToVal);
       if (el) {
-        // Let the browser honor scrollMarginTop when scrolling into view
-        el.scrollIntoView({ block: 'start', behavior: 'auto' });
+        // Calculate position accounting for nav height
+        const elementPosition = el.offsetTop;
+        const offsetPosition = elementPosition - navHeight;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'auto',
+        });
       }
-      // Remove the query param so it doesn’t trigger again on refresh
+      // Remove the query param so it doesn't trigger again on refresh
       router.replace('/', undefined, { shallow: true });
     }
-  }, [router.query.scrollTo, router]);
+  }, [router.query.scrollTo, router, navHeight]);
 
   // 2) Handle in‐page clicks (dispatched by Nav via CustomEvent)
   useIsomorphicLayoutEffect(() => {
@@ -41,66 +63,61 @@ const Home: React.FC = () => {
       const sectionId = (e as CustomEvent).detail as string;
       const el = document.getElementById(sectionId);
       if (el) {
-        el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        // Calculate position accounting for nav height
+        const elementPosition = el.offsetTop;
+        const offsetPosition = elementPosition - navHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     };
     window.addEventListener('scrollToSection', listener);
     return () => window.removeEventListener('scrollToSection', listener);
-  }, []);
+  }, [navHeight]);
 
   return (
     <>
-      <Box display="grid" gridTemplateRows="auto 1fr" minHeight="100vh">
-        <Nav />
-
-        <Box id="header-box" scrollMarginTop={`${NAV_HEIGHT}px`}>
-          <Header />
-        </Box>
-
-        <Box
-          id="services-box"
-          scrollMarginTop={`${NAV_HEIGHT}px`}
-          bg="white.500"
-          mt="8"
-          w="100vw"
-          position="relative"
-          left="50%"
-          right="50%"
-          ml="-50vw"
-          mr="-50vw"
-        >
-          <Service />
-        </Box>
-
-        <Box
-          id="leave-message-box"
-          scrollMarginTop={`${NAV_HEIGHT}px`}
-          // mt="8"
-          bg="light_green.500"
-          w="100vw"
-          position="relative"
-          left="50%"
-          right="50%"
-          ml="-50vw"
-          mr="-50vw"
-        >
-          <Contact />
-        </Box>
-
-        <Box
-          id="about-us-box"
-          scrollMarginTop={`${NAV_HEIGHT}px`}
-          w="100vw"
-          bg="white.500"
-          position="relative"
-          left="50%"
-          right="50%"
-          ml="-50vw"
-          mr="-50vw"
-        >
-          <AboutUs />
-        </Box>
+      {/* Navigation */}
+      <Nav />
+      {/* Header/Hero section - full width */}
+      <Box id="header-box" scrollMarginTop={`${navHeight}px`}>
+        <Header />
       </Box>
+
+      {/* Full-width sections outside the container */}
+      <Box
+        id="services-box"
+        scrollMarginTop={`${navHeight}px`}
+        bg="white.500"
+        // mt="8"
+        w="100%"
+        overflow="hidden"
+      >
+        <Service />
+      </Box>
+
+      <Box
+        id="leave-message-box"
+        scrollMarginTop={`${navHeight}px`}
+        bg="light_green.500"
+        w="100%"
+        overflow="hidden"
+      >
+        <Contact />
+      </Box>
+
+      <Box
+        id="about-us-box"
+        scrollMarginTop={`${navHeight}px`}
+        w="100%"
+        bg="white.500"
+        overflow="hidden"
+      >
+        <AboutUs />
+      </Box>
+
       <Footer />
     </>
   );

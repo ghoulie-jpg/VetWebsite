@@ -71,7 +71,7 @@ export default function Contact(): JSX.Element {
 
   return (
     <Box>
-      <Container maxW="7xl" px={{ base: 0, md: 0 }}>
+      <Container maxW="80%" px={{ base: 0, md: 0 }}>
         {/* Heading */}
         <Grid templateColumns="repeat(12, 1fr)" mb={0}>
           <Flex gridColumn="1 / 13" flexDirection="column">
