@@ -24,7 +24,7 @@ const Header: React.FC = () => {
       >
         {/* Title box - no fixed height, stays at top */}
         <Box
-          width={{ base: "70%", md: "60%", lg: "60%", xl: "40%" }}
+          width={{ base: '70%', md: '60%', lg: '60%', xl: '40%' }}
           display="flex"
           alignItems="flex-start"
           justifyContent="flex-start"
@@ -33,11 +33,11 @@ const Header: React.FC = () => {
         >
           <Heading
             color="rgb(39, 30, 30)"
-            fontSize={{ 
-              base: "clamp(1.5rem, 8vw, 2.5rem)", 
-              md: "clamp(2rem, 6vw, 3rem)", 
-              lg: "clamp(2.5rem, 5vw, 3.5rem)",
-              xl: "clamp(3rem, 4vw, 4rem)" 
+            fontSize={{
+              base: 'clamp(1.5rem, 8vw, 2.5rem)',
+              md: 'clamp(2rem, 6vw, 3rem)',
+              lg: 'clamp(2.5rem, 5vw, 3.5rem)',
+              xl: 'clamp(3rem, 4vw, 4rem)',
             }}
             fontWeight="normal"
             lineHeight="1.1"
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
 
         {/* Clinic info box - no fixed height */}
         <Box
-          width={{ base: "50%", md: "50%", lg: "40%", xl: "40%" }}
+          width={{ base: '50%', md: '50%', lg: '40%', xl: '40%' }}
           display="flex"
           alignItems="flex-start"
           justifyContent="flex-start"
@@ -69,11 +69,11 @@ const Header: React.FC = () => {
           ml="2%"
         >
           <Text
-            fontSize={{ 
-              base: "clamp(0.9rem, 4vw, 1.1rem)", 
-              md: "clamp(1rem, 3vw, 1.3rem)", 
-              lg: "clamp(1.1rem, 2.5vw, 1.4rem)",
-              xl: "clamp(1.2rem, 2vw, 1.5rem)" 
+            fontSize={{
+              base: 'clamp(0.9rem, 4vw, 1.1rem)',
+              md: 'clamp(1rem, 3vw, 1.3rem)',
+              lg: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+              xl: 'clamp(1.2rem, 2vw, 1.5rem)',
             }}
             fontWeight="medium"
             lineHeight="1.4"

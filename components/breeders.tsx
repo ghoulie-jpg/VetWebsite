@@ -60,10 +60,10 @@ export default function Breeders() {
             </Box>
 
             {/* Image - now second in mobile, first in desktop */}
-            <Box 
-              flex="0 0 auto" 
-              m={0} 
-              p={0} 
+            <Box
+              flex="0 0 auto"
+              m={0}
+              p={0}
               mr={{ base: 0, lg: 6 }}
               mb={{ base: 4, lg: 0 }}
               display="inline-block"

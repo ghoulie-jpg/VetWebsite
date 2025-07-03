@@ -67,7 +67,7 @@ export default function Intakeform(): JSX.Element {
     <Box bg="white" py={12}>
       {/* "Contact Us" heading with same grid structure */}
       <Grid templateColumns="repeat(12, 1fr)" mb={6}>
-        <Flex gridColumn="1 / 13" flexDirection="column" >
+        <Flex gridColumn="1 / 13" flexDirection="column">
           <Heading
             as="h3"
             fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
@@ -203,8 +203,8 @@ export default function Intakeform(): JSX.Element {
             </Box>
 
             {/* Image - centered when stacked */}
-            <Box 
-              flex="1" 
+            <Box
+              flex="1"
               paddingLeft={{ base: 0, lg: 20 }}
               display="flex"
               justifyContent="center"

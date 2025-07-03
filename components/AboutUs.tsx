@@ -35,7 +35,12 @@ const AboutUs: React.FC = () => {
           <Box gridColumn="1 / 13">
             {/* First section: Image and Text */}
             <Flex
-              direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
+              direction={{
+                base: 'column',
+                sm: 'column',
+                md: 'column',
+                lg: 'row',
+              }}
               gap={{ base: 6, lg: 0 }}
               alignItems="start"
               mb={10}
@@ -72,7 +77,12 @@ const AboutUs: React.FC = () => {
 
             {/* Second section: Image and Text */}
             <Flex
-              direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
+              direction={{
+                base: 'column',
+                sm: 'column',
+                md: 'column',
+                lg: 'row',
+              }}
               gap={{ base: 6, lg: 0 }}
               alignItems="start"
             >

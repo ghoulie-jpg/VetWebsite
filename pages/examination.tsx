@@ -8,9 +8,9 @@ const examination: React.FC = () => {
   return (
     <>
       <Box display="grid" gridTemplateRows="auto 1fr auto" minHeight="100vh">
-      <Nav />
-      <Examinations />
-      <Footer />
+        <Nav />
+        <Examinations />
+        <Footer />
       </Box>
     </>
   );

@@ -40,11 +40,7 @@ export default function PalliativeService(): JSX.Element {
               p={0}
               order={{ base: 1, lg: 2 }}
             >
-              <Text
-                fontSize={['xl']}
-                fontWeight="normal"
-                mb="18px"
-              >
+              <Text fontSize={['xl']} fontWeight="normal" mb="18px">
                 We can help you with end of life decisions and care for your
                 pet. Having support and guidance when choosing the right time to
                 say goodbye can help make this difficult time a little easier.
@@ -61,10 +57,10 @@ export default function PalliativeService(): JSX.Element {
             </Box>
 
             {/* Image - now second in mobile, first in desktop */}
-            <Box 
-              flex="0 0 auto" 
-              m={0} 
-              p={0} 
+            <Box
+              flex="0 0 auto"
+              m={0}
+              p={0}
               mr={{ base: 0, lg: 6 }}
               mb={{ base: 4, lg: 0 }}
               display="inline-block"
@@ -72,7 +68,7 @@ export default function PalliativeService(): JSX.Element {
             >
               <Image
                 src="Oscar_cropped.png"
-                alt="Contact us image"
+                alt="Oscar - Contact us image"
                 width="auto"
                 height="400px"
                 objectFit="cover"
@@ -80,6 +76,8 @@ export default function PalliativeService(): JSX.Element {
                 boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
                 m={0}
                 p={0}
+                placeholder="blur"
+                // fill
               />
             </Box>
           </Flex>

@@ -34,7 +34,6 @@ const Home: React.FC = () => {
 
     // Update on window resize
     window.addEventListener('resize', updateNavHeight);
-    
     return () => window.removeEventListener('resize', updateNavHeight);
   }, []);
 
@@ -66,10 +65,10 @@ const Home: React.FC = () => {
         // Calculate position accounting for nav height
         const elementPosition = el.offsetTop;
         const offsetPosition = elementPosition - navHeight;
-        
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     };

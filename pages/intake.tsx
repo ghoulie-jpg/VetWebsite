@@ -7,7 +7,7 @@ import { Container } from '@chakra-ui/react';
 const Intake: React.FC = () => {
   return (
     <>
-      <Nav/>
+      <Nav />
       <Container>
         <Intakeform />
       </Container>

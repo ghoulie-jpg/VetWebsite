@@ -93,7 +93,7 @@ const Nav: React.FC = () => {
       boxShadow="md"
       position="sticky"
       top="0"
-      zIndex="999" 
+      zIndex="999"
     >
       <Flex
         align="center"
