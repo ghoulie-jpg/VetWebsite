@@ -14,9 +14,9 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const Service: React.FC = () => {
   return (
-    <Box position="relative">
+    <Box position="relative" color="black">
       <Box py={12}>
-        <Container maxW="80%" px={{ base: 0, md: 0 }}>
+        <Container maxW="80%" px={{ base: 0, md: 0 }} >
           {/* Heading */}
           <Heading
             as="h3"

@@ -42,7 +42,7 @@ export default function Examinations() {
               p={0}
               order={{ base: 1, lg: 2 }}
             >
-              <Text fontSize={['xl']} fontWeight="normal" mb="18px">
+              <Text fontSize={['xl']} fontWeight="normal" mb="18px" color="black">
                 Routine health exams including vaccination and parasite
                 prevention or treatment are part of an effective strategy to
                 keep your pet healthy.

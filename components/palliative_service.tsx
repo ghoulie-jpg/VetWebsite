@@ -40,7 +40,7 @@ export default function PalliativeService(): JSX.Element {
               p={0}
               order={{ base: 1, lg: 2 }}
             >
-              <Text fontSize={['xl']} fontWeight="normal" mb="18px">
+              <Text fontSize={['xl']} fontWeight="normal" mb="18px" color="black">
                 We can help you with end of life decisions and care for your
                 pet. Having support and guidance when choosing the right time to
                 say goodbye can help make this difficult time a little easier.
