@@ -1,21 +1,20 @@
 'use client';
 import React from 'react';
-import { Image, Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
+import { Image, Flex, Box, Heading, Text, Grid, Container} from '@chakra-ui/react';
 
 export default function Breeders() {
   return (
-    <Box bg="white">
-      {/* Main content section using single grid structure */}
+    <Box position="relative">
+      <Box py={12}>
+      <Container maxW="100%" px={{ base: 0, md: 0 }} >
       <Grid templateColumns="repeat(12, 1fr)">
         <Box
-          py={12}
           gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 13', '2 / 13']}
-          mb={10}
         >
           {/* Heading */}
           <Heading
             as="h3"
-            fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
+            fontSize={'5xl'}
             fontWeight="medium"
             mb="18px"
             lineHeight="1.2"
@@ -31,11 +30,12 @@ export default function Breeders() {
             mt={6}
           >
             {/* Text box container - now first in mobile, second in desktop */}
-            <Box
+            <Flex
               bg="white"
               borderRadius="0"
-              width={{ base: '100%', lg: '700px' }}
-              flex="0 0 auto"
+              // width={{ base: '100%', lg: '700px' }}
+              width = "100%"
+              // flex="0 0 auto"
               m={0}
               p={0}
               order={{ base: 1, lg: 2 }}
@@ -57,7 +57,7 @@ export default function Breeders() {
                 We will do our best to meet the individual needs of our
                 breeders.
               </Text>
-            </Box>
+            </Flex>
 
             {/* Image - now second in mobile, first in desktop */}
             <Box
@@ -70,9 +70,9 @@ export default function Breeders() {
               order={{ base: 2, lg: 1 }}
             >
               <Image
-                src="breeders.png"
+                src="puppies.jpg"
                 width="auto"
-                height="400px"
+                width="400px"
                 objectFit="cover"
                 borderRadius="0px"
                 boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
@@ -83,6 +83,9 @@ export default function Breeders() {
           </Flex>
         </Box>
       </Grid>
+          </Container>
+
+    </Box>
     </Box>
   );
 }

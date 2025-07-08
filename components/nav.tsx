@@ -44,13 +44,14 @@ const MenuItem: React.FC<MenuItemProps> = ({
       onClick={handleClick}
       cursor="pointer"
       fontWeight="medium"
-      fontSize="xl"
-      py={[2, 2, 0, 0]}
-      mt={[4, 4, 0, 0]}
-      mr={[0, 0, 8, 8]}
+      fontSize="lg"
+      py={2}
+      mt={4}
+      mr={6}
       display="block"
       _hover={{ color: '#0D74FF' }}
-      textAlign={['center', 'center', 'left', 'left']}
+      textAlign="center"
+      whiteSpace="nowrap"
     >
       {label}
     </Text>
@@ -66,7 +67,7 @@ const Nav: React.FC = () => {
 
   const handleLogoClick = () => {
     router.push('/');
-    handleClose(); // Close mobile menu if open
+    handleClose();
   };
 
   const handleButtonClick = () => {
@@ -97,10 +98,9 @@ const Nav: React.FC = () => {
     >
       <Flex
         align="center"
-        justify="flex-start"
-        wrap="wrap"
+        justify="space-between"
         px="1em"
-        pl="5%" // Logo starts 5% from the left edge
+        pl="5%"
         py="1.5em"
         color="black"
         textTransform="uppercase"
@@ -115,12 +115,11 @@ const Nav: React.FC = () => {
           <Logo />
         </Box>
 
-        {/* Hamburger Icon */}
+        {/* Hamburger Icon - Show on screens smaller than xl (1280px) */}
         <Box
-          display={['block', 'block', 'none', 'none']}
+          display={['block', 'block', 'block', 'block', 'none']}
           onClick={handleToggle}
           cursor="pointer"
-          ml="auto"
           p={2}
         >
           {isOpen ? (
@@ -148,61 +147,168 @@ const Nav: React.FC = () => {
           )}
         </Box>
 
-        {/* Menu Items and Button */}
+        {/* Desktop Menu - Only show on xl screens and larger (1280px+) */}
         <Flex
-          direction={['column', 'column', 'row', 'row']}
           align="center"
-          ml={[0, 0, 8, 8]} // Increased spacing between logo and menu items
-          flexWrap="wrap"
+          ml={8}
           flexGrow={1}
-          justify={['center', 'center', 'flex-start', 'flex-start']}
-          display={[
-            isOpen ? 'flex' : 'none',
-            isOpen ? 'flex' : 'none',
-            'flex',
-            'flex',
-          ]}
-          mt={[isOpen ? 4 : 0, isOpen ? 4 : 0, 0, 0]}
+          justify="flex-start"
+          display={['none', 'none', 'none', 'none', 'flex']}
         >
-          <MenuItem label="Home" sectionId="header-box" onClick={handleClose} />
-          <MenuItem
-            label="About Us"
-            sectionId="about-us-box"
-            onClick={handleClose}
-          />
-          <MenuItem
-            label="Services"
-            sectionId="services-box"
-            onClick={handleClose}
-          />
-          <MenuItem
-            label="New Clients : Contact Us"
-            href="/intake"
-            onClick={handleClose}
-          />
-
-          <Stack
-            direction={['column', 'column', 'row', 'row']}
-            align="center"
-            ml={[0, 0, 6, 6]}
-            mt={[4, 4, 0, 0]}
-            width={['full', 'full', 'auto', 'auto']}
+          <Text
+            as="span"
+            onClick={() => {
+              const sectionId = 'header-box';
+              if (router.pathname === '/') {
+                window.dispatchEvent(
+                  new CustomEvent('scrollToSection', { detail: sectionId })
+                );
+              } else {
+                router.push(
+                  { pathname: '/', query: { scrollTo: sectionId } },
+                  undefined,
+                  { scroll: false }
+                );
+              }
+            }}
+            cursor="pointer"
+            fontWeight="medium"
+            fontSize="lg"
+            mr={6}
+            _hover={{ color: '#0D74FF' }}
+            whiteSpace="nowrap"
           >
+            Home
+          </Text>
+          
+          <Text
+            as="span"
+            onClick={() => {
+              const sectionId = 'about-us-box';
+              if (router.pathname === '/') {
+                window.dispatchEvent(
+                  new CustomEvent('scrollToSection', { detail: sectionId })
+                );
+              } else {
+                router.push(
+                  { pathname: '/', query: { scrollTo: sectionId } },
+                  undefined,
+                  { scroll: false }
+                );
+              }
+            }}
+            cursor="pointer"
+            fontWeight="medium"
+            fontSize="lg"
+            mr={6}
+            _hover={{ color: '#0D74FF' }}
+            whiteSpace="nowrap"
+          >
+            About Us
+          </Text>
+          
+          <Text
+            as="span"
+            onClick={() => {
+              const sectionId = 'services-box';
+              if (router.pathname === '/') {
+                window.dispatchEvent(
+                  new CustomEvent('scrollToSection', { detail: sectionId })
+                );
+              } else {
+                router.push(
+                  { pathname: '/', query: { scrollTo: sectionId } },
+                  undefined,
+                  { scroll: false }
+                );
+              }
+            }}
+            cursor="pointer"
+            fontWeight="medium"
+            fontSize="lg"
+            mr={6}
+            _hover={{ color: '#0D74FF' }}
+            whiteSpace="nowrap"
+          >
+            Services  
+          </Text>
+          
+          <Text
+            as="span"
+            onClick={() => router.push('/intake')}
+            cursor="pointer"
+            fontWeight="medium"
+            fontSize="lg"
+            mr={6}
+            _hover={{ color: '#0D74FF' }}
+            whiteSpace="nowrap"
+          >
+            New Clients : Contact Us
+          </Text>
+
+          <Button
+            bg="dark_green.500"
+            _hover={{ bg: '#333' }}
+            onClick={handleButtonClick}
+            colorScheme="blue"
+            borderRadius="0"
+            fontSize="lg"
+            color="white"
+            whiteSpace="nowrap"
+            flexShrink={0}
+          >
+            EXISTING CLIENTS: LEAVE A MESSAGE
+          </Button>
+        </Flex>
+      </Flex>
+
+      {/* Mobile/Collapsed Menu */}
+      {isOpen && (
+        <Box
+          bg="white"
+          borderTop="1px solid"
+          borderColor="gray.200"
+          pb={4}
+          display={['block', 'block', 'block', 'block', 'none']}
+        >
+          <Flex
+            direction="column"
+            align="center"
+            px="1em"
+          >
+            <MenuItem label="Home" sectionId="header-box" onClick={handleClose} />
+            <MenuItem
+              label="About Us"
+              sectionId="about-us-box"
+              onClick={handleClose}
+            />
+            <MenuItem
+              label="Services"
+              sectionId="services-box"
+              onClick={handleClose}
+            />
+            <MenuItem
+              label="New Clients : Contact Us"
+              href="/intake"
+              onClick={handleClose}
+            />
+
             <Button
               bg="dark_green.500"
               _hover={{ bg: '#333' }}
               onClick={handleButtonClick}
               colorScheme="blue"
               borderRadius="0"
-              width={['full', 'full', 'auto', 'auto']}
-              fontSize="xl"
+              width="full"
+              fontSize="lg"
               color="white"
+              mt={4}
             >
               EXISTING CLIENTS: LEAVE A MESSAGE
             </Button>
-          </Stack>
-        </Flex>
-      </Flex>
+          </Flex>
+        </Box>
+      )}
     </Box>
   );
 };

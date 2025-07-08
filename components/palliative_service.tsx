@@ -23,61 +23,65 @@ export default function PalliativeService(): JSX.Element {
             Palliative and End of Life Care
           </Heading>
 
-          {/* Container for text box and image side by side */}
-          <Flex
-            direction={{ base: 'column', lg: 'row' }}
-            gap={0}
-            alignItems="flex-start"
+          {/* Text content */}
+          <Box
+            bg="white"
+            borderRadius="0"
+            width="100%"
+            m={0}
+            p={0}
             mt={6}
+            mb={8}
           >
-            {/* Text box container - now first in mobile, second in desktop */}
-            <Box
-              bg="white"
-              borderRadius="0"
-              width={{ base: '100%', lg: '700px' }}
-              flex="0 0 auto"
-              m={0}
-              p={0}
-              order={{ base: 1, lg: 2 }}
-            >
-              <Text fontSize={['xl']} fontWeight="normal" mb="18px" color="black">
-                We can help you with end of life decisions and care for your
-                pet. Having support and guidance when choosing the right time to
-                say goodbye can help make this difficult time a little easier.
-                <br />
-                <br />
-                At home this can be peaceful and without the stress of a trip to
-                the vet clinic.
-                <br />
-                <br />
-                We will help you with after care if you wish. Ashes can be
-                returned in an urn to keep with you or to scatter on their
-                favourite walk or under their favourite tree.
-              </Text>
-            </Box>
+            <Text fontSize={['xl']} fontWeight="normal" mb="18px" color="black">
+              We can help you with end of life decisions and care for your
+              pet. Having support and guidance when choosing the right time to
+              say goodbye can help make this difficult time a little easier.
+              <br />
+              <br />
+              At home this can be peaceful and without the stress of a trip to
+              the vet clinic.
+              <br />
+              <br />
+              We will help you with after care if you wish. Ashes can be
+              returned in an urn to keep with you or to scatter on their
+              favourite walk or under their favourite tree.
+            </Text>
+          </Box>
 
-            {/* Image - now second in mobile, first in desktop */}
-            <Box
-              flex="0 0 auto"
-              m={0}
-              p={0}
-              mr={{ base: 0, lg: 6 }}
-              mb={{ base: 4, lg: 0 }}
-              display="inline-block"
-              order={{ base: 2, lg: 1 }}
-            >
+          {/* Images container - displayed below the text */}
+          <Flex
+            direction={{ base: 'column', md: 'row' }}
+            gap={6}
+            alignItems="flex-start"
+            justifyContent="flex-start"
+          >
+            <Box flex="0 0 auto">
               <Image
-                src="Oscar_cropped.png"
+                src="sweater_dog_rotated.png"
                 alt="Oscar - Contact us image"
                 width="auto"
-                height="400px"
+                height="300px"
                 objectFit="cover"
                 borderRadius="0px"
                 boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
                 m={0}
                 p={0}
                 placeholder="blur"
-                // fill
+              />
+            </Box>
+            <Box flex="0 0 auto">
+              <Image
+                src="winter_dog.png"
+                alt="Oscar - Contact us image"
+                width="auto"
+                height="300px"
+                objectFit="cover"
+                borderRadius="0px"
+                boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
+                m={0}
+                p={0}
+                placeholder="blur"
               />
             </Box>
           </Flex>
