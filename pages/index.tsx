@@ -89,7 +89,7 @@ const Home: React.FC = () => {
       <Box
         id="services-box"
         scrollMarginTop={`${navHeight}px`}
-        bg="white.500"
+        bg="white"
         // mt="8"
         w="100%"
         overflow="hidden"
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
         id="about-us-box"
         scrollMarginTop={`${navHeight}px`}
         w="100%"
-        bg="white.500"
+        bg="white"
         overflow="hidden"
       >
         <AboutUs />
