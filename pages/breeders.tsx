@@ -12,8 +12,6 @@ const breeders: React.FC = () => {
     <Box
       // scrollMarginTop={`${navHeight}px`}
       bg="white"
-      w="100%"
-      overflow="hidden"
     >
       <Breeders />
       </Box>

@@ -70,19 +70,39 @@ const Nav: React.FC = () => {
     handleClose();
   };
 
-  const handleButtonClick = () => {
-    const sectionId = 'leave-message-box';
+  const scrollToSection = (sectionId: string) => {
     if (router.pathname === '/') {
+      // If already on home page, scroll immediately
       window.dispatchEvent(
         new CustomEvent('scrollToSection', { detail: sectionId })
       );
     } else {
+      // If on another page, navigate and then scroll with delay
       router.push(
         { pathname: '/', query: { scrollTo: sectionId } },
         undefined,
         { scroll: false }
-      );
+      ).then(() => {
+        // Add multiple fallback attempts to ensure scrolling works
+        const attemptScroll = (attempt = 0) => {
+          if (attempt < 5) {
+            setTimeout(() => {
+              window.dispatchEvent(
+                new CustomEvent('scrollToSection', { detail: sectionId })
+              );
+              // Try again if the element might not be ready
+              attemptScroll(attempt + 1);
+            }, 100 * (attempt + 1)); // Increasing delays: 100ms, 200ms, 300ms, 400ms, 500ms
+          }
+        };
+        attemptScroll();
+      });
     }
+  };
+
+  const handleButtonClick = () => {
+    const sectionId = 'leave-message-box';
+    scrollToSection(sectionId);
     handleClose();
   };
 
@@ -157,20 +177,7 @@ const Nav: React.FC = () => {
         >
           <Text
             as="span"
-            onClick={() => {
-              const sectionId = 'header-box';
-              if (router.pathname === '/') {
-                window.dispatchEvent(
-                  new CustomEvent('scrollToSection', { detail: sectionId })
-                );
-              } else {
-                router.push(
-                  { pathname: '/', query: { scrollTo: sectionId } },
-                  undefined,
-                  { scroll: false }
-                );
-              }
-            }}
+            onClick={() => scrollToSection('header-box')}
             cursor="pointer"
             fontWeight="medium"
             fontSize="lg"
@@ -183,20 +190,7 @@ const Nav: React.FC = () => {
           
           <Text
             as="span"
-            onClick={() => {
-              const sectionId = 'about-us-box';
-              if (router.pathname === '/') {
-                window.dispatchEvent(
-                  new CustomEvent('scrollToSection', { detail: sectionId })
-                );
-              } else {
-                router.push(
-                  { pathname: '/', query: { scrollTo: sectionId } },
-                  undefined,
-                  { scroll: false }
-                );
-              }
-            }}
+            onClick={() => scrollToSection('about-us-box')}
             cursor="pointer"
             fontWeight="medium"
             fontSize="lg"
@@ -209,20 +203,7 @@ const Nav: React.FC = () => {
           
           <Text
             as="span"
-            onClick={() => {
-              const sectionId = 'services-box';
-              if (router.pathname === '/') {
-                window.dispatchEvent(
-                  new CustomEvent('scrollToSection', { detail: sectionId })
-                );
-              } else {
-                router.push(
-                  { pathname: '/', query: { scrollTo: sectionId } },
-                  undefined,
-                  { scroll: false }
-                );
-              }
-            }}
+            onClick={() => scrollToSection('services-box')}
             cursor="pointer"
             fontWeight="medium"
             fontSize="lg"
@@ -230,7 +211,7 @@ const Nav: React.FC = () => {
             _hover={{ color: '#0D74FF' }}
             whiteSpace="nowrap"
           >
-            Services  
+            Services
           </Text>
           
           <Text

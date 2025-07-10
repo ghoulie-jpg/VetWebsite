@@ -107,11 +107,12 @@ const Service: React.FC = () => {
               justifyContent="center"
             >
               <Image
-                src="DSC_0441-Edit.jpg"
+                src="steth.png"
                 w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="right center" // or "20% center", etc.
+                maxW="100%"
+                h="auto"
+                objectFit="contain"
+                objectPosition="center"
                 boxShadow="lg"
               />
             </Flex>
