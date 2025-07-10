@@ -40,7 +40,12 @@ export default function ClientResources() {
               m={0}
               p={0}
             >
-              <Text fontSize={['xl']} fontWeight="normal" mb="18px" color="black">
+              <Text
+                fontSize={['xl']}
+                fontWeight="normal"
+                mb="18px"
+                color="black"
+              >
                 Nothing to see here yet!
               </Text>
             </Box>

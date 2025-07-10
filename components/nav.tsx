@@ -78,25 +78,25 @@ const Nav: React.FC = () => {
       );
     } else {
       // If on another page, navigate and then scroll with delay
-      router.push(
-        { pathname: '/', query: { scrollTo: sectionId } },
-        undefined,
-        { scroll: false }
-      ).then(() => {
-        // Add multiple fallback attempts to ensure scrolling works
-        const attemptScroll = (attempt = 0) => {
-          if (attempt < 5) {
-            setTimeout(() => {
-              window.dispatchEvent(
-                new CustomEvent('scrollToSection', { detail: sectionId })
-              );
-              // Try again if the element might not be ready
-              attemptScroll(attempt + 1);
-            }, 100 * (attempt + 1)); // Increasing delays: 100ms, 200ms, 300ms, 400ms, 500ms
-          }
-        };
-        attemptScroll();
-      });
+      router
+        .push({ pathname: '/', query: { scrollTo: sectionId } }, undefined, {
+          scroll: false,
+        })
+        .then(() => {
+          // Add multiple fallback attempts to ensure scrolling works
+          const attemptScroll = (attempt = 0) => {
+            if (attempt < 5) {
+              setTimeout(() => {
+                window.dispatchEvent(
+                  new CustomEvent('scrollToSection', { detail: sectionId })
+                );
+                // Try again if the element might not be ready
+                attemptScroll(attempt + 1);
+              }, 100 * (attempt + 1)); // Increasing delays: 100ms, 200ms, 300ms, 400ms, 500ms
+            }
+          };
+          attemptScroll();
+        });
     }
   };
 
@@ -187,7 +187,7 @@ const Nav: React.FC = () => {
           >
             Home
           </Text>
-          
+
           <Text
             as="span"
             onClick={() => scrollToSection('about-us-box')}
@@ -200,7 +200,7 @@ const Nav: React.FC = () => {
           >
             About Us
           </Text>
-          
+
           <Text
             as="span"
             onClick={() => scrollToSection('services-box')}
@@ -213,7 +213,7 @@ const Nav: React.FC = () => {
           >
             Services
           </Text>
-          
+
           <Text
             as="span"
             onClick={() => router.push('/intake')}
@@ -252,12 +252,12 @@ const Nav: React.FC = () => {
           pb={4}
           display={['block', 'block', 'block', 'block', 'none']}
         >
-          <Flex
-            direction="column"
-            align="center"
-            px="1em"
-          >
-            <MenuItem label="Home" sectionId="header-box" onClick={handleClose} />
+          <Flex direction="column" align="center" px="1em">
+            <MenuItem
+              label="Home"
+              sectionId="header-box"
+              onClick={handleClose}
+            />
             <MenuItem
               label="About Us"
               sectionId="about-us-box"

@@ -7,12 +7,11 @@ import { Box } from '@chakra-ui/react';
 const inhome: React.FC = () => {
   return (
     <>
-    <Nav/>
-    <Box>
-      <InHome />
+      <Nav />
+      <Box>
+        <InHome />
       </Box>
       <Footer />
-      
     </>
   );
 };

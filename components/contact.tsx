@@ -41,7 +41,7 @@ export default function Contact(): JSX.Element {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -105,7 +105,7 @@ export default function Contact(): JSX.Element {
           {/* Form */}
           <Box
             bg="white"
-            width={{ base: '100%', md: '50%' }}
+            width={{ base: '100%', md: '65%' }}
             border="1px solid rgba(0, 0, 0, 0.1)"
             boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
             id="contact-form"
@@ -166,7 +166,7 @@ export default function Contact(): JSX.Element {
                     {[
                       { value: 'telemedicine', label: 'Telemedicine/Virtual' },
                       { value: 'in-home', label: 'In Home' },
-                    ].map(opt => (
+                    ].map((opt) => (
                       <Box key={opt.value} display="flex" alignItems="center">
                         <input
                           type="radio"
@@ -201,7 +201,7 @@ export default function Contact(): JSX.Element {
                     height="50px"
                     width="100%"
                     fontSize="lg"
-                    isLoading={isSubmitting}
+                    // isLoading={isSubmitting}
                     loadingText="Sending..."
                   >
                     Submit
@@ -212,17 +212,17 @@ export default function Contact(): JSX.Element {
           </Box>
 
           {/* Image */}
-          <Box 
-            width={{ base: '100%', md: '50%' }} 
+          <Box
+            width={{ base: '100%', md: '35%' }}
             mt={{ base: 6, md: 0 }}
-            height={{ base: 'auto', md: formHeight > 0 ? `${formHeight}px` : 'auto' }}
             overflow="hidden"
+            alignSelf="flex-start"
           >
             <Image
               src="dogs_onfence.png"
               alt="Contact us image"
-              width="auto"
-              height="100%"
+              width="100%"
+              height="auto"
               objectFit="contain"
               objectPosition="center"
               borderRadius="0"
@@ -233,4 +233,4 @@ export default function Contact(): JSX.Element {
       </Container>
     </Box>
   );
-} 
+}

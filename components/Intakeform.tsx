@@ -69,12 +69,12 @@ export default function Intakeform(): JSX.Element {
       <Grid templateColumns="repeat(12, 1fr)" mb={6}>
         <Flex gridColumn="1 / 13" flexDirection="column">
           <Heading
-                      as="h3"
-                      fontSize={'5xl'}
-                      fontWeight="medium"
-                      mb="18px"
-                      lineHeight="1.2"
-                    >
+            as="h3"
+            fontSize={'5xl'}
+            fontWeight="medium"
+            mb="18px"
+            lineHeight="1.2"
+          >
             New Clients : Contact Us
           </Heading>
         </Flex>

@@ -9,11 +9,11 @@ export default function PalliativeService(): JSX.Element {
   return (
     <Box py={12}>
       <Grid templateColumns="repeat(12, 1fr)">
-        <Box gridColumn={["2 / 12", "2 / 12", "2 / 12", "2 / 12", "2 / 12"]}>
+        <Box gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 12', '2 / 12']}>
           {/* Heading */}
           <Heading
             as="h3"
-            fontSize={['2xl','5xl']}
+            fontSize={['2xl', '5xl']}
             fontWeight="medium"
             mb="18px"
             lineHeight="1.2"
@@ -24,7 +24,7 @@ export default function PalliativeService(): JSX.Element {
           {/* Text Content */}
           <Box mb={6}>
             <Text
-              fontSize={['lg','xl']}
+              fontSize={['lg', 'xl']}
               fontWeight="normal"
               mb="18px"
               color="black"
@@ -33,10 +33,12 @@ export default function PalliativeService(): JSX.Element {
               We can help you with end of life decisions and care for your pet.
               Having support and guidance when choosing the right time to say
               goodbye can help make this difficult time a little easier.
-              <br /><br />
+              <br />
+              <br />
               At home this can be peaceful and without the stress of a trip to
               the vet clinic.
-              <br /><br />
+              <br />
+              <br />
               We will help you with after care if you wish. Ashes can be
               returned in an urn to keep with you or to scatter on their
               favourite walk or under their favourite tree.

@@ -18,10 +18,10 @@ const Footer: React.FC = () => {
         pt={['6', '6', '6', '8', '8']}
       >
         <Box color="white">
-          <Heading 
-            as="h1" 
+          <Heading
+            as="h1"
             size={['3xl', '4xl', '4xl', '5xl', '5xl']} // Responsive sizing
-            color="white" 
+            color="white"
             textTransform="uppercase"
             lineHeight="1.1" // Tighter line height
           >
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
             </Text>
           </Heading>
         </Box>
-        
+
         <Flex
           flexDirection="row"
           justifyContent="space-between"

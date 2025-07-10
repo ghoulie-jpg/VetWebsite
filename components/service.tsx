@@ -16,7 +16,7 @@ const Service: React.FC = () => {
   return (
     <Box position="relative">
       <Box py={12}>
-        <Container maxW="80%" px={{ base: 0, md: 0 }} >
+        <Container maxW="80%" px={{ base: 0, md: 0 }}>
           {/* Heading */}
           <Heading
             as="h3"

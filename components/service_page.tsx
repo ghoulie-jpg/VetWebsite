@@ -9,20 +9,20 @@ interface ServicePageProps {
   imageAlt?: string;
 }
 
-export default function ServicePage({ 
-  title, 
-  content, 
-  imageSrc, 
-  imageAlt = "Service image" 
+export default function ServicePage({
+  title,
+  content,
+  imageSrc,
+  imageAlt = 'Service image',
 }: ServicePageProps): JSX.Element {
   return (
     <Box py={12}>
       <Grid templateColumns="repeat(12, 1fr)">
-        <Box gridColumn={["2 / 12", "2 / 12", "2 / 12", "2 / 12", "2 / 12"]}>
+        <Box gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 12', '2 / 12']}>
           {/* Heading */}
           <Heading
             as="h3"
-            fontSize={['2xl','5xl']}
+            fontSize={['2xl', '5xl']}
             fontWeight="medium"
             mb="18px"
             lineHeight="1.2"
@@ -55,12 +55,9 @@ export default function ServicePage({
             </Box>
 
             {/* Text content - appears on right on desktop, above image on mobile */}
-            <Box
-              flex="1"
-              order={{ base: 1, lg: 2 }}
-            >
+            <Box flex="1" order={{ base: 1, lg: 2 }}>
               <Text
-                fontSize={['lg','xl']}
+                fontSize={['lg', 'xl']}
                 fontWeight="normal"
                 mb="18px"
                 color="black"
