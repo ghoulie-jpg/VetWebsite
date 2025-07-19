@@ -168,7 +168,10 @@ export default function Contact(): JSX.Element {
                     <FormLabel mb={2}>Appointment Type:</FormLabel>
                     <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
                       {[
-                        { value: 'telemedicine', label: 'Telemedicine/Virtual' },
+                        {
+                          value: 'telemedicine',
+                          label: 'Telemedicine/Virtual',
+                        },
                         { value: 'in-home', label: 'In Home' },
                       ].map((opt) => (
                         <Box key={opt.value} display="flex" alignItems="center">
@@ -207,7 +210,9 @@ export default function Contact(): JSX.Element {
                             id={`communication-${opt.value}`}
                             name="preferredCommunication"
                             value={opt.value}
-                            checked={formData.preferredCommunication === opt.value}
+                            checked={
+                              formData.preferredCommunication === opt.value
+                            }
                             onChange={handleInputChange}
                             style={{
                               marginRight: '8px',
@@ -216,7 +221,10 @@ export default function Contact(): JSX.Element {
                               backgroundColor: 'white',
                             }}
                           />
-                          <FormLabel htmlFor={`communication-${opt.value}`} mb={0}>
+                          <FormLabel
+                            htmlFor={`communication-${opt.value}`}
+                            mb={0}
+                          >
                             {opt.label}
                           </FormLabel>
                         </Box>

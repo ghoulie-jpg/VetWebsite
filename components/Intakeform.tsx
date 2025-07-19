@@ -122,19 +122,20 @@ export default function IntakeForm(): JSX.Element {
     <Box bg="white" py={12}>
       <Grid templateColumns="repeat(12, 1fr)">
         <Box gridColumn="2 / 12">
-          <Heading as="h3"
-              fontSize="5xl"
-              fontWeight="medium"
-              lineHeight="1.2"
-              mt="20px"
-              mb="20px"
-              color="black">
+          <Heading
+            as="h3"
+            fontSize="5xl"
+            fontWeight="medium"
+            lineHeight="1.2"
+            mt="20px"
+            mb="20px"
+            color="black"
+          >
             New Clients: Contact Us
           </Heading>
           <Text fontSize={['lg', 'lg', 'xl']} mb={4} color="black">
             We check our messages in the mornings of Tuesday, Wednesday, and
-              Thursday. We will check messages through the rest of the week
-              daily.
+            Thursday. We will check messages through the rest of the week daily.
           </Text>
 
           <Flex direction={{ base: 'column', lg: 'row' }} gap={6}>
@@ -150,7 +151,9 @@ export default function IntakeForm(): JSX.Element {
                     {/* Name & Email */}
                     <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
                       <FormControl id="name" isRequired flex="1">
-                        <FormLabel requiredIndicator={<></>}>Your Name</FormLabel>
+                        <FormLabel requiredIndicator={<></>}>
+                          Your Name
+                        </FormLabel>
                         <Input
                           name="name"
                           value={formData.name}
@@ -171,7 +174,9 @@ export default function IntakeForm(): JSX.Element {
                     {/* Phone & Address */}
                     <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
                       <FormControl id="phone" flex="1" isRequired>
-                        <FormLabel requiredIndicator={<></>}>Phone Number</FormLabel>
+                        <FormLabel requiredIndicator={<></>}>
+                          Phone Number
+                        </FormLabel>
                         <Input
                           name="phone"
                           value={formData.phone}
@@ -192,16 +197,25 @@ export default function IntakeForm(): JSX.Element {
                     {formData.pets.map((pet) => (
                       <Box key={pet.id}>
                         <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
-                          <FormControl id={`petName-${pet.id}`} flex="2" isRequired>
-                            <FormLabel mb={2} ml={30} requiredIndicator={<></>}>Pet Name</FormLabel>
+                          <FormControl
+                            id={`petName-${pet.id}`}
+                            flex="2"
+                            isRequired
+                          >
+                            <FormLabel mb={2} ml={30} requiredIndicator={<></>}>
+                              Pet Name
+                            </FormLabel>
                             <Flex align="center">
-                              <Icon
-                                as={FaCircleMinus}
-                                boxSize={6}
+                              <Box
                                 mr={2}
                                 cursor="pointer"
+                                fontSize="24px"
+                                display="flex"
+                                alignItems="center"
                                 onClick={() => removePet(pet.id)}
-                              />
+                              >
+                                {React.createElement(FaCircleMinus as any)}
+                              </Box>
                               <Input
                                 value={pet.name}
                                 onChange={(e) =>
@@ -258,8 +272,14 @@ export default function IntakeForm(): JSX.Element {
                             </Flex>
                           </FormControl>
 
-                          <FormControl id={`petAge-${pet.id}`} flex="1" isRequired>
-                            <FormLabel mb={2} requiredIndicator={<></>}>Age (years)</FormLabel>
+                          <FormControl
+                            id={`petAge-${pet.id}`}
+                            flex="1"
+                            isRequired
+                          >
+                            <FormLabel mb={2} requiredIndicator={<></>}>
+                              Age (years)
+                            </FormLabel>
                             <Input
                               type="number"
                               min="0"
@@ -280,7 +300,9 @@ export default function IntakeForm(): JSX.Element {
                       cursor="pointer"
                       onClick={addPet}
                     >
-                      <Icon as={FaPlusCircle} boxSize={5} />
+                      <Box fontSize="20px" display="flex" alignItems="center">
+                        {React.createElement(FaPlusCircle as any)}
+                      </Box>
                       <Box>Add Pet</Box>
                     </Flex>
 
@@ -301,7 +323,7 @@ export default function IntakeForm(): JSX.Element {
                         {[
                           { value: 'email', label: 'Email' },
                           { value: 'phone', label: 'Phone' },
-                        ].map(opt => (
+                        ].map((opt) => (
                           <Box
                             key={opt.value}
                             display="flex"
@@ -312,7 +334,9 @@ export default function IntakeForm(): JSX.Element {
                               id={opt.value}
                               name="preferredCommunication"
                               value={opt.value}
-                              checked={formData.preferredCommunication === opt.value}
+                              checked={
+                                formData.preferredCommunication === opt.value
+                              }
                               onChange={handleInputChange}
                               style={{
                                 marginRight: '8px',
