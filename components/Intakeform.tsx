@@ -310,7 +310,7 @@ export default function IntakeForm(): JSX.Element {
               height="300px"
             >
               <Image
-                src="/Archie.jpg"
+                src="/Archie.webp"
                 alt="Contact us image"
                 fill
                 style={{ objectFit: 'cover' }}
