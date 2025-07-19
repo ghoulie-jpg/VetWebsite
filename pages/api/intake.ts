@@ -14,9 +14,7 @@ export default async function handler(
 
   try {
     const formData = req.body;
-    const scriptUrl =
-      process.env.GOOGLE_SCRIPT_URL ||
-      'https://script.google.com/macros/s/AKfycbxmCZaZfAFg-YwL8E75iFIaIXi5Ch92Y6FUHSnmu7Nf6iCZdr7MjJye6xLUFMd0R3yg6w/exec';
+    const scriptUrl = process.env.INTAKE_GOOGLE_SCRIPT_URL;
 
     await fetch(scriptUrl, {
       method: 'POST',
