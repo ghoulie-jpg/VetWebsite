@@ -85,10 +85,11 @@ export default function Contact(): JSX.Element {
               lineHeight="1.2"
               mt="20px"
               mb="20px"
+              color="black"
             >
               Leave a Message – For our Existing Clients
             </Heading>
-            <Text fontSize={['lg', 'lg', 'xl']} mb={4}>
+            <Text fontSize={['lg', 'lg', 'xl']} mb={4} color="black">
               We check our messages in the mornings of Tuesday, Wednesday, and
               Thursday. We will check messages through the rest of the week
               daily.

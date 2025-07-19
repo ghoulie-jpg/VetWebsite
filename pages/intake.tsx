@@ -2,16 +2,21 @@ import React from 'react';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 import Intakeform from '../components/Intakeform';
-import { Container } from '@chakra-ui/react';
+import { Container, Box } from '@chakra-ui/react';
 
 const Intake: React.FC = () => {
   return (
     <>
+     <Box
+        display="grid"
+        gridTemplateRows="auto 1fr auto"
+        minHeight="100vh"
+        bg="white"
+        >
       <Nav />
-      <Container>
         <Intakeform />
-      </Container>
       <Footer />
+      </Box>
     </>
   );
 };

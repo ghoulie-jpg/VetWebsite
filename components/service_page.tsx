@@ -26,6 +26,7 @@ export default function ServicePage({
             fontWeight="medium"
             mb="18px"
             lineHeight="1.2"
+            color="black"
           >
             {title}
           </Heading>

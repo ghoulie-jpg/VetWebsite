@@ -17,6 +17,7 @@ export default function PalliativeService(): JSX.Element {
             fontWeight="medium"
             mb="18px"
             lineHeight="1.2"
+            color="black"
           >
             Palliative and End of Life Care
           </Heading>

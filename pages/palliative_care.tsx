@@ -7,7 +7,12 @@ import { Box } from '@chakra-ui/react';
 const Intake: React.FC = () => {
   return (
     <>
-      <Box display="grid" gridTemplateRows="auto 1fr auto" minHeight="100vh">
+      <Box
+        display="grid"
+        gridTemplateRows="auto 1fr auto"
+        minHeight="100vh"
+        bg="white"
+        >
         <Nav />
         <PalliativeService /> {/* Changed to 'Palliative' */}
         <Footer />

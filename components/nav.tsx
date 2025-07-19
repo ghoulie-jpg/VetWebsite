@@ -150,6 +150,7 @@ const Nav = () => {
               onClick={() => handleSection(id)}
               cursor="pointer"
               fontWeight="medium"
+              color="black"
               fontSize="lg"
               mr={6}
               _hover={{ color: '#0D74FF' }}
