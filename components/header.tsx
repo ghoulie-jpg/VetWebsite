@@ -1,31 +1,42 @@
 // Header.jsx
 import React from 'react';
+import Image from 'next/image';
 import { Box, Heading, Text } from '@chakra-ui/react';
 
 const Header = () => (
   <Box
     w="100%"
     minH="80vh"
-    bgImage={{
-      base: `linear-gradient(
-               rgba(255,255,255,0.65),
-               rgba(255,255,255,0.65)
-             ),
-             url(/DSC_0548-Edit3.jpg)`,
-      md: `linear-gradient(
-              to right,
-              rgba(255,255,255,0.65) 20%,
-              rgba(255,255,255,0)   70%
-            ),
-            url(/DSC_0548-Edit3.jpg)`,
-    }}
-    bgSize="cover"
-    bgRepeat="no-repeat"
-    bgPos={{ base: 'center', md: '75%' }}
+    position="relative"
     p={{ base: 4, sm: 6, md: 8 }}
     display="flex"
     alignItems="flex-start"
+    overflow="hidden"
   >
+    {/* Optimized Background Image */}
+    <Image
+      src="/DSC_0548-Edit3.jpg"
+      alt="Veterinary practice background"
+      fill
+      style={{ objectFit: 'cover', objectPosition: '75%' }}
+      sizes="100vw"
+      priority
+      quality={75}
+    />
+
+    {/* Gradient Overlays */}
+    <Box
+      position="absolute"
+      top={0}
+      left={0}
+      right={0}
+      bottom={0}
+      bg={{
+        base: 'rgba(255,255,255,0.65)',
+        md: 'linear-gradient(to right, rgba(255,255,255,0.65) 20%, rgba(255,255,255,0) 70%)',
+      }}
+      zIndex={1}
+    />
     <Box
       w={{ base: '100%', sm: '100%', md: '50%', lg: '40%', xl: '30%' }}
       maxW="600px"
@@ -33,6 +44,8 @@ const Header = () => (
       flexDirection="column"
       gap={{ base: 3, sm: 4, md: 4 }}
       overflowWrap="break-word"
+      position="relative"
+      zIndex={2}
     >
       <Heading
         as="h1"

@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  Box,
-  Grid,
-  Flex,
-  Image,
-  Heading,
-  Text,
-  Container,
-} from '@chakra-ui/react';
+import Image from 'next/image';
+import { Box, Grid, Flex, Heading, Text, Container } from '@chakra-ui/react';
 
 const AboutUs: React.FC = () => {
   return (
@@ -45,15 +38,22 @@ const AboutUs: React.FC = () => {
               alignItems="start"
               mb={10}
             >
-              <Image
-                src="About_us_hester.jpg"
-                alt="Hester Grodde"
-                w="350px"
-                h="350px"
-                objectFit="cover"
-                boxShadow="lg"
+              <Box
+                position="relative"
+                width="350px"
+                height="350px"
                 flexShrink={0}
-              />
+                boxShadow="lg"
+              >
+                <Image
+                  src="/About_us_hester.jpg"
+                  alt="Hester Grodde"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="350px"
+                  quality={80}
+                />
+              </Box>
 
               <Box pl={{ base: 0, lg: 4 }}>
                 <Heading as="h2" size="2xl" mb={2}>
@@ -86,15 +86,22 @@ const AboutUs: React.FC = () => {
               gap={{ base: 6, lg: 0 }}
               alignItems="start"
             >
-              <Image
-                src="newclutch.png"
-                alt="Tiffany"
-                w="350px"
-                h="350px"
-                objectFit="cover"
-                boxShadow="lg"
+              <Box
+                position="relative"
+                width="350px"
+                height="350px"
                 flexShrink={0}
-              />
+                boxShadow="lg"
+              >
+                <Image
+                  src="/newclutch.png"
+                  alt="Tiffany"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="350px"
+                  quality={80}
+                />
+              </Box>
 
               <Box pl={{ base: 0, lg: 4 }}>
                 <Heading as="h2" size="2xl" mb={2}>

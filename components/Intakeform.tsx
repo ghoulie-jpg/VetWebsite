@@ -1,7 +1,7 @@
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import React, { useState, FormEvent } from 'react';
+import Image from 'next/image';
 import {
-  Image,
   Flex,
   Box,
   Heading,
@@ -210,15 +210,16 @@ export default function Intakeform(): JSX.Element {
               justifyContent="center"
               alignItems="center"
               width="100%"
+              position="relative"
+              height="300px"
             >
               <Image
-                src="Archie.jpg"
+                src="/Archie.jpg"
                 alt="Contact us image"
-                width="auto"
-                height="300"
-                objectFit="cover"
-                borderRadius="0px"
-                boxShadow="0px 5px 15px rgba(0, 0, 0, 0.1)"
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
               />
             </Box>
           </Flex>

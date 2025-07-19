@@ -1,19 +1,14 @@
 // pages/index.tsx
 import React from 'react';
-import Nav from '../components/nav';
 import Header from '../components/header';
 import Service from '../components/service';
 import Contact from '../components/contact';
 import AboutUs from '../components/AboutUs';
-import Footer from '../components/footer';
 import { Box } from '@chakra-ui/react';
 
 const Home: React.FC = () => {
   return (
-    <>
-      {/* Navigation */}
-      <Nav />
-
+    <Box>
       {/* Header/Hero section - full width */}
       <Box id="header-box">
         <Header />
@@ -33,10 +28,7 @@ const Home: React.FC = () => {
       <Box id="about-us-box" bg="white" w="100%">
         <AboutUs />
       </Box>
-
-      {/* Footer */}
-      <Footer />
-    </>
+    </Box>
   );
 };
 
