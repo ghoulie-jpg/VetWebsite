@@ -65,43 +65,33 @@ export default function Intakeform(): JSX.Element {
 
   return (
     <Box bg="white" py={12}>
-      {/* "Contact Us" heading with same grid structure */}
-      <Grid templateColumns="repeat(12, 1fr)" mb={6}>
-        <Flex gridColumn="1 / 13" flexDirection="column">
+      <Grid templateColumns="repeat(12, 1fr)">
+        <Box gridColumn={['2 / 12', '2 / 12', '2 / 12', '2 / 12', '2 / 12']}>
+          {/* "Contact Us" heading */}
           <Heading
             as="h3"
-            fontSize={'5xl'}
+            fontSize={['2xl', '5xl']}
             fontWeight="medium"
             mb="18px"
             lineHeight="1.2"
+            color="black"
           >
             New Clients : Contact Us
           </Heading>
-        </Flex>
-      </Grid>
 
-      {/* Separate grid for the "For Existing Clients" message that spans full width */}
-      <Grid templateColumns="repeat(12, 1fr)" mb={6}>
-        <Box
-          gridColumn="1 / 13"
-          // px={{ base: 4, md: 8 }}
-        >
+          {/* Schedule message */}
           <Heading
             as="h3"
             fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
             fontWeight="normal"
-            mb={4}
+            mb={6}
           >
             We check our messages in the mornings of Tuesday, Wednesday, and
             Thursday. We will check the messages through the rest of the week
             daily.{' '}
           </Heading>
-        </Box>
-      </Grid>
 
-      {/* Form and Image section using the same grid structure */}
-      <Grid templateColumns="repeat(12, 1fr)">
-        <Box gridColumn="1 / 13" mb={10}>
+          {/* Form and Image section */}
           <Flex
             direction={{ base: 'column', lg: 'row' }}
             gap={6}

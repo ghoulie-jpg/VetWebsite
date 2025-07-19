@@ -12,7 +12,7 @@ const Intake: React.FC = () => {
         gridTemplateRows="auto 1fr auto"
         minHeight="100vh"
         bg="white"
-        >
+      >
       <Nav />
         <Intakeform />
       <Footer />
