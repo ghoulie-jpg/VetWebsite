@@ -7,6 +7,7 @@ import {
   Flex,
   Heading,
   Input,
+  Text,
   Textarea,
   Button,
   Image,
@@ -27,6 +28,7 @@ interface FormData {
   phone: string;
   address: string;
   pets: Pet[];
+  preferredCommunication: string;
   message: string;
 }
 
@@ -37,6 +39,7 @@ export default function IntakeForm(): JSX.Element {
     phone: '',
     address: '',
     pets: [{ id: '1', name: '', gender: '', age: '' }],
+    preferredCommunication: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,7 +91,7 @@ export default function IntakeForm(): JSX.Element {
     setIsSubmitting(true);
 
     if (!formData.name.trim() || !formData.email.trim()) {
-      alert('Name and email are required.');
+      alert('Please fill in all required fields.');
       setIsSubmitting(false);
       return;
     }
@@ -107,6 +110,7 @@ export default function IntakeForm(): JSX.Element {
         phone: '',
         address: '',
         pets: [{ id: '1', name: '', gender: '', age: '' }],
+        preferredCommunication: '',
         message: '',
       });
     } catch (err) {
@@ -121,14 +125,20 @@ export default function IntakeForm(): JSX.Element {
     <Box bg="white" py={12}>
       <Grid templateColumns="repeat(12, 1fr)">
         <Box gridColumn="2 / 12">
-          <Heading as="h3" fontSize={['2xl', '5xl']} mb={4}>
+          <Heading as="h3"
+              fontSize="5xl"
+              fontWeight="medium"
+              lineHeight="1.2"
+              mt="20px"
+              mb="20px"
+              color="black">
             New Clients: Contact Us
           </Heading>
-          <Heading as="h4" fontSize={['lg', 'xl']} mb={6}>
+          <Text fontSize={['lg', 'lg', 'xl']} mb={4} color="black">
             We check our messages in the mornings of Tuesday, Wednesday, and
               Thursday. We will check messages through the rest of the week
               daily.
-          </Heading>
+          </Text>
 
           <Flex direction={{ base: 'column', lg: 'row' }} gap={6}>
             {/* Form */}
@@ -143,7 +153,7 @@ export default function IntakeForm(): JSX.Element {
                     {/* Name & Email */}
                     <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
                       <FormControl id="name" isRequired flex="1">
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel requiredIndicator={<></>}>Your Name</FormLabel>
                         <Input
                           name="name"
                           value={formData.name}
@@ -151,7 +161,7 @@ export default function IntakeForm(): JSX.Element {
                         />
                       </FormControl>
                       <FormControl id="email" isRequired flex="1">
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel requiredIndicator={<></>}>Email</FormLabel>
                         <Input
                           name="email"
                           type="email"
@@ -163,16 +173,16 @@ export default function IntakeForm(): JSX.Element {
 
                     {/* Phone & Address */}
                     <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
-                      <FormControl id="phone" flex="1">
-                        <FormLabel>Phone Number</FormLabel>
+                      <FormControl id="phone" flex="1" isRequired>
+                        <FormLabel requiredIndicator={<></>}>Phone Number</FormLabel>
                         <Input
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
                         />
                       </FormControl>
-                      <FormControl id="address" flex="1">
-                        <FormLabel>Address</FormLabel>
+                      <FormControl id="address" flex="1" isRequired>
+                        <FormLabel requiredIndicator={<></>}>Address</FormLabel>
                         <Input
                           name="address"
                           value={formData.address}
@@ -185,8 +195,8 @@ export default function IntakeForm(): JSX.Element {
                     {formData.pets.map((pet) => (
                       <Box key={pet.id}>
                         <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
-                          <FormControl id={`petName-${pet.id}`} flex="2">
-                            <FormLabel mb={2} ml={30}>Pet Name</FormLabel>
+                          <FormControl id={`petName-${pet.id}`} flex="2" isRequired>
+                            <FormLabel mb={2} ml={30} requiredIndicator={<></>}>Pet Name</FormLabel>
                             <Flex align="center">
                               <Box
                                 as={FaCircleMinus}
@@ -225,6 +235,7 @@ export default function IntakeForm(): JSX.Element {
                                       marginRight: '8px',
                                       width: '16px',
                                       height: '16px',
+                                      backgroundColor: 'white',
                                     }}
                                   />
                                   <FormLabel htmlFor={`${opt.value}-${pet.id}`} mb={0}>
@@ -235,8 +246,8 @@ export default function IntakeForm(): JSX.Element {
                             </Flex>
                           </FormControl>
 
-                          <FormControl id={`petAge-${pet.id}`} flex="1">
-                            <FormLabel mb={2}>Age (years)</FormLabel>
+                          <FormControl id={`petAge-${pet.id}`} flex="1" isRequired>
+                            <FormLabel mb={2} requiredIndicator={<></>}>Age (years)</FormLabel>
                             <Input
                               type="number"
                               min="0"
@@ -262,6 +273,41 @@ export default function IntakeForm(): JSX.Element {
                         value={formData.message}
                         onChange={handleInputChange}
                       />
+                    </FormControl>
+
+                    {/* Preferred Communication */}
+                    <FormControl id="preferredCommunication">
+                      <FormLabel mb={2}>Preferred Communication</FormLabel>
+                      <Flex direction="row" gap={4}>
+                        {[
+                          { value: 'email', label: 'Email' },
+                          { value: 'phone', label: 'Phone' },
+                        ].map(opt => (
+                          <Box
+                            key={opt.value}
+                            display="flex"
+                            alignItems="center"
+                          >
+                            <input
+                              type="radio"
+                              id={opt.value}
+                              name="preferredCommunication"
+                              value={opt.value}
+                              checked={formData.preferredCommunication === opt.value}
+                              onChange={handleInputChange}
+                              style={{
+                                marginRight: '8px',
+                                width: '16px',
+                                height: '16px',
+                                backgroundColor: 'white',
+                              }}
+                            />
+                            <FormLabel htmlFor={opt.value} mb={0}>
+                              {opt.label}
+                            </FormLabel>
+                          </Box>
+                        ))}
+                      </Flex>
                     </FormControl>
 
                     {/* Submit */}

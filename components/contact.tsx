@@ -20,6 +20,7 @@ export default function Contact(): JSX.Element {
     message: '',
     appointment_request: '',
     appointment_type: '',
+    preferredCommunication: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formHeight, setFormHeight] = useState(0);
@@ -65,6 +66,7 @@ export default function Contact(): JSX.Element {
         message: '',
         appointment_request: '',
         appointment_type: '',
+        preferredCommunication: '',
       });
     } catch {
       alert('There was a problem sending your message. Please try again.');
@@ -161,34 +163,67 @@ export default function Contact(): JSX.Element {
                   />
                 </FormControl>
 
-                <FormControl id="appointment-type" mt={5}>
-                  <FormLabel mb={2}>Appointment Type:</FormLabel>
-                  <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
-                    {[
-                      { value: 'telemedicine', label: 'Telemedicine/Virtual' },
-                      { value: 'in-home', label: 'In Home' },
-                    ].map((opt) => (
-                      <Box key={opt.value} display="flex" alignItems="center">
-                        <input
-                          type="radio"
-                          id={opt.value}
-                          name="appointment_type"
-                          value={opt.value}
-                          checked={formData.appointment_type === opt.value}
-                          onChange={handleInputChange}
-                          style={{
-                            marginRight: '8px',
-                            width: '16px',
-                            height: '16px',
-                          }}
-                        />
-                        <FormLabel htmlFor={opt.value} mb={0}>
-                          {opt.label}
-                        </FormLabel>
-                      </Box>
-                    ))}
-                  </Flex>
-                </FormControl>
+                <Flex gap={6} direction={{ base: 'column', md: 'row' }} mt={5}>
+                  <FormControl id="appointment-type" flex="1">
+                    <FormLabel mb={2}>Appointment Type:</FormLabel>
+                    <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
+                      {[
+                        { value: 'telemedicine', label: 'Telemedicine/Virtual' },
+                        { value: 'in-home', label: 'In Home' },
+                      ].map((opt) => (
+                        <Box key={opt.value} display="flex" alignItems="center">
+                          <input
+                            type="radio"
+                            id={opt.value}
+                            name="appointment_type"
+                            value={opt.value}
+                            checked={formData.appointment_type === opt.value}
+                            onChange={handleInputChange}
+                            style={{
+                              marginRight: '8px',
+                              width: '16px',
+                              height: '16px',
+                              backgroundColor: 'white',
+                            }}
+                          />
+                          <FormLabel htmlFor={opt.value} mb={0}>
+                            {opt.label}
+                          </FormLabel>
+                        </Box>
+                      ))}
+                    </Flex>
+                  </FormControl>
+
+                  <FormControl id="preferredCommunication" flex="1">
+                    <FormLabel mb={2}>Preferred Communication:</FormLabel>
+                    <Flex gap={6} direction={{ base: 'column', sm: 'row' }}>
+                      {[
+                        { value: 'email', label: 'Email' },
+                        { value: 'phone', label: 'Phone' },
+                      ].map((opt) => (
+                        <Box key={opt.value} display="flex" alignItems="center">
+                          <input
+                            type="radio"
+                            id={`communication-${opt.value}`}
+                            name="preferredCommunication"
+                            value={opt.value}
+                            checked={formData.preferredCommunication === opt.value}
+                            onChange={handleInputChange}
+                            style={{
+                              marginRight: '8px',
+                              width: '16px',
+                              height: '16px',
+                              backgroundColor: 'white',
+                            }}
+                          />
+                          <FormLabel htmlFor={`communication-${opt.value}`} mb={0}>
+                            {opt.label}
+                          </FormLabel>
+                        </Box>
+                      ))}
+                    </Flex>
+                  </FormControl>
+                </Flex>
 
                 <FormControl mt={6}>
                   <Button
