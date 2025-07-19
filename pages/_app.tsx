@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import ThemeContainer from '../context/theme/ThemeContainer';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Disable browser's automatic scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Prevent default anchor scrolling on initial page load
+    const handleLoad = () => {
+      if (window.location.hash) {
+        // Temporarily remove the hash to prevent jump
+        const hash = window.location.hash;
+        window.history.replaceState(null, '', window.location.pathname);
+
+        // Restore hash after a moment without triggering scroll
+        setTimeout(() => {
+          window.history.replaceState(null, '', hash);
+        }, 1);
+      }
+    };
+
+    // Run on mount
+    handleLoad();
+  }, []);
+
   return (
     <>
       <Head>

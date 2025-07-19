@@ -1,146 +1,114 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
-import { Box, Flex, Button, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Button, Text } from '@chakra-ui/react';
 import Logo from './logo';
 
-interface MenuItemProps {
-  label: string;
-  href?: string;
-  sectionId?: string;
-  onClick?: () => void;
-}
-
-const MenuItem: React.FC<MenuItemProps> = ({
-  label,
-  href,
-  sectionId,
-  onClick,
-}) => {
+const Nav = () => {
   const router = useRouter();
-
-  const handleClick = () => {
-    if (sectionId) {
-      if (router.pathname === '/') {
-        window.dispatchEvent(
-          new CustomEvent('scrollToSection', { detail: sectionId })
-        );
-      } else {
-        router.push(
-          { pathname: '/', query: { scrollTo: sectionId } },
-          undefined,
-          { scroll: false }
-        );
-      }
-    } else if (href) {
-      router.push(href);
-    }
-
-    if (onClick) onClick();
-  };
-
-  return (
-    <Text
-      as="span"
-      onClick={handleClick}
-      cursor="pointer"
-      fontWeight="medium"
-      fontSize="lg"
-      py={2}
-      mt={4}
-      mr={6}
-      display="block"
-      _hover={{ color: '#0D74FF' }}
-      textAlign="center"
-      whiteSpace="nowrap"
-    >
-      {label}
-    </Text>
-  );
-};
-
-const Nav: React.FC = () => {
-  const router = useRouter();
+  const navRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
 
-  const handleToggle = () => setIsOpen(!isOpen);
-  const handleClose = () => setIsOpen(false);
-
-  const handleLogoClick = () => {
-    router.push('/');
-    handleClose();
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    if (router.pathname === '/') {
-      // If already on home page, scroll immediately
-      window.dispatchEvent(
-        new CustomEvent('scrollToSection', { detail: sectionId })
-      );
-    } else {
-      // If on another page, navigate and then scroll with delay
-      router
-        .push({ pathname: '/', query: { scrollTo: sectionId } }, undefined, {
-          scroll: false,
-        })
-        .then(() => {
-          // Add multiple fallback attempts to ensure scrolling works
-          const attemptScroll = (attempt = 0) => {
-            if (attempt < 5) {
-              setTimeout(() => {
-                window.dispatchEvent(
-                  new CustomEvent('scrollToSection', { detail: sectionId })
-                );
-                // Try again if the element might not be ready
-                attemptScroll(attempt + 1);
-              }, 100 * (attempt + 1)); // Increasing delays: 100ms, 200ms, 300ms, 400ms, 500ms
-            }
-          };
-          attemptScroll();
-        });
+  // Measure nav height
+  const updateNavHeight = useCallback(() => {
+    if (navRef.current) {
+      const height = navRef.current.offsetHeight;
+      setNavHeight(height);
+      return height;
     }
-  };
+    return 70; // fallback height
+  }, []);
 
-  const handleButtonClick = () => {
-    const sectionId = 'leave-message-box';
-    scrollToSection(sectionId);
-    handleClose();
+  useEffect(() => {
+    updateNavHeight();
+    const handleResize = () => updateNavHeight();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [updateNavHeight]);
+
+  // Scroll to section (ONLY for same-page navigation)
+  const scrollToSection = useCallback(
+    (id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const elementTop = rect.top + scrollTop;
+        const currentNavHeight = updateNavHeight();
+        const targetPosition = Math.max(0, elementTop - currentNavHeight - 10);
+
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    },
+    [updateNavHeight]
+  );
+
+  // Apply CSS scroll-padding for native anchor jumps
+  useEffect(() => {
+    document.documentElement.style.scrollPaddingTop = `${navHeight + 10}px`;
+  }, [navHeight]);
+
+  // Handle hash changes - ONLY for same-page smooth scrolling
+  useEffect(() => {
+    // Only handle hash scrolling if we're already on the homepage
+    // and this is a same-page navigation (not initial load)
+    if (
+      router.pathname === '/' &&
+      router.asPath.includes('#') &&
+      document.readyState === 'complete'
+    ) {
+      const hash = router.asPath.split('#')[1];
+      if (hash) {
+        // Small delay to ensure this is not from initial page load
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) {
+            scrollToSection(hash);
+          }
+        }, 100);
+      }
+    }
+  }, [router.asPath, scrollToSection]);
+
+  const handleSection = (id) => {
+    setIsOpen(false);
+
+    if (router.pathname === '/') {
+      // Same page: smooth scroll immediately
+      scrollToSection(id);
+    } else {
+      // Cross-page: just navigate with hash, let browser handle positioning
+      router.push(`/#${id}`);
+    }
   };
 
   return (
     <Box
       as="nav"
-      width="100%"
+      ref={navRef}
+      w="100%"
       bg="white"
       boxShadow="md"
-      position="sticky"
+      pos="sticky"
       top="0"
       zIndex="999"
     >
-      <Flex
-        align="center"
-        justify="space-between"
-        px="1em"
-        pl="5%"
-        py="1.5em"
-        color="black"
-        textTransform="uppercase"
-      >
-        {/* Logo */}
+      <Flex align="center" justify="space-between" px="5%" py="1.5em">
         <Box
-          flexShrink={0}
-          onClick={handleLogoClick}
           cursor="pointer"
-          _hover={{ opacity: 0.8 }}
+          onClick={() => {
+            setIsOpen(false);
+            router.push('/');
+          }}
         >
           <Logo />
         </Box>
-
-        {/* Hamburger Icon - Show on screens smaller than xl (1280px) */}
         <Box
-          display={['block', 'block', 'block', 'block', 'none']}
-          onClick={handleToggle}
+          display={{ base: 'block', xl: 'none' }}
           cursor="pointer"
           p={2}
+          onClick={() => setIsOpen((o) => !o)}
         >
           {isOpen ? (
             <svg
@@ -166,56 +134,31 @@ const Nav: React.FC = () => {
             </svg>
           )}
         </Box>
-
-        {/* Desktop Menu - Only show on xl screens and larger (1280px+) */}
         <Flex
+          display={{ base: 'none', xl: 'flex' }}
           align="center"
           ml={8}
           flexGrow={1}
-          justify="flex-start"
-          display={['none', 'none', 'none', 'none', 'flex']}
         >
+          {[
+            ['header-box', 'Home'],
+            ['about-us-box', 'About Us'],
+            ['services-box', 'Services'],
+          ].map(([id, label]) => (
+            <Text
+              key={id}
+              onClick={() => handleSection(id)}
+              cursor="pointer"
+              fontWeight="medium"
+              fontSize="lg"
+              mr={6}
+              _hover={{ color: '#0D74FF' }}
+              whiteSpace="nowrap"
+            >
+              {label}
+            </Text>
+          ))}
           <Text
-            as="span"
-            onClick={() => scrollToSection('header-box')}
-            cursor="pointer"
-            fontWeight="medium"
-            fontSize="lg"
-            mr={6}
-            _hover={{ color: '#0D74FF' }}
-            whiteSpace="nowrap"
-          >
-            Home
-          </Text>
-
-          <Text
-            as="span"
-            onClick={() => scrollToSection('about-us-box')}
-            cursor="pointer"
-            fontWeight="medium"
-            fontSize="lg"
-            mr={6}
-            _hover={{ color: '#0D74FF' }}
-            whiteSpace="nowrap"
-          >
-            About Us
-          </Text>
-
-          <Text
-            as="span"
-            onClick={() => scrollToSection('services-box')}
-            cursor="pointer"
-            fontWeight="medium"
-            fontSize="lg"
-            mr={6}
-            _hover={{ color: '#0D74FF' }}
-            whiteSpace="nowrap"
-          >
-            Services
-          </Text>
-
-          <Text
-            as="span"
             onClick={() => router.push('/intake')}
             cursor="pointer"
             fontWeight="medium"
@@ -224,65 +167,63 @@ const Nav: React.FC = () => {
             _hover={{ color: '#0D74FF' }}
             whiteSpace="nowrap"
           >
-            New Clients : Contact Us
+            New Clients: Contact Us
           </Text>
-
           <Button
+            onClick={() => handleSection('leave-message-box')}
             bg="dark_green.500"
             _hover={{ bg: '#333' }}
-            onClick={handleButtonClick}
-            colorScheme="blue"
-            borderRadius="0"
-            fontSize="lg"
             color="white"
-            whiteSpace="nowrap"
-            flexShrink={0}
+            fontSize="lg"
           >
             EXISTING CLIENTS: LEAVE A MESSAGE
           </Button>
         </Flex>
       </Flex>
-
-      {/* Mobile/Collapsed Menu */}
       {isOpen && (
         <Box
-          bg="white"
+          display={{ base: 'block', xl: 'none' }}
           borderTop="1px solid"
           borderColor="gray.200"
           pb={4}
-          display={['block', 'block', 'block', 'block', 'none']}
         >
           <Flex direction="column" align="center" px="1em">
-            <MenuItem
-              label="Home"
-              sectionId="header-box"
-              onClick={handleClose}
-            />
-            <MenuItem
-              label="About Us"
-              sectionId="about-us-box"
-              onClick={handleClose}
-            />
-            <MenuItem
-              label="Services"
-              sectionId="services-box"
-              onClick={handleClose}
-            />
-            <MenuItem
-              label="New Clients : Contact Us"
-              href="/intake"
-              onClick={handleClose}
-            />
-
+            {[
+              ['header-box', 'Home'],
+              ['about-us-box', 'About Us'],
+              ['services-box', 'Services'],
+            ].map(([id, label]) => (
+              <Text
+                key={id}
+                onClick={() => handleSection(id)}
+                cursor="pointer"
+                fontWeight="medium"
+                fontSize="lg"
+                py={2}
+                mt={4}
+                _hover={{ color: '#0D74FF' }}
+              >
+                {label}
+              </Text>
+            ))}
+            <Text
+              onClick={() => router.push('/intake')}
+              cursor="pointer"
+              fontWeight="medium"
+              fontSize="lg"
+              py={2}
+              mt={4}
+              _hover={{ color: '#0D74FF' }}
+            >
+              New Clients: Contact Us
+            </Text>
             <Button
+              onClick={() => handleSection('leave-message-box')}
               bg="dark_green.500"
               _hover={{ bg: '#333' }}
-              onClick={handleButtonClick}
-              colorScheme="blue"
-              borderRadius="0"
-              width="full"
-              fontSize="lg"
               color="white"
+              fontSize="lg"
+              width="full"
               mt={4}
             >
               EXISTING CLIENTS: LEAVE A MESSAGE

@@ -7,14 +7,16 @@ import { Box } from '@chakra-ui/react';
 const breeders: React.FC = () => {
   return (
     <>
-      <Nav />
       <Box
-        // scrollMarginTop={`${navHeight}px`}
+        display="grid"
+        gridTemplateRows="auto 1fr auto"
+        minHeight="100vh"
         bg="white"
       >
+        <Nav />
         <Breeders />
+        <Footer />
       </Box>
-      <Footer />
     </>
   );
 };

@@ -74,8 +74,8 @@ export default function Contact(): JSX.Element {
   };
 
   return (
-    <Box mb={8}>
-      <Container maxW="80%" px={{ base: 4, md: 0 }}>
+    <Box mb={8} pb={8}>
+      <Container maxW="80%" px={{ base: 4, md: 0 }} pb={6}>
         <Grid templateColumns="repeat(12, 1fr)" mb={6}>
           <Box gridColumn="1 / -1">
             <Heading
