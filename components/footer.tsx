@@ -5,69 +5,90 @@ const Footer: React.FC = () => {
   return (
     <Grid
       as="footer"
-      templateColumns="repeat(6, 1fr)"
+      templateColumns="repeat(12, 1fr)"
       mt="16"
       bg="dark_green.500"
       minHeight="350px"
+      py={{ base: 8, md: 12 }}
+      px={{ base: 4, md: 8 }}
     >
+      {/* Company Name Section */}
       <Flex
         flexDirection="column"
         alignItems="flex-start"
-        gridColumn={['1 / 7', '1 / 7', '1 / 4', '1 / 4', '1 / 4']} // Give more space
-        pl={['8', '8', '8', '16', '20']} // Reduced padding on larger screens
-        pt={['6', '6', '6', '8', '8']}
+        justifyContent="center"
+        gridColumn={['1 / 13', '1 / 13', '1 / 7', '1 / 6']}
+        mb={{ base: 8, md: 0 }}
       >
         <Box color="white">
           <Heading
-            as="h1"
-            size={['3xl', '4xl', '4xl', '5xl', '5xl']} // Responsive sizing
+            as="h2"
+            fontSize={['2xl', '3xl', '4xl', '5xl']}
             color="white"
             textTransform="uppercase"
-            lineHeight="1.1" // Tighter line height
+            lineHeight="1.1"
+            fontWeight="bold"
+            fontFamily="heading"
           >
-            <Text display="block" fontWeight="bold">
-              Montague
-            </Text>
-            <Text display="block" fontWeight="bold">
-              Mobile
-            </Text>
-            <Text display="block" fontWeight="bold">
-              Veterinary
-            </Text>
-            <Text display="block" fontWeight="bold">
-              Services
-            </Text>
+            <Text display="block">Montague</Text>
+            <Text display="block">Mobile</Text>
+            <Text display="block">Veterinary</Text>
+            <Text display="block">Services</Text>
           </Heading>
         </Box>
-
-        <Flex
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
-          mt="8"
-        >
-          {/* Social icons commented out */}
-        </Flex>
       </Flex>
 
+      {/* Contact Information Section */}
       <Flex
         flexDirection="column"
         alignItems="flex-start"
-        gridColumn={['1 / 7', '1 / 7', '4 / 7', '4 / 7', '4 / 7']} // Better spacing
-        paddingX="8"
-        mt={['12', '12', '12', '0', '0']}
-        pt={['6', '6', '6', '16', '16']}
+        justifyContent="center"
+        gridColumn={['1 / 13', '1 / 13', '8 / 13', '8 / 12']}
       >
-        <Flex alignItems="center" mb="6px" fontSize="20px">
-          <Text color="white" mr="8px" fontSize="20px">
-            📍
+        {/* Location */}
+        <Box mb={6}>
+          <Text
+            color="white"
+            fontSize={['md', 'lg', 'xl']}
+            fontWeight="medium"
+            mb={2}
+            fontFamily="heading"
+          >
+            Location
           </Text>
-          <Text color="white">SmithsFalls, Ontario</Text>
-        </Flex>
+          <Text
+            color="white"
+            fontSize={['sm', 'md', 'lg']}
+            fontWeight="normal"
+            opacity={0.9}
+          >
+            Smiths Falls, Ontario
+          </Text>
+        </Box>
 
-        <Text color="white" mb="10px" fontSize="20px">
-          Hours: Tues, Wed, Thurs 9:00 am - 3:00 pm
-        </Text>
+        {/* Hours */}
+        <Box>
+          <Text
+            color="white"
+            fontSize={['md', 'lg', 'xl']}
+            fontWeight="medium"
+            mb={2}
+            fontFamily="heading"
+          >
+            Office Hours
+          </Text>
+          <Text
+            color="white"
+            fontSize={['sm', 'md', 'lg']}
+            fontWeight="normal"
+            opacity={0.9}
+            lineHeight="1.4"
+          >
+            Tuesday, Wednesday, Thursday
+            <br />
+            9:00 AM - 3:00 PM
+          </Text>
+        </Box>
       </Flex>
     </Grid>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
   Grid,
   Flex,
@@ -7,7 +8,6 @@ import {
   Button,
   Box,
   Icon,
-  Image,
   Container,
 } from '@chakra-ui/react';
 import { FiArrowRight } from 'react-icons/fi';
@@ -44,24 +44,24 @@ const Service: React.FC = () => {
               {[
                 {
                   label: 'In Home, Telemedicine and Virtual Visits',
-                  href: '/inhome',
+                  href: '/services/in-home',
                 },
                 {
                   label:
                     'Examinations: Routine Care,\nDisease Prevention and Treatment',
-                  href: '/examination',
+                  href: '/services/examination',
                 },
                 {
                   label: 'Breeders Support',
-                  href: '/breeders',
+                  href: '/services/breeders',
                 },
                 {
                   label: 'Client Resources',
-                  href: '/client_resources',
+                  href: '/services/client_resources',
                 },
                 {
                   label: 'Palliative and End of Life Care',
-                  href: 'palliative_care',
+                  href: '/services/palliative_care',
                 },
               ].map(({ label, href }, i) => (
                 <Button
@@ -106,15 +106,16 @@ const Service: React.FC = () => {
               gridColumn={{ lg: '8 / 13' }}
               justifyContent="center"
             >
-              <Image
-                src="steth.png"
-                w="100%"
-                maxW="100%"
-                h="auto"
-                objectFit="contain"
-                objectPosition="center"
-                boxShadow="lg"
-              />
+              <Box position="relative" width="100%" height="400px">
+                <Image
+                  src="/steth.png"
+                  alt="Stethoscope"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={80}
+                />
+              </Box>
             </Flex>
           </Grid>
         </Container>

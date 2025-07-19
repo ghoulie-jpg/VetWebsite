@@ -1,5 +1,6 @@
 // components/Intakeform.tsx
 import React, { useState, FormEvent } from 'react';
+import Image from 'next/image';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import {
   Box,
@@ -10,7 +11,7 @@ import {
   Text,
   Textarea,
   Button,
-  Image,
+  Icon,
 } from '@chakra-ui/react';
 import { FaCircleMinus } from 'react-icons/fa6';
 import { FaPlusCircle } from 'react-icons/fa';
@@ -48,19 +49,15 @@ export default function IntakeForm(): JSX.Element {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handlePetChange = (
-    petId: string,
-    field: keyof Pet,
-    value: string
-  ) => {
-    setFormData(prev => ({
+  const handlePetChange = (petId: string, field: keyof Pet, value: string) => {
+    setFormData((prev) => ({
       ...prev,
-      pets: prev.pets.map(pet =>
+      pets: prev.pets.map((pet) =>
         pet.id === petId ? { ...pet, [field]: value } : pet
-      )
+      ),
     }));
   };
 
@@ -69,19 +66,19 @@ export default function IntakeForm(): JSX.Element {
       id: Date.now().toString(),
       name: '',
       gender: '',
-      age: ''
+      age: '',
     };
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      pets: [...prev.pets, newPet]
+      pets: [...prev.pets, newPet],
     }));
   };
 
   const removePet = (petId: string) => {
     if (formData.pets.length > 1) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        pets: prev.pets.filter(pet => pet.id !== petId)
+        pets: prev.pets.filter((pet) => pet.id !== petId),
       }));
     }
   };
@@ -198,7 +195,7 @@ export default function IntakeForm(): JSX.Element {
                           <FormControl id={`petName-${pet.id}`} flex="2" isRequired>
                             <FormLabel mb={2} ml={30} requiredIndicator={<></>}>Pet Name</FormLabel>
                             <Flex align="center">
-                              <Box
+                              <Icon
                                 as={FaCircleMinus}
                                 boxSize={6}
                                 mr={2}
@@ -207,7 +204,13 @@ export default function IntakeForm(): JSX.Element {
                               />
                               <Input
                                 value={pet.name}
-                                onChange={(e) => handlePetChange(pet.id, 'name', e.target.value)}
+                                onChange={(e) =>
+                                  handlePetChange(
+                                    pet.id,
+                                    'name',
+                                    e.target.value
+                                  )
+                                }
                               />
                             </Flex>
                           </FormControl>
@@ -218,7 +221,7 @@ export default function IntakeForm(): JSX.Element {
                               {[
                                 { value: 'male', label: 'M' },
                                 { value: 'female', label: 'F' },
-                              ].map(opt => (
+                              ].map((opt) => (
                                 <Box
                                   key={opt.value}
                                   display="flex"
@@ -230,7 +233,13 @@ export default function IntakeForm(): JSX.Element {
                                     name={`petGender-${pet.id}`}
                                     value={opt.value}
                                     checked={pet.gender === opt.value}
-                                    onChange={(e) => handlePetChange(pet.id, 'gender', e.target.value)}
+                                    onChange={(e) =>
+                                      handlePetChange(
+                                        pet.id,
+                                        'gender',
+                                        e.target.value
+                                      )
+                                    }
                                     style={{
                                       marginRight: '8px',
                                       width: '16px',
@@ -238,7 +247,10 @@ export default function IntakeForm(): JSX.Element {
                                       backgroundColor: 'white',
                                     }}
                                   />
-                                  <FormLabel htmlFor={`${opt.value}-${pet.id}`} mb={0}>
+                                  <FormLabel
+                                    htmlFor={`${opt.value}-${pet.id}`}
+                                    mb={0}
+                                  >
                                     {opt.label}
                                   </FormLabel>
                                 </Box>
@@ -252,7 +264,9 @@ export default function IntakeForm(): JSX.Element {
                               type="number"
                               min="0"
                               value={pet.age}
-                              onChange={(e) => handlePetChange(pet.id, 'age', e.target.value)}
+                              onChange={(e) =>
+                                handlePetChange(pet.id, 'age', e.target.value)
+                              }
                             />
                           </FormControl>
                         </Flex>
@@ -260,8 +274,13 @@ export default function IntakeForm(): JSX.Element {
                     ))}
 
                     {/* Add Pet Row - always at the bottom */}
-                    <Flex align="center" gap={2} cursor="pointer" onClick={addPet}>
-                      <Box as={FaPlusCircle} boxSize={5} />
+                    <Flex
+                      align="center"
+                      gap={2}
+                      cursor="pointer"
+                      onClick={addPet}
+                    >
+                      <Icon as={FaPlusCircle} boxSize={5} />
                       <Box>Add Pet</Box>
                     </Flex>
 
@@ -315,7 +334,7 @@ export default function IntakeForm(): JSX.Element {
                       mt={4}
                       type="submit"
                       colorScheme="green"
-                      isLoading={isSubmitting}
+                      loading={isSubmitting}
                     >
                       Submit
                     </Button>
@@ -324,13 +343,24 @@ export default function IntakeForm(): JSX.Element {
               </Box>
             </Box>
 
-            {/* Image */}
-            <Box flex="1" display="flex" justifyContent="center">
+            {/* Image - centered when stacked */}
+            <Box
+              flex="1"
+              paddingLeft={{ base: 0, lg: 20 }}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width="100%"
+              position="relative"
+              height="300px"
+            >
               <Image
-                src="Archie.jpg"
-                alt="Contact us"
-                h={300}
-                objectFit="cover"
+                src="/Archie.webp"
+                alt="Contact us image"
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
               />
             </Box>
           </Flex>

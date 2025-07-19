@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from 'react';
+import Image from 'next/image';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import {
   Flex,
@@ -10,7 +11,6 @@ import {
   Grid,
   Textarea,
   Input,
-  Image,
 } from '@chakra-ui/react';
 
 export default function Contact(): JSX.Element {
@@ -253,16 +253,18 @@ export default function Contact(): JSX.Element {
             mt={{ base: 6, md: 0 }}
             overflow="hidden"
             alignSelf="flex-start"
+            position="relative"
+            height="300px"
+            borderRadius="0"
+            boxShadow="0px 5px 15px rgba(0, 0, 0, 0.1)"
           >
             <Image
-              src="dogs_onfence.png"
+              src="/dogs_onfence.png"
               alt="Contact us image"
-              width="100%"
-              height="auto"
-              objectFit="contain"
-              objectPosition="center"
-              borderRadius="0"
-              boxShadow="0px 5px 15px rgba(0, 0, 0, 0.1)"
+              fill
+              style={{ objectFit: 'contain' }}
+              sizes="(max-width: 768px) 100vw, 35vw"
+              quality={75}
             />
           </Box>
         </Flex>

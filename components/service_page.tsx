@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import { Image, Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
+import Image from 'next/image';
+import { Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
 
 interface ServicePageProps {
   title: string;
@@ -44,14 +45,20 @@ export default function ServicePage({
               order={{ base: 2, lg: 1 }}
               mr={{ base: 0, lg: 6 }}
               mb={{ base: 4, lg: 0 }}
+              position="relative"
+              width="400px"
+              height="300px"
+              borderRadius="0px"
+              boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
+              overflow="hidden"
             >
               <Image
-                src={imageSrc}
+                src={`/${imageSrc}`}
                 alt={imageAlt}
-                width="400px"
-                objectFit="cover"
-                borderRadius="0px"
-                boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, 400px"
+                quality={75}
               />
             </Box>
 

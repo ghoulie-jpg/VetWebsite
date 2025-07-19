@@ -11,8 +11,8 @@ interface ThemeContainerProps {
 const ThemeContainer: React.FC<ThemeContainerProps> = ({ children }) => {
   return (
     <ChakraProvider value={system}>
-      {/* Inject the initial color mode script */}
-      <ColorModeProvider />
+      {/* Force light mode and ignore user preferences */}
+      <ColorModeProvider forcedTheme="light" />
 
       <Box>{children}</Box>
     </ChakraProvider>

@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Image, Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
+import Image from 'next/image';
+import { Flex, Box, Heading, Text, Grid } from '@chakra-ui/react';
 
 export default function PalliativeService(): JSX.Element {
   const images = ['sweater_dog_rotated.png', 'winter_dog.png'];
@@ -57,18 +58,21 @@ export default function PalliativeService(): JSX.Element {
               <Box
                 key={src}
                 flex="0 0 auto"
+                position="relative"
                 h={{ base: '200px', md: '300px' }}
                 w="auto"
+                minW="200px"
                 overflow="hidden"
+                borderRadius="0px"
+                boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
               >
                 <Image
-                  src={src}
+                  src={`/${src}`}
                   alt="Palliative care pet image"
-                  h="100%"
-                  w="auto"
-                  objectFit="contain"
-                  borderRadius="0px"
-                  boxShadow="0px 5px 15px rgba(0, 0, 0, 0.2)"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  sizes="(max-width: 768px) 100vw, 200px"
+                  quality={75}
                 />
               </Box>
             ))}
