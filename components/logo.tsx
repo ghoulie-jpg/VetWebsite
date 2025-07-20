@@ -4,7 +4,7 @@ import { Image } from '@chakra-ui/react';
 const Logo: React.FC = () => {
   return (
     <Image
-      src="/LOGO.png"
+      src="/logo.png"
       alt="Montague Mobile Veterinary Services Logo"
       height="100px"
       objectFit="contain"
