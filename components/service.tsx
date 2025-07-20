@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import {
   Grid,
   Flex,
@@ -8,6 +7,7 @@ import {
   Button,
   Box,
   Icon,
+  Image,
   Container,
 } from '@chakra-ui/react';
 import { FiArrowRight } from 'react-icons/fi';
@@ -106,16 +106,15 @@ const Service: React.FC = () => {
               gridColumn={{ lg: '8 / 13' }}
               justifyContent="center"
             >
-              <Box position="relative" width="100%" height="400px">
-                <Image
-                  src="/steth.png"
-                  alt="Stethoscope"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  quality={80}
-                />
-              </Box>
+              <Image
+                src="/steth.png"
+                w="100%"
+                maxW="100%"
+                h="auto"
+                objectFit="contain"
+                objectPosition="center"
+                boxShadow="lg"
+              />
             </Flex>
           </Grid>
         </Container>
